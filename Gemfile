@@ -6,7 +6,7 @@ gem 'rails', '4.2.10'
 gem 'railties'
 # Use sqlite3 as the database for Active Record
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.18'
   gem 'rails_12factor'
 end
 
