@@ -1,0 +1,33 @@
+<%= form_for(@slab) do |f| %>
+  <% if @slab.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@slab.errors.count, "error") %> prohibited this slab from being saved:</h2>
+
+      <ul>
+      <% @slab.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :offer_id %><br>
+    <%= f.text_field :offer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :from_quantity %><br>
+    <%= f.number_field :from_quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :to_quantity %><br>
+    <%= f.number_field :to_quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.text_field :value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

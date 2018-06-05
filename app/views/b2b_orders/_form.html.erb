@@ -1,0 +1,121 @@
+<%= form_for(@b2b_order) do |f| %>
+  <% if @b2b_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@b2b_order.errors.count, "error") %> prohibited this b2b_order from being saved:</h2>
+
+      <ul>
+      <% @b2b_order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :seller_id %><br>
+    <%= f.text_field :seller_id %>
+  </div>
+  <div class="field">
+    <%= f.label :o_status %><br>
+    <%= f.text_field :o_status %>
+  </div>
+  <div class="field">
+    <%= f.label :shipping_address %><br>
+    <%= f.text_field :shipping_address %>
+  </div>
+  <div class="field">
+    <%= f.label :total_due %><br>
+    <%= f.text_field :total_due %>
+  </div>
+  <div class="field">
+    <%= f.label :invoice_number %><br>
+    <%= f.text_field :invoice_number %>
+  </div>
+  <div class="field">
+    <%= f.label :poi_id %><br>
+    <%= f.number_field :poi_id %>
+  </div>
+  <div class="field">
+    <%= f.label :item_shipped_date %><br>
+    <%= f.datetime_select :item_shipped_date %>
+  </div>
+  <div class="field">
+    <%= f.label :consignment_number %><br>
+    <%= f.text_field :consignment_number %>
+  </div>
+  <div class="field">
+    <%= f.label :transport_contact_name %><br>
+    <%= f.text_field :transport_contact_name %>
+  </div>
+  <div class="field">
+    <%= f.label :transport_contact_number %><br>
+    <%= f.text_field :transport_contact_number %>
+  </div>
+  <div class="field">
+    <%= f.label :item_received_by %><br>
+    <%= f.text_field :item_received_by %>
+  </div>
+  <div class="field">
+    <%= f.label :item_received_by_number %><br>
+    <%= f.text_field :item_received_by_number %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_done_date %><br>
+    <%= f.datetime_select :payment_done_date %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_confirmed_date %><br>
+    <%= f.datetime_select :payment_confirmed_date %>
+  </div>
+  <div class="field">
+    <%= f.label :note_to_buyer %><br>
+    <%= f.text_field :note_to_buyer %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :paid_amount %><br>
+    <%= f.number_field :paid_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :payment_type %><br>
+    <%= f.text_field :payment_type %>
+  </div>
+  <div class="field">
+    <%= f.label :shipping_type %><br>
+    <%= f.text_field :shipping_type %>
+  </div>
+  <div class="field">
+    <%= f.label :drop_off_point %><br>
+    <%= f.text_field :drop_off_point %>
+  </div>
+  <div class="field">
+    <%= f.label :pick_up_point %><br>
+    <%= f.text_field :pick_up_point %>
+  </div>
+  <div class="field">
+    <%= f.label :different_drop_location %><br>
+    <%= f.text_field :different_drop_location %>
+  </div>
+  <div class="field">
+    <%= f.label :different_shipping_location %><br>
+    <%= f.text_field :different_shipping_location %>
+  </div>
+  <div class="field">
+    <%= f.label :packing_done %><br>
+    <%= f.text_field :packing_done %>
+  </div>
+  <div class="field">
+    <%= f.label :packing_done_by %><br>
+    <%= f.text_field :packing_done_by %>
+  </div>
+  <div class="field">
+    <%= f.label :otype %><br>
+    <%= f.text_field :otype %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

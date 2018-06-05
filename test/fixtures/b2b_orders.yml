@@ -1,0 +1,57 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  seller_id: 
+  o_status: MyString
+  shipping_address: MyString
+  total_due: MyString
+  invoice_number: MyString
+  poi_id: 1
+  item_shipped_date: 2018-05-10 19:14:05
+  consignment_number: MyString
+  transport_contact_name: MyString
+  transport_contact_number: MyString
+  item_received_by: MyString
+  item_received_by_number: MyString
+  payment_done_date: 2018-05-10 19:14:05
+  payment_confirmed_date: 2018-05-10 19:14:05
+  note_to_buyer: MyString
+  quantity: 1
+  paid_amount: 1
+  payment_type: MyString
+  shipping_type: MyString
+  drop_off_point: MyString
+  pick_up_point: MyString
+  different_drop_location: MyString
+  different_shipping_location: MyString
+  packing_done: MyString
+  packing_done_by: MyString
+  otype: MyString
+
+two:
+  seller_id: 
+  o_status: MyString
+  shipping_address: MyString
+  total_due: MyString
+  invoice_number: MyString
+  poi_id: 1
+  item_shipped_date: 2018-05-10 19:14:05
+  consignment_number: MyString
+  transport_contact_name: MyString
+  transport_contact_number: MyString
+  item_received_by: MyString
+  item_received_by_number: MyString
+  payment_done_date: 2018-05-10 19:14:05
+  payment_confirmed_date: 2018-05-10 19:14:05
+  note_to_buyer: MyString
+  quantity: 1
+  paid_amount: 1
+  payment_type: MyString
+  shipping_type: MyString
+  drop_off_point: MyString
+  pick_up_point: MyString
+  different_drop_location: MyString
+  different_shipping_location: MyString
+  packing_done: MyString
+  packing_done_by: MyString
+  otype: MyString

@@ -1,0 +1,134 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @b2b_order.seller %>
+</p>
+
+<p>
+  <strong>O status:</strong>
+  <%= @b2b_order.o_status %>
+</p>
+
+<p>
+  <strong>Shipping address:</strong>
+  <%= @b2b_order.shipping_address %>
+</p>
+
+<p>
+  <strong>Total due:</strong>
+  <%= @b2b_order.total_due %>
+</p>
+
+<p>
+  <strong>Invoice number:</strong>
+  <%= @b2b_order.invoice_number %>
+</p>
+
+<p>
+  <strong>Poi:</strong>
+  <%= @b2b_order.poi_id %>
+</p>
+
+<p>
+  <strong>Item shipped date:</strong>
+  <%= @b2b_order.item_shipped_date %>
+</p>
+
+<p>
+  <strong>Consignment number:</strong>
+  <%= @b2b_order.consignment_number %>
+</p>
+
+<p>
+  <strong>Transport contact name:</strong>
+  <%= @b2b_order.transport_contact_name %>
+</p>
+
+<p>
+  <strong>Transport contact number:</strong>
+  <%= @b2b_order.transport_contact_number %>
+</p>
+
+<p>
+  <strong>Item received by:</strong>
+  <%= @b2b_order.item_received_by %>
+</p>
+
+<p>
+  <strong>Item received by number:</strong>
+  <%= @b2b_order.item_received_by_number %>
+</p>
+
+<p>
+  <strong>Payment done date:</strong>
+  <%= @b2b_order.payment_done_date %>
+</p>
+
+<p>
+  <strong>Payment confirmed date:</strong>
+  <%= @b2b_order.payment_confirmed_date %>
+</p>
+
+<p>
+  <strong>Note to buyer:</strong>
+  <%= @b2b_order.note_to_buyer %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @b2b_order.quantity %>
+</p>
+
+<p>
+  <strong>Paid amount:</strong>
+  <%= @b2b_order.paid_amount %>
+</p>
+
+<p>
+  <strong>Payment type:</strong>
+  <%= @b2b_order.payment_type %>
+</p>
+
+<p>
+  <strong>Shipping type:</strong>
+  <%= @b2b_order.shipping_type %>
+</p>
+
+<p>
+  <strong>Drop off point:</strong>
+  <%= @b2b_order.drop_off_point %>
+</p>
+
+<p>
+  <strong>Pick up point:</strong>
+  <%= @b2b_order.pick_up_point %>
+</p>
+
+<p>
+  <strong>Different drop location:</strong>
+  <%= @b2b_order.different_drop_location %>
+</p>
+
+<p>
+  <strong>Different shipping location:</strong>
+  <%= @b2b_order.different_shipping_location %>
+</p>
+
+<p>
+  <strong>Packing done:</strong>
+  <%= @b2b_order.packing_done %>
+</p>
+
+<p>
+  <strong>Packing done by:</strong>
+  <%= @b2b_order.packing_done_by %>
+</p>
+
+<p>
+  <strong>Otype:</strong>
+  <%= @b2b_order.otype %>
+</p>
+
+<%= link_to 'Edit', edit_b2b_order_path(@b2b_order) %> |
+<%= link_to 'Back', b2b_orders_path %>

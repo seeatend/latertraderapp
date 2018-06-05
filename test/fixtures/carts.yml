@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 
+  offer_id: 
+  o_status: false
+
+two:
+  customer_id: 
+  offer_id: 
+  o_status: false

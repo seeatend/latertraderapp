@@ -1,0 +1,194 @@
+
+<%= form_for(@packing) do |f| %>
+  <% if @packing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@packing.errors.count, "error") %> prohibited this packing from being saved:</h2>
+
+      <ul>
+      <% @packing.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="box">
+    <div class="box-body">
+
+    <div class="box-header">
+          <h3>Order Information</h3>
+        
+        </div>
+        <div class="box-body">
+        <div class="box-divider m-0"></div>
+        <br/>
+        
+     
+<div class="form-row">
+<div class="form-group col-md-6">
+            <%= f.label :order_id,'Order Id'%><br>
+                <%  if (current_user.utype == "Seller") %>
+            <%= f.text_field :order_id, class: "form-control", placeholder: "Say something to seller",:value => params[:order_id],:readonly => true %>
+            <% else %>
+            <%= f.text_field :order_id, class: "form-control", placeholder: "Say something to seller",:readonly => true %>
+            <% end %>
+          </div>
+
+  <% if (current_user.utype == "Seller") %>
+        <div class="form-group col-md-6">
+
+            <%= f.label :employee_id  %><br>
+                  <%= f.collection_select :employee_id, Employee.where(:seller_id => Seller.where(:uid => current_user.id).first.id).where(:position => 'Market Staff').order(:name),:id,:name,{}, { :class => 'btn white dropdown-toggle' } %><br/> <br>
+                  <input type="checkbox" name="vehicle" value="Bike"> Click here to send to all
+          </div>
+          <% end %>
+          
+          </div>
+          <div class="form-row">
+          
+   <div class="form-group col-md-6">
+   <%= f.label :pallet_type %><br>
+         <%= f.select :pallet_type, ['Chep', 'Plain','Hand-Unload','Other'],{}, { :class => 'btn white dropdown-toggle' }%>
+            
+          </div>
+
+          <div class="form-group col-md-6">
+   <%= f.label :chep_issued %><br>
+            <%= f.text_field :chep_issued, class: "form-control", placeholder: "30" %>
+            
+          </div>
+         
+
+
+        
+          
+        </div>
+<div class="form-row">
+          
+   
+
+          <div class="form-group col-md-6">
+          <% @customer = Customer.find(@packing.order.customer.id) %>
+   <%= f.label :chep_due %><br>
+            <%= f.text_field :chep_due, class: "form-control", placeholder: "0",:readonly => true,:value => @customer.chep_due %>
+            
+          </div>
+         
+   <div class="form-group col-md-6">
+   <%= f.label :status %><br>
+         <%= f.select :status, ['Packed', 'Not-Packed','Assign-Forklift'],{}, { :class => 'btn white dropdown-toggle' }%>
+            
+          </div>
+
+        
+          
+        </div>
+
+
+       <br/>
+         
+
+       
+       
+         
+
+
+
+         <br/>
+         <br/>
+         <div class="box-header">
+          <h3>Assign Forklift</h3>
+        
+        </div>
+        <div class="box-body">
+        <div class="box-divider m-0"></div>
+        <br/>
+
+         <div class="form-row">
+          
+   <div class="form-group col-md-6">
+   <%= f.label :priority %><br>
+         <%= f.select :priority, ['Normal', 'Urgent'],{}, { :class => 'btn white dropdown-toggle' }%>
+            
+          </div>
+
+          <div class="form-group col-md-6">
+             <%= f.label :note_to_forklift %><br>
+            <%= f.text_field :note_to_forklift, class: "form-control", placeholder: "Leave a note here" %>
+            
+          </div>
+         
+
+
+        
+          
+        </div>
+         <div class="form-row">
+          
+   <div class="form-group col-md-6">
+  
+             <%= f.label :pick_up_point %><br>
+         <%= f.text_field :pick_up_point, class: "form-control", placeholder: "Shed 11"%>
+          </div>
+
+          <div class="form-group col-md-6">
+   <%= f.label :pickupdate, 'Pick Up Date & Time' %><br>
+            <%= f.datetime_select :pickupdate,{}, { :class => 'btn white dropdown-toggle' } %>
+  
+            
+          </div>
+         
+
+
+        
+          
+        </div>
+        <div class="form-row">
+          
+   <div class="form-group col-md-6">
+   <%= f.label :drop_off_point %><br>
+            <%= f.text_field :drop_off_point, class: "form-control", placeholder: "Shed 32",:readonly => true,:value =>  @customer.market_drop_off_location %>
+            
+          </div>
+
+          <div class="form-group col-md-6">
+  
+             <%= f.label :dropoffdate, 'Drop Off Date & Time' %><br>
+         <%= f.datetime_select :dropoffdate,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+         
+
+
+        
+          
+        </div>
+         <div class="form-row">
+          
+   <div class="form-group col-md-6">
+
+
+   <%= f.label :assign_to %><br>
+   Send to All: <input type="checkbox" id="myCheck">
+             
+            
+    <%= f.collection_select :assign_to, Employee.where(:position => 'Forklift').order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+
+          </div>
+
+          
+          </div>
+         
+<br/>
+<%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+
+        
+          
+        </div>
+      </form>
+    </div>
+  </div>
+  <% end %>
+
+
+
+

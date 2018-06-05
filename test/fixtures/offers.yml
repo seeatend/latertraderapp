@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stock_id: 
+  sales_man: MyString
+  allocated_by: MyString
+  market_price: 9.99
+  selling_price_type: MyString
+  selling_price: 9.99
+  quantity_type: MyString
+  size_code: MyString
+  is_taxable: false
+  enable_negotitation: false
+  visit_store: false
+  total_quantity_on_offer: 9.99
+  min_order_quantity: 9.99
+  start_at: 2017-12-27 07:01:54
+  ends_at: 2017-12-27 07:01:54
+  accepts_offer_below_selling_price: false
+  duration_time: 2017-12-27 07:01:54
+  offer_type: MyString
+  private_offers: MyString
+
+two:
+  stock_id: 
+  sales_man: MyString
+  allocated_by: MyString
+  market_price: 9.99
+  selling_price_type: MyString
+  selling_price: 9.99
+  quantity_type: MyString
+  size_code: MyString
+  is_taxable: false
+  enable_negotitation: false
+  visit_store: false
+  total_quantity_on_offer: 9.99
+  min_order_quantity: 9.99
+  start_at: 2017-12-27 07:01:54
+  ends_at: 2017-12-27 07:01:54
+  accepts_offer_below_selling_price: false
+  duration_time: 2017-12-27 07:01:54
+  offer_type: MyString
+  private_offers: MyString

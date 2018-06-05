@@ -1,0 +1,82 @@
+
+
+<div class="app" id="app">
+
+<!-- ############ LAYOUT START-->
+
+<div class="d-flex flex-column flex">
+  <div class="navbar light bg pos-rlt box-shadow">
+    <div class="mx-auto">
+      <!-- brand -->
+      <a href="../index.html" class="navbar-brand">
+        <svg viewBox="0 0 24 24" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M19.51 3.08L3.08 19.51c.09.34.27.65.51.9.25.24.56.42.9.51L20.93 4.49c-.19-.69-.73-1.23-1.42-1.41zM11.88 3L3 11.88v2.83L14.71 3h-2.83zM5 3c-1.1 0-2 .9-2 2v2l4-4H5zm14 18c.55 0 1.05-.22 1.41-.59.37-.36.59-.86.59-1.41v-2l-4 4h2zm-9.71 0h2.83L21 12.12V9.29L9.29 21z" fill="#53a6fa" class="fill-theme"/>
+        </svg>
+        
+        <span class="hidden-folded d-inline">Traders App</span>
+      </a>
+      <!-- / brand -->
+    </div>
+  </div>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  <div id="content-body">
+    <div class="py-5 text-center w-100">
+      <div class="mx-auto w-xxl w-auto-xs">
+        <div class="px-3">
+        
+          <form name="form">
+            <div class="form-group">
+
+    <%= f.email_field :email, placeholder: "Email", class: "form-control", autofocus: true %>
+              
+            </div>
+            <div class="form-group">
+             
+    <%= f.password_field :password, placeholder: "Password",class: "form-control", autocomplete: "off" %>
+            </div>
+            <div class="form-group">
+              <%= f.password_field :password_confirmation, placeholder: "Confirm Password",class: "form-control", autocomplete: "off" %>
+            </div>
+            
+     <div class="form-group">
+
+     <%= f.select :utype, ['Buyer', 'Seller','Employee'],{}, { :class => 'btn white dropdown-toggle' }%>
+
+
+           
+            </div>
+
+            <div class="mb-3 text-sm">
+              <span class="text-muted">By clicking Sign Up, I agree to the</span> 
+              <a href="#">Terms of service</a> 
+              <span class="text-muted">and</span> 
+              <a href="#">Policy Privacy.</a>
+            </div>
+             <%= f.submit "Sign up",:class => 'btn primary' %>
+          
+          </form>
+          <div class="py-4 text-center">
+            <div>Already have an account?  <%= render "users/shared/links" %></div>
+            <% end %>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ############ LAYOUT END-->
+
+</div>
+
+
+
+
+
+   
+
+
+

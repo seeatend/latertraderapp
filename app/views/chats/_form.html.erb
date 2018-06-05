@@ -1,0 +1,90 @@
+<div class="d-flex flex" id="content-body">
+    <div class="d-flex flex-column flex" id="chat-list">
+      <div class="navbar flex-nowrap white lt box-shadow">
+          <a data-toggle="modal" data-target="#content-aside" data-modal class="mr-1 d-md-none">
+          <span class="btn btn-sm btn-icon primary">
+                <i class="fa fa-th"></i>
+              </span>
+          </a>
+
+            <span class="text-md text-ellipsis flex">
+              Negotiate with <%= @seller.business_name %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= link_to 'New Private Offer', new_privateoffer_path,  class: "btn btn-fw primary" %>
+            </span>
+
+            
+      </div> 
+            <div class="scrollable hover">
+            <div class="p-3">
+              <div class="chat-list">
+                <div class="chat-item" data-class>
+                  <a href="#" class="avatar w-40">
+                  <%= image_tag(@seller.logo_for_customer_area, alt: "Seller Image") %>
+                    
+                  </a>
+                  <div class="chat-body">
+                    <div class="chat-content rounded msg">
+                      Hi <%= @customer.business_name %>. Thanks for your interest in in <%= @offer.stock.product.name %>. The details of the product are as follows : <%= @offer.stock.product.name %> | <%= @offer.stock.product.quality %> | Carton | <%= @offer.stock.product.net_weight %> | Size <%= @offer.stock.product.size %> | Order By <%= @offer.stock.product.order_by %> which we are selling at $<%= @offer.selling_price %>. How can we help you ?
+                    </div>
+                    
+                    <div class="chat-date date">
+                      Now
+                    </div>
+                  </div>
+                </div>
+            
+                 
+            
+            
+               
+               
+                
+              </div>
+              <div class="hide">
+                <div class="chat-item" id="chat-item" data-class>
+                  <a href="#" class="avatar w-40">
+
+                  </a>
+                  <div class="chat-body">
+                    <div class="chat-content rounded msg">
+                    </div>
+                    <div class="chat-date date"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="p-3 white lt b-t mt-auto" >
+          <%= form_for(@chat) do |f| %>
+            <div class="input-group">
+<%= f.text_field :message, class: "form-control", placeholder: "Say something" %>
+<%= f.hidden_field :customer_id,:value => params[:customer_id] %>
+<%= f.hidden_field :seller_id,:value => params[:seller_id] %>
+<%= f.hidden_field :offer_id,:value => params[:offer_id] %>
+
+                <span class="input-group-btn">
+                <%= button_tag(type: "submit", class: "btn white b-a no-shadow") do %>
+    <i class="fa fa-send text-success"></i>
+<% end %>
+                
+
+                    
+                  
+                </span>
+            </div>
+             <% end %>
+      </div>
+
+      
+          </div>
+        </div>
+
+    </div>
+  </div>
+
+
+
+  
+
+  
+

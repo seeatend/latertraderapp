@@ -1,0 +1,2 @@
+json.extract! stock, :id, :product_id, :grower_id, :status, :buying_price, :buying_price_type, :in_stock_quantity, :physical_stock_quantity, :variations, :wasted_stock_quantity, :stock_updated_by, :stock_updated_time, :stock_approved_by, :stock_approved_time, :physical_stock_taken_by, :pstb_time, :stock_wasted_by, :stock_wasted_time, :created_at, :updated_at
+json.url stock_url(stock, format: :json)

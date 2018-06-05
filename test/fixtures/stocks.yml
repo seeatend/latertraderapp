@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 
+  grower_id: 
+  status: MyString
+  buying_price: 9.99
+  buying_price_type: MyString
+  in_stock_quantity: 9.99
+  physical_stock_quantity: 9.99
+  variations: 9.99
+  wasted_stock_quantity: 9.99
+  stock_updated_by: MyString
+  stock_updated_time: 2017-12-27 06:13:21
+  stock_approved_by: MyString
+  stock_approved_time: 2017-12-27 06:13:21
+  physical_stock_taken_by: MyString
+  pstb_time: 2017-12-27 06:13:21
+  stock_wasted_by: MyString
+  stock_wasted_time: 2017-12-27 06:13:21
+
+two:
+  product_id: 
+  grower_id: 
+  status: MyString
+  buying_price: 9.99
+  buying_price_type: MyString
+  in_stock_quantity: 9.99
+  physical_stock_quantity: 9.99
+  variations: 9.99
+  wasted_stock_quantity: 9.99
+  stock_updated_by: MyString
+  stock_updated_time: 2017-12-27 06:13:21
+  stock_approved_by: MyString
+  stock_approved_time: 2017-12-27 06:13:21
+  physical_stock_taken_by: MyString
+  pstb_time: 2017-12-27 06:13:21
+  stock_wasted_by: MyString
+  stock_wasted_time: 2017-12-27 06:13:21

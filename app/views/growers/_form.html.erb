@@ -1,0 +1,105 @@
+<%= form_for(@grower) do |f| %>
+  <% if @grower.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@grower.errors.count, "error") %> prohibited this grower from being saved:</h2>
+
+      <ul>
+      <% @grower.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<div class="box">
+    <div class="box-body">
+    <br/>
+    <br/>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control", placeholder: "ABC Pty Ltd" %>
+            
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :mobile_number %>
+            <%= f.text_field :mobile_number, class: "form-control", placeholder: "0412 123 123"  %>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.label :address %>
+          <%= f.text_field :address, class: "form-control", placeholder: "John Smith Pty Ltd, 8904 Chesnut Avenue, Sydney NSW 2001" %>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= f.label :telephone_number %><br>
+    <%= f.text_field :telephone_number, class: "form-control", placeholder: "(02) 1234 1234" %>
+        </div>
+        <div class="form-group col-md-6">
+          <%= f.label :growers_email_id %><br>
+    <%= f.text_field :growers_email_id, class: "form-control", placeholder: "abc@abc.com"  %>
+        </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :certificates %><br>
+            <%= f.select :certificates, ['HACCP',
+'ISO',
+'QA',
+'SQF',
+'WQA',
+'YLGG',
+'COLES',
+'BRC',
+'FC'],{}, {:multiple => true,:class => 'btn white dropdown-toggle' }%>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :company %><br>
+            <%= f.text_field :company, class: "form-control", placeholder: "ABC Pty Ltd" %>
+          </div>
+          
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :zip_code %><br>
+            <%= f.text_field :zip_code, class: "form-control", placeholder: "1234" %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :balance %><br>
+            <%= f.text_field :balance, class: "form-control", placeholder: "16324" %>
+          </div>
+          
+        </div>
+          <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :order_to_date %><br>
+            <%= f.text_field :order_to_date, class: "form-control", placeholder: "7031" %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :status %><br>
+            <%= f.text_field :status, class: "form-control", placeholder: "Active" %>
+          </div>
+          
+        </div>
+        <div class="form-group">
+          <div class="form-check">
+            
+    <%= f.label :smcs_member %><br>
+    <%= f.check_box :smcs_member  %>
+          </div>
+          <%= f.hidden_field :seller_id, value: Seller.where(:uid => current_user.id).first.id %>
+        </div>
+         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+
+      </form>
+    </div>
+  </div>
+
+
+<% end %>

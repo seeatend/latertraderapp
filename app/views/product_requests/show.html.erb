@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @product_request.seller %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product_request.product %>
+</p>
+
+<p>
+  <strong>Required quantity:</strong>
+  <%= @product_request.required_quantity %>
+</p>
+
+<p>
+  <strong>Required date:</strong>
+  <%= @product_request.required_date %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @product_request.note %>
+</p>
+
+<%= link_to 'Edit', edit_product_request_path(@product_request) %> |
+<%= link_to 'Back', product_requests_path %>

@@ -1,0 +1,43 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 
+  seller_id: 
+  items: MyString
+  order_approved_date: 2018-01-19 11:42:07
+  shipping_address: MyText
+  o_status: MyString
+  total_due: 9.99
+  invoice_number: MyString
+  item_shipped_date: 2018-01-19 11:42:07
+  consignment_number: MyString
+  transport_contact_name: MyString
+  transport_contact_number: MyString
+  item_received_date: 2018-01-19 11:42:07
+  item_recevied_by_name: MyString
+  item_received_by_number: MyString
+  payment_done_date: 2018-01-19 11:42:07
+  payment_confirmed_by: MyString
+  note_to_buyer: MyString
+  note_to_seller: MyString
+
+two:
+  customer_id: 
+  seller_id: 
+  items: MyString
+  order_approved_date: 2018-01-19 11:42:07
+  shipping_address: MyText
+  o_status: MyString
+  total_due: 9.99
+  invoice_number: MyString
+  item_shipped_date: 2018-01-19 11:42:07
+  consignment_number: MyString
+  transport_contact_name: MyString
+  transport_contact_number: MyString
+  item_received_date: 2018-01-19 11:42:07
+  item_recevied_by_name: MyString
+  item_received_by_number: MyString
+  payment_done_date: 2018-01-19 11:42:07
+  payment_confirmed_by: MyString
+  note_to_buyer: MyString
+  note_to_seller: MyString

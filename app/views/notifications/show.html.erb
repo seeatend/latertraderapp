@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @notification.customer %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @notification.seller %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @notification.order %>
+</p>
+
+<p>
+  <strong>Offer:</strong>
+  <%= @notification.offer %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <%= @notification.stock %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @notification.product %>
+</p>
+
+<p>
+  <strong>Chat:</strong>
+  <%= @notification.chat %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @notification.content %>
+</p>
+
+<p>
+  <strong>Ntype:</strong>
+  <%= @notification.ntype %>
+</p>
+
+<%= link_to 'Edit', edit_notification_path(@notification) %> |
+<%= link_to 'Back', notifications_path %>

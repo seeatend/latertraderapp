@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @forklift.employee %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @forklift.priority %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @forklift.customer %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @forklift.order %>
+</p>
+
+<p>
+  <strong>Pick up location:</strong>
+  <%= @forklift.pick_up_location %>
+</p>
+
+<p>
+  <strong>Pick up date and time:</strong>
+  <%= @forklift.pick_up_date_and_time %>
+</p>
+
+<p>
+  <strong>Drop location:</strong>
+  <%= @forklift.drop_location %>
+</p>
+
+<p>
+  <strong>Drop date and time:</strong>
+  <%= @forklift.drop_date_and_time %>
+</p>
+
+<p>
+  <strong>Note to operator:</strong>
+  <%= @forklift.note_to_operator %>
+</p>
+
+<%= link_to 'Edit', edit_forklift_path(@forklift) %> |
+<%= link_to 'Back', forklifts_path %>

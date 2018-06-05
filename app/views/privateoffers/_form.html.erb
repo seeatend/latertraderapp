@@ -1,0 +1,56 @@
+
+
+<%= form_for(@privateoffer) do |f| %>
+  <% if @privateoffer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@privateoffer.errors.count, "error") %> prohibited this privateoffer from being saved:</h2>
+
+      <ul>
+      <% @privateoffer.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="box">
+    <div class="box-body">
+        
+     
+<div class="form-row">
+        <div class="form-group col-md-6">
+            <%= f.label :offer_id %><br>
+            <%= f.collection_select :offer_id, Offer.where(:seller_id => Seller.where(:uid => current_user.id).first.id),:id,:desc,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+          <div class="form-group col-md-6">
+              <%= f.label :customer_id %><br>
+                <%= f.collection_select :customer_id, Customer.all,:id,:business_name,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+          </div>
+          <div class="form-row">
+          <div class="form-group col-md-4">
+            <%= f.label :offered_price %><br>
+            <%= f.text_field :offered_price, class: "form-control", placeholder: "300$" %>
+          </div>
+
+<div class="form-group col-md-4">
+            <%= f.label :quantity %><br>
+            <%= f.text_field :quantity, class: "form-control", placeholder: "2" %>
+          </div>
+
+          <div class="form-group col-md-4">
+          <%= f.label :status %><br>
+             <%= f.select :status, ['Open','Closed'],{}, { :class => 'btn white dropdown-toggle' }%>
+          </div>
+          
+        </div>
+         
+
+       
+       <%= f.hidden_field :seller_id, value: Seller.where(:uid => current_user.id).first.id %>
+         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+      </form>
+    </div>
+  </div>
+  <% end %>
+

@@ -1,0 +1,41 @@
+<%= form_for(@claim_wastage) do |f| %>
+  <% if @claim_wastage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@claim_wastage.errors.count, "error") %> prohibited this claim_wastage from being saved:</h2>
+
+      <ul>
+      <% @claim_wastage.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :stock_id %><br>
+    <%= f.text_field :stock_id %>
+  </div>
+  <div class="field">
+    <%= f.label :employee_id %><br>
+    <%= f.text_field :employee_id %>
+  </div>
+  <div class="field">
+    <%= f.label :wasted_stock_value %><br>
+    <%= f.text_field :wasted_stock_value %>
+  </div>
+  <div class="field">
+    <%= f.label :waste_checking_labour_cost %><br>
+    <%= f.text_field :waste_checking_labour_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :total_Waste_claim %><br>
+    <%= f.text_field :total_Waste_claim %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.text_field :image %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

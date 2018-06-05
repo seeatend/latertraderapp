@@ -1,0 +1,53 @@
+
+
+<%= form_for(@employee) do |f| %>
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="box">
+    <div class="box-body">
+        
+     
+<div class="form-row">
+        <div class="form-group col-md-6">
+            <%= f.label :name %><br>
+            <%= f.text_field :name, class: "form-control", placeholder: "John Smith" %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :mobile %><br>
+            <%= f.text_field :mobile, class: "form-control", placeholder: "0412 123 123" %>
+          </div>
+          </div>
+          <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :email %><br>
+            <%= f.text_field :email, class: "form-control", placeholder: "abc@email.com" %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :position %><br>
+             <%= f.select :position, ['Owner', 'Sales','Operations','Marketing','Manager','Forklift','Market Staff','Accounts'],{}, { :class => 'btn white dropdown-toggle' }%>
+          </div>
+          
+        </div>
+         
+
+       
+       <%= f.hidden_field :seller_id, value: Seller.where(:uid => current_user.id).first.id %>
+       <%= f.hidden_field :status, value: "Free" %>
+         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+      </form>
+    </div>
+  </div>
+  <% end %>
+
+

@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Slabs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Offer</th>
+      <th>From quantity</th>
+      <th>To quantity</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @slabs.each do |slab| %>
+      <tr>
+        <td><%= slab.offer %></td>
+        <td><%= slab.from_quantity %></td>
+        <td><%= slab.to_quantity %></td>
+        <td><%= slab.value %></td>
+        <td><%= link_to 'Show', slab %></td>
+        <td><%= link_to 'Edit', edit_slab_path(slab) %></td>
+        <td><%= link_to 'Destroy', slab, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Slab', new_slab_path %>

@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @order.customer %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @order.seller %>
+</p>
+
+<p>
+  <strong>Items:</strong>
+  <%= @order.items %>
+</p>
+
+<p>
+  <strong>Order approved date:</strong>
+  <%= @order.order_approved_date %>
+</p>
+
+<p>
+  <strong>Shipping address:</strong>
+  <%= @order.shipping_address %>
+</p>
+
+<p>
+  <strong>O status:</strong>
+  <%= @order.o_status %>
+</p>
+
+<p>
+  <strong>Total due:</strong>
+  <%= @order.total_due %>
+</p>
+
+<p>
+  <strong>Invoice number:</strong>
+  <%= @order.invoice_number %>
+</p>
+
+<p>
+  <strong>Item shipped date:</strong>
+  <%= @order.item_shipped_date %>
+</p>
+
+<p>
+  <strong>Consignment number:</strong>
+  <%= @order.consignment_number %>
+</p>
+
+<p>
+  <strong>Transport contact name:</strong>
+  <%= @order.transport_contact_name %>
+</p>
+
+<p>
+  <strong>Transport contact number:</strong>
+  <%= @order.transport_contact_number %>
+</p>
+
+<p>
+  <strong>Item received date:</strong>
+  <%= @order.item_received_date %>
+</p>
+
+<p>
+  <strong>Item recevied by name:</strong>
+  <%= @order.item_recevied_by_name %>
+</p>
+
+<p>
+  <strong>Item received by number:</strong>
+  <%= @order.item_received_by_number %>
+</p>
+
+<p>
+  <strong>Payment done date:</strong>
+  <%= @order.payment_done_date %>
+</p>
+
+<p>
+  <strong>Payment confirmed by:</strong>
+  <%= @order.payment_confirmed_by %>
+</p>
+
+<p>
+  <strong>Note to buyer:</strong>
+  <%= @order.note_to_buyer %>
+</p>
+
+<p>
+  <strong>Note to seller:</strong>
+  <%= @order.note_to_seller %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

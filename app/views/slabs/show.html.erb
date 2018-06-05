@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Offer:</strong>
+  <%= @slab.offer %>
+</p>
+
+<p>
+  <strong>From quantity:</strong>
+  <%= @slab.from_quantity %>
+</p>
+
+<p>
+  <strong>To quantity:</strong>
+  <%= @slab.to_quantity %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @slab.value %>
+</p>
+
+<%= link_to 'Edit', edit_slab_path(@slab) %> |
+<%= link_to 'Back', slabs_path %>

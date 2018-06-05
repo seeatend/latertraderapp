@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Ordered Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Order</th>
+      <th>Customer</th>
+      <th>Seller</th>
+      <th>Offer</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ordered_items.each do |ordered_item| %>
+      <tr>
+        <td><%= ordered_item.order %></td>
+        <td><%= ordered_item.customer %></td>
+        <td><%= ordered_item.seller %></td>
+        <td><%= ordered_item.offer %></td>
+        <td><%= link_to 'Show', ordered_item %></td>
+        <td><%= link_to 'Edit', edit_ordered_item_path(ordered_item) %></td>
+        <td><%= link_to 'Destroy', ordered_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ordered item', new_ordered_item_path %>

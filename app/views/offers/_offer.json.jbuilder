@@ -1,0 +1,2 @@
+json.extract! offer, :id, :stock_id, :sales_man, :allocated_by, :market_price, :selling_price_type, :selling_price, :quantity_type, :size_code, :is_taxable, :enable_negotitation, :visit_store, :total_quantity_on_offer, :min_order_quantity, :start_at, :ends_at, :accepts_offer_below_selling_price, :duration_time, :offer_type, :private_offers, :created_at, :updated_at
+json.url offer_url(offer, format: :json)

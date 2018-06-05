@@ -1,0 +1,84 @@
+has_one_attached :image<%= form_for(@product) do |f| %>
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+<div class="box">
+    <div class="box-body">
+    <br/>
+    <br/>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: "form-control", placeholder: "Apple" %>
+            
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :variety %>
+            <%= f.text_field :variety, class: "form-control", placeholder: "Red Delicious"  %>
+          </div>
+        </div>
+        
+        <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= f.label :image %><br>
+   <%= f.file_field :image %>
+        </div>
+         <div class="form-group col-md-6">
+            <%= f.label :code, 'Product Code' %><br>
+            <%= f.text_field :code, class: "form-control", placeholder: "APP01241" %>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :category %> <br/>
+         <%= f.select :category, ['Fruits', 'Veg','Dry Fruits','Processed','Other'],{}, { :class => 'btn white dropdown-toggle' }%>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :quality %> <br/>
+            <%= f.select :quality, ['Export', 'Premium','Standard','No.2','Composite','Other'],{}, { :class => 'btn white dropdown-toggle' }%>
+          </div>
+          
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :size %> <br/>
+            <%= f.select :size, ['Xsmall', 'Small','Medium','Large','XLarge'],{}, { :class => 'btn white dropdown-toggle' }%>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :size_code %><br>
+            <%= f.text_field :size_code, class: "form-control", placeholder: "11" %>
+          </div>
+          
+        </div>
+        <div class="form-row">
+        
+
+         
+          
+        </div>
+         
+        <%= f.hidden_field :seller_id, value: Seller.where(:uid => current_user.id).first.id %>
+       
+         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+      </form>
+    </div>
+  </div>
+
+
+<% end %>
+
+

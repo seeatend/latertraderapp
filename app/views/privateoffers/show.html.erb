@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Offer:</strong>
+  <%= @privateoffer.offer %>
+</p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @privateoffer.customer %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @privateoffer.seller %>
+</p>
+
+<p>
+  <strong>Offered price:</strong>
+  <%= @privateoffer.offered_price %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @privateoffer.status %>
+</p>
+
+<%= link_to 'Edit', edit_privateoffer_path(@privateoffer) %> |
+<%= link_to 'Back', privateoffers_path %>

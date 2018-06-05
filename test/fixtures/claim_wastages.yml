@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stock_id: 
+  employee_id: 
+  wasted_stock_value: 9.99
+  waste_checking_labour_cost: 9.99
+  total_Waste_claim: 9.99
+  image: MyString
+
+two:
+  stock_id: 
+  employee_id: 
+  wasted_stock_value: 9.99
+  waste_checking_labour_cost: 9.99
+  total_Waste_claim: 9.99
+  image: MyString

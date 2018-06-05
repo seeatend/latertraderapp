@@ -1,0 +1,131 @@
+
+
+<%= form_for(@credit) do |f| %>
+  <% if @credit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@credit.errors.count, "error") %> prohibited this credit from being saved:</h2>
+
+      <ul>
+      <% @credit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @credit.ctype == "Seller Credit" %>
+
+  <div class="box">
+    <div class="box-body">
+        
+     
+<div class="form-row">
+        <div class="form-group col-md-6">
+            <%= f.label :order_id %><br>
+            <%= f.collection_select :order_id, Order.all,:id,:id,{}, { :class => 'btn white dropdown-toggle',:readonly => true } %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :value %><br>
+            <%= f.text_field :value, class: "form-control", placeholder: "300$",:readonly => true %>
+          </div>
+          </div>
+<div class="form-row">
+ <div class="form-group col-md-6">
+            <%= f.label :requested %><br>
+            <%= f.text_field :requested, class: "form-control", placeholder: "300$",:readonly => true %>
+          </div>
+           <div class="form-group col-md-6">
+            <%= f.label :extended %><br>
+            <%= f.text_field :extended, class: "form-control", placeholder: "300$",:value => @credit.requested %>
+          </div>
+</div>
+
+          <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :ctype,"Credit Type" %><br>
+            <%= f.text_field :ctype, class: "form-control", placeholder: "300$",:readonly => true,:value => "Seller Credit" %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :status %><br>
+             <%= f.select :status, ['Approved', 'Not Approved'],{}, { :class => 'btn white dropdown-toggle' }%>
+          </div>
+          
+        </div>
+          <div class="form-row">
+         
+
+          <div class="form-group col-md-6">
+            <%= f.label :approved_by %><br>
+              <%= f.collection_select :approved_by, Employee.where(:seller_id => Seller.where(:uid => current_user.id).first.id).where(:position => 'Sales').order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+           <div class="form-group col-md-6">
+            <%= f.label :note_to_buyer %><br>
+            <%= f.text_field :note_to_buyer, class: "form-control", placeholder: "Any info you want to convey to buyer" %>
+          </div>
+        </div>
+
+       
+       
+         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+
+         <% else %>
+         <div class="box">
+    <div class="box-body">
+        
+     
+<div class="form-row">
+        <div class="form-group col-md-6">
+            <%= f.label :order_id %><br>
+            <%= f.collection_select :order_id, Order.all,:id,:id,{}, { :class => 'btn white dropdown-toggle',:readonly => true } %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :value %><br>
+            <%= f.text_field :value, class: "form-control", placeholder: "300$",:readonly => true %>
+          </div>
+          </div>
+<div class="form-row">
+ <div class="form-group col-md-6">
+            <%= f.label :requested %><br>
+            <%= f.text_field :requested, class: "form-control", placeholder: "300$",:readonly => true %>
+          </div>
+           <div class="form-group col-md-6">
+            <%= f.label :extended %><br>
+            <%= f.text_field :extended, class: "form-control", placeholder: "300$",:value => @credit.requested %>
+          </div>
+</div>
+
+          <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :ctype,"Credit Type" %><br>
+            <%= f.text_field :ctype, class: "form-control", placeholder: "300$",:readonly => true,:value => "Credit Co-Op Credit" %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :status %><br>
+             <%= f.select :status, ['Approved', 'Not Approved'],{}, { :class => 'btn white dropdown-toggle' }%>
+          </div>
+          
+        </div>
+          <div class="form-row">
+         
+
+          <div class="form-group col-md-6">
+            <%= f.label :approved_by %><br>
+              <%= f.collection_select :approved_by, Employee.where(:seller_id => Seller.where(:uid => current_user.id).first.id).where(:position => 'Sales').order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+           <div class="form-group col-md-6">
+            <%= f.label :note_to_buyer %><br>
+            <%= f.text_field :note_to_buyer, class: "form-control", placeholder: "Any info you want to convey to buyer" %>
+          </div>
+        </div>
+
+       
+       
+         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+         <% end %>
+      </form>
+    </div>
+  </div>
+  <% end %>
+

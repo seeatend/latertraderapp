@@ -1,0 +1,322 @@
+
+
+
+<%= form_for(@stock) do |f| %>
+<script type="text/javascript" charset="utf-8">
+  function FBP()
+ {
+  var select = document.getElementById("stock_order_quantity_unit");
+    var selectedString = select.options[select.selectedIndex].value;
+  document.getElementById('stock_buying_price').value = document.getElementById('stock_buying_price').value + "$ per " + selectedString;
+  }
+
+  function  ISQ()
+ {
+
+var buyingprice = document.getElementById('stock_buying_price').value;
+  var instockqunaity = document.getElementById('stock_purchased_stock_quantity').value;
+var totalvalue = instockqunaity * buyingprice;
+ document.getElementById('stock_stockvalue').value = totalvalue;
+
+
+var select = document.getElementById("stock_order_quantity_unit");
+    var selectedString = select.options[select.selectedIndex].value;
+  document.getElementById('stock_purchased_stock_quantity').value = document.getElementById('stock_purchased_stock_quantity').value + " " + selectedString;
+ 
+
+   
+  
+  
+  }
+  function PSQ()
+ {
+  var select = document.getElementById("stock_order_quantity_unit");
+    var selectedString = select.options[select.selectedIndex].value;
+
+    var isq = document.getElementById('stock_purchased_stock_quantity').value;
+    var isqnum = isq.replace(/[^0-9]/g,'');
+    var variation = isqnum - document.getElementById('stock_physical_stock_quantity').value;
+
+ document.getElementById('stock_variations').value = variation + " " + selectedString;
+document.getElementById('stock_physical_stock_quantity').value = document.getElementById('stock_physical_stock_quantity').value + " " + selectedString;
+
+
+  }
+  
+   function WSQ()
+ {
+  var select = document.getElementById("stock_order_quantity_unit");
+     var selectedString = select.options[select.selectedIndex].value;
+ document.getElementById('stock_wasted_stock_quantity').value = document.getElementById('stock_wasted_stock_quantity').value + " " + selectedString;
+  
+  }
+ </script>
+</script>
+  <% if @stock.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stock.errors.count, "error") %> prohibited this stock from being saved:</h2>
+
+      <ul>
+      <% @stock.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="box">
+<div class="box-header">
+          <h3>Products Information</h3>
+    <div class="box-body">
+        <div class="box-divider m-0"></div>
+        <br>
+      <form>
+       
+        <div class="form-row">
+         <div class="form-group col-md-6">
+            <%= f.label :grower %> <br/>
+            <%= f.collection_select :grower_id, Grower.order(:name),:id,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+
+           <div class="form-group col-md-6">
+            <%= f.label :supply, 'consignment_number' %> <br/>
+            <% if current_user.utype == "Employee" %>
+            <% else %>
+            <%= f.collection_select :supply_id, Supply.where(:seller_id => Seller.where(:uid => current_user.id).first.id),:id,:consignment_number,{}, { :class => 'btn white dropdown-toggle' } %>
+            <% end %>
+          </div>
+          <div class="form-group col-md-6">
+             <% if current_user.utype == "Employee" %>
+<%= f.label :product %><br/>
+            <%= f.collection_select :product_id, Product.where(:seller_id => @employee.seller_id).order(:name),:id,:desc,{}, { :class => 'btn white dropdown-toggle' } %>
+             <% else %>
+            <%= f.label :product %><br/>
+            <%= f.collection_select :product_id, Product.where(:seller_id => Seller.where(:uid => current_user.id).first.id).order(:name),:id,:desc,{}, { :class => 'btn white dropdown-toggle' } %>
+            <% end %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :sku%>
+            <%= f.text_field :sku, class: "form-control", placeholder: "1234" %>
+            
+          </div>
+        </div>
+       
+        <div class="form-row">
+
+         <div class="form-group col-md-6">
+            <%= f.label :buying_price_type %><br>
+            <%= f.select :buying_price_type, ['Fixed Price', 'Comission'],{}, { :class => 'btn white dropdown-toggle' }%>
+          </div>
+        <div class="form-group col-md-6">
+            <%= f.label :order_quantity_unit, 'Buying Unit'%> <br/>
+            <%= f.select :order_quantity_unit,
+  ['Bag', 'Bin','Box','Tray','KG'],
+   {}, { :class => 'btn white dropdown-toggle' }%>
+            
+          </div>
+       
+        </div>
+       
+        
+         <div class="form-row">
+          <div class="form-group col-md-4">
+          <%= f.label :buying_price, 'Buying Price ($)' %><br>
+            <%= f.text_field :buying_price, class: "form-control", placeholder: "300($)" %>
+        </div>
+
+          
+          <div class="form-group col-md-4">
+            <%= f.label :purchased_stock_quantity, 'Purchased Stock Quantity' %><br>
+            <%= f.text_field :purchased_stock_quantity, class: "form-control", placeholder: "40",
+   :onchange => "ISQ();" %>
+          </div>
+          <div class="form-group col-md-4">
+            <%= f.label :stockvalue,'Total Stock Value ($)'%>
+            <%= f.text_field :stockvalue, class: "form-control",:readonly => true  %>
+            
+          </div>
+          
+        </div>
+          <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :note %><br>
+            <%= f.text_field :note, class: "form-control", placeholder: "Type your message here"%>
+          </div>
+        </div>
+        <br/>
+        <div class="form-row">
+         <% if current_user.utype == "Seller" %>
+         <%= f.hidden_field :status, value: 'Not Approved'%>
+         
+         <% end %>
+
+        <% if current_user.utype == "Employee" %>
+<%= f.hidden_field :seller_id, value: @employee.seller_id %>
+        <% else %>
+            <%= f.hidden_field :seller_id, value: Seller.where(:uid => current_user.id).first.id %>
+       <% end %>
+         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+        </div>
+<br>
+        <br/>
+        <% if current_user.utype == "Employee" %>
+ <div class="box-header">
+          <h3>Approval</h3>
+    <div class="box-body">
+        <div class="box-divider m-0"></div>
+        <br>
+        <br/>
+        <div class="form-row">
+         
+          <% if current_user.utype == "Employee" %>
+
+           <div class="form-group col-md-4">
+            <% if @stock.status == "Approved" %>
+              <%= f.label :total_approved_stocks,'Total Approved Stock'%><br>
+            <%= f.text_field :total_approved_stocks, class: "form-control", placeholder: "0",:readonly => true %>
+            <% else %>
+            <%= f.label :total_approved_stocks,'Total Approved Stock'%><br>
+            <%= f.text_field :total_approved_stocks, class: "form-control", placeholder: "0" %>
+            <% end %>
+          </div>
+        <div class="form-group col-md-4">
+            <%= f.label :status %><br>
+         <%= f.select :status, ['Not Approved','Approved','Onhold'],{}, { :class => 'btn white dropdown-toggle' }%>
+         </div>
+          
+           <div class="form-group col-md-4">
+           <%= f.label :approve_on_hold_stocks%><br>
+            <%= f.text_field :approve_on_hold_stocks, class: "form-control", placeholder: @stock.onhold %>
+       
+          </div>
+    
+          <% end %>
+
+
+        </div>
+   
+
+<br>
+ 
+        <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+        </div>
+        </div>
+
+</div>
+
+        <div class="box-header">
+          <h3>Backend Operations</h3>
+    <div class="box-body">
+        <div class="box-divider m-0"></div>
+        <br>
+        <br/>
+       
+
+          
+          </div>
+ <div class="form-row">
+  <div class="form-group col-md-6">
+            <%= f.label :onhold,'On Hold Stock Quantity (OSQ)' %><br>
+            <%= f.text_field :onhold, class: "form-control", placeholder: "70",:readonly => true %>
+          </div>
+           <div class="form-group col-md-6">
+            <%= f.label :osqval,'OSQ Value ($)' %><br>
+            <%= f.text_field :osqval, class: "form-control", placeholder: "9000$",:readonly => true,:value => (@stock.onhold * @stock.buying_price)%>
+          </div>
+ </div>
+
+ <div class="form-row">
+  <div class="form-group col-md-6">
+            <%= f.label :sold,'Sold Quantity' %><br>
+            <%= f.text_field :sold, class: "form-control", placeholder: "70",:readonly => true %>
+          </div>
+           <div class="form-group col-md-6">
+            <%= f.label :soldval,'Sold Value ($)' %><br>
+            <%= f.text_field :soldval, class: "form-control", placeholder: "9000$",:readonly => true,:value => (@stock.sold * @stock.buying_price) %>
+          </div>
+ </div>
+
+ <div class="form-row">
+  <div class="form-group col-md-6">
+            <%= f.label :offered,'In Stock Quantity'%><br>
+            <%= f.text_field :offered , class: "form-control", placeholder: "70",:readonly => true %>
+          </div>
+           <div class="form-group col-md-6">
+            <%= f.label :isqval,'ISQ Value ($)' %><br>
+            <%= f.text_field :isqval, class: "form-control", placeholder: "9000$",:readonly => true,:value => (@stock.offered * @stock.buying_price) %>
+          </div>
+ </div>
+          <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :physical_stock_quantity %><br>
+            <%= f.text_field :physical_stock_quantity, class: "form-control", placeholder: "70",:onchange => "PSQ();" %>
+          </div>
+
+          <div class="form-group col-md-6">
+          <%= f.label :stock_approved_by %><br>
+            <% if current_user.utype == "Employee" %>
+<%= f.collection_select :stock_approved_by,  Employee.where(:seller_id => @employee.seller_id).order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+            <% else %>
+            <%= f.collection_select :stock_approved_by,  Employee.where(:seller_id => Seller.where(:uid => current_user.id).first.id).order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+            <% end %>
+
+            
+          </div>
+         
+          
+        </div>
+         <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :variations %><br>
+            <%= f.text_field :variations, class: "form-control", placeholder: "130",:onchange => "VC();" %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :physical_stock_taken_by %><br>
+             <% if current_user.utype == "Employee" %>
+<%= f.collection_select :physical_stock_taken_by,  Employee.where(:seller_id => @employee.seller_id).order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+            <% else %>
+            <%= f.collection_select :physical_stock_taken_by,  Employee.where(:seller_id => Seller.where(:uid => current_user.id).first.id).order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+            <% end %>
+            
+          </div>
+
+          
+          
+          
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :wasted_stock_quantity %><br>
+            <%= f.text_field :wasted_stock_quantity, class: "form-control", placeholder: "130",:onchange => "WSQ();" %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :stock_wasted_by %><br>
+            <% if current_user.utype == "Employee" %>
+<%= f.collection_select :stock_wasted_by,  Employee.where(:seller_id => @employee.seller_id).order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+            <% else %>
+            <%= f.collection_select :stock_wasted_by,  Employee.where(:seller_id => Seller.where(:uid => current_user.id).first.id).order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+            <% end %>
+            
+        
+          </div>
+          
+           
+          
+        </div>
+         
+
+       
+           <br>
+           <%= link_to 'Claim wastage',  new_claim_wastage_path,  class: "btn btn-fw warning" %>
+
+         
+       <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+      <% end %>
+      </form>
+    </div>
+  </div>
+
+
+<% end %>

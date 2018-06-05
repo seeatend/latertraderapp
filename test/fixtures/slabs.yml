@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  offer_id: 
+  from_quantity: 1
+  to_quantity: 1
+  value: 9.99
+
+two:
+  offer_id: 
+  from_quantity: 1
+  to_quantity: 1
+  value: 9.99

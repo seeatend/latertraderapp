@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer_id: 
+  seller_id: 
+  order_id: 
+  offer_id: 
+  stock_id: 
+  product_id: 
+  chat_id: 
+  content: MyString
+  ntype: MyString
+
+two:
+  customer_id: 
+  seller_id: 
+  order_id: 
+  offer_id: 
+  stock_id: 
+  product_id: 
+  chat_id: 
+  content: MyString
+  ntype: MyString

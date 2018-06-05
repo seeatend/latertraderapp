@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  offer_id: 
+  customer_id: 
+  seller_id: 
+  offered_price: 9.99
+  status: MyString
+
+two:
+  offer_id: 
+  customer_id: 
+  seller_id: 
+  offered_price: 9.99
+  status: MyString

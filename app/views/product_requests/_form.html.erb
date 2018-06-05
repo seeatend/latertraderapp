@@ -1,0 +1,59 @@
+<%= form_for(@product_request) do |f| %>
+  <% if @product_request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@product_request.errors.count, "error") %> prohibited this product_request from being saved:</h2>
+
+      <ul>
+      <% @product_request.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="box">
+    <div class="box-body">
+    <br/>
+    <br/>
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :seller_id,'Select Seller' %><br>
+            <%= f.collection_select :seller_id, Seller.where.not(:seller_email => current_user.email),:id,:business_name,{}, { :class => 'btn white dropdown-toggle' } %>
+            
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :product_id, 'Select Product' %><br>
+             <%= f.grouped_collection_select :product_id, Seller.where.not(:seller_email => current_user.email),:products,:business_name,:id,:desc,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+        </div>
+        
+        <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= f.label :required_quantity %><br>
+   <%= f.text_field :required_quantity, class: "form-control", placeholder: "15" %>
+        </div>
+         <div class="form-group col-md-6">
+         <%= f.label :quantity_type %><br>
+         <%= f.select :quantity_type, ['Bag', 'Bin','Box','Tray','KG'],{}, { :class => 'btn white dropdown-toggle' }%>
+         
+          </div>
+        </div>
+        <div class="form-row">
+
+        <div class="form-group col-md-6">
+           <%= f.label :required_date %><br>
+            <%= f.datetime_select :required_date,{}, { :class => 'btn white dropdown-toggle' } %>
+        </div>
+        <div class="form-group col-md-6">
+           <%= f.label :note %><br>
+   <%= f.text_field :note, class: "form-control", placeholder: "Note to your buyer" %>
+   </div>
+        </div>
+         
+        <%= f.hidden_field :poi_id, value: Seller.where(:uid => current_user.id).first.id %>
+        <%= f.hidden_field :status, value: 'Requested' %>
+       <br>
+         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+         <br>
+  
+<% end %>

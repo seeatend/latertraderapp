@@ -1,0 +1,1364 @@
+
+<div class="modal fade" id="cashRecievedDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Payment Received</h4>
+      </div>
+      <div class="modal-body">
+ <%=form_for @ordered_item  do |f| %>
+<h6> In confirming this order you agree that you have received the payment in Cash</h6><br>
+<input type="checkbox" name="vehicle" value="yes"> Check this box if you agree for to Traders App terms and conditions<br><br>  
+<%= f.hidden_field :o_status,:value => 'Closed' %>
+      <%= f.submit 'Confirm', class: 'btn btn-success' %>
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           
+         <% end %>
+      </div>
+      </div>
+      <div class="modal-footer">
+    
+       
+      
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div class="modal fade" id="cashdropoffRecievedDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Payment Received</h4>
+      </div>
+      <div class="modal-body">
+ <%=form_for @ordered_item  do |f| %>
+<h6> In confirming this order you agree that you have received the payment in Cash</h6><br>
+<input type="checkbox" name="vehicle" value="yes"> Check this box if you agree for to Traders App terms and conditions<br><br>  
+<%= f.hidden_field :o_status,:value => 'Paid' %>
+      <%= f.submit 'Confirm', class: 'btn btn-success' %>
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           
+         <% end %>
+      </div>
+      </div>
+      <div class="modal-footer">
+    
+       
+      
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="closeOrderDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Close Order</h4>
+      </div>
+      <div class="modal-body">
+ <%=form_for @ordered_item  do |f| %>
+<h6> In confirming this order will be closed</h6><br>
+<input type="checkbox" name="vehicle" value="yes"> Check this box if you agree for to Traders App terms and conditions<br><br>  
+<%= f.hidden_field :o_status,:value => 'Closed' %>
+      <%= f.submit 'Confirm', class: 'btn btn-success' %>
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           
+         <% end %>
+      </div>
+      </div>
+      <div class="modal-footer">
+    
+       
+      
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="creditRecievedDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Payment Received</h4>
+      </div>
+      <div class="modal-body">
+ <%=form_for @ordered_item  do |f| %>
+<h6> In confirming this order you agree that you have received the Credit Payment</h6><br>
+<input type="checkbox" name="vehicle" value="yes"> Check this box if you agree for to Traders App terms and conditions<br><br>  
+<%= f.hidden_field :o_status,:value => 'Credit Payment Done' %>
+      <%= f.submit 'Confirm', class: 'btn btn-success' %>
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           
+         <% end %>
+      </div>
+      </div>
+      <div class="modal-footer">
+    
+       
+      
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div class="modal fade" id="pickUpDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Order Picked Up</h4>
+      </div>
+      <div class="modal-body">
+ <%=form_for @ordered_item  do |f| %>
+<h6> In confirming this order you agree that order has been picked up from the stand</h6><br>
+<input type="checkbox" name="vehicle" value="yes"> Check this box if you agree for to Traders App terms and conditions<br><br>  
+<%= f.hidden_field :o_status,:value => 'Receieved' %>
+      <%= f.submit 'Confirm', class: 'btn btn-success' %>
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           
+         <% end %>
+      </div>
+      </div>
+      <div class="modal-footer">
+    
+       
+      
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- ############ Main START-->
+<div class="modal fade" id="approveOrderDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Approve Order</h4>
+      </div>
+      <div class="modal-body">
+ <%=form_for @ordered_item  do |f| %>
+<h6> In confirming this order you agree to terms and conditions of Traders App</h6><br>
+<input type="checkbox" name="vehicle" value="yes"> Check this box if you agree for to Traders App terms and conditions<br><br>  
+<%= f.hidden_field :o_status,:value => 'Order Approved' %>
+      <%= f.submit 'Confirm', class: 'btn btn-success' %>
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           
+         <% end %>
+      </div>
+      </div>
+      <div class="modal-footer">
+    
+       
+      
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<div class="modal fade" id="cancelOrderDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Cancel Order</h4>
+      </div>
+      <div class="modal-body">
+ <%=form_for @ordered_item  do |f| %>
+<h6> Do you want to cancel this order ?</h6><br>
+<input type="checkbox" name="vehicle" value="yes"> Check this box if you agree for to Traders App terms and conditions<br><br>  
+<%= f.hidden_field :o_status,:value => 'Order Cancelled' %>
+      <%= f.submit 'Confirm', class: 'btn btn-success' %>
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           
+         <% end %>
+      </div>
+      </div>
+      <div class="modal-footer">
+    
+       
+      
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="receivedItemDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Receieved Order</h4>
+      </div>
+      <div class="modal-body">
+ <%=form_for @ordered_item  do |f| %>
+<h6> In confirming this order you agree that this particular order has been recieved by you</h6><br>
+<input type="checkbox" name="vehicle" value="yes"> Check this box if you agree for to Traders App terms and conditions on delivery<br><br>  
+<%= f.hidden_field :o_status,:value => 'Receieved' %>
+      <%= f.submit 'Confirm', class: 'btn btn-success' %>
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           
+         <% end %>
+      </div>
+      </div>
+      <div class="modal-footer">
+    
+       
+      
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" id="confirmShippingDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Confirm Shipping</h4>
+      </div>
+      <div class="modal-body">
+ <%=form_for @ordered_item  do |f| %>
+<div class="field">
+    <%= f.label :consignment_number %><br>
+    <%= f.text_field :consignment_number %>
+  </div>
+
+  <div class="field">
+    <%= f.label :transport_contact_name %><br>
+    <%= f.text_field :transport_contact_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :transport_contact_number %><br>
+    <%= f.text_field :transport_contact_number %>
+  </div>
+   <div class="field">
+    <%= f.label :note_to_buyer %><br>
+    <%= f.text_field :note_to_buyer %>
+  </div>
+<%= f.hidden_field :o_status,:value => 'Shipped' %>
+
+      <%= f.submit 'Confirm', class: 'btn btn-success' %>
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           
+         <% end %>
+      </div>
+      </div>
+      <div class="modal-footer">
+    
+       
+      
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div class="modal fade" id="confirmPayment" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Confirm Payment</h4>
+      </div>
+      <div class="modal-body">
+ <%=form_for @ordered_item  do |f| %>
+<div class="field">
+    <%= f.label :paid_amount %><br>
+    <%= f.text_field :paid_amount %>
+  </div>
+
+  <div class="field">
+    <%= f.label :payment_done_date %><br>
+    <%= f.text_field :payment_done_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :payment_confirmed_by %><br>
+    <%= f.text_field :payment_confirmed_by %>
+  </div>
+   <div class="field">
+    <%= f.label :note_to_buyer %><br>
+    <%= f.text_field :note_to_buyer %>
+  </div>
+<%= f.hidden_field :o_status,:value => 'Payment Done' %>
+
+      <%= f.submit 'Confirm', class: 'btn btn-success' %>
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           
+         <% end %>
+      </div>
+      </div>
+      <div class="modal-footer">
+    
+       
+      
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<div class="modal fade" id="paymentDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+
+
+      <div class="modal-header">
+        
+        <h4 class="modal-title">Pay For Order</h4>
+      </div>
+      <div class="modal-body">
+ 
+<form action="your-server-side-code" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+    data-amount=  <%= @ordered_items.sum('value') %>
+    data-name="Stripe.com"
+    data-description="Widget"
+    data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true">
+  </script>
+</form>
+<br>
+
+
+     <button type="button" class="btn btn-success" data-dismiss="modal">Cash</button> <br>
+     <br>
+
+     <button type="button" class="btn btn-success" data-dismiss="modal">Pay with Seller Credit</button> <br>
+     <br>
+   
+
+        <button type="button" class="btn btn-success" data-dismiss="modal">Pay with Credit Co-Op</button> <br>
+
+
+  
+        
+      </div>
+      </div>
+      <div class="modal-footer">
+    
+       
+      
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<div class="app" id="app">
+
+<!-- ############ LAYOUT START-->
+
+  <!-- ############ Aside START-->
+  <div id="aside" class="app-aside fade box-shadow-x nav-expand white" aria-hidden="true">
+    <div class="sidenav modal-dialog dk">
+      <!-- sidenav top -->
+      <div class="navbar lt">
+        <!-- brand -->
+        <a href="../index.html" class="navbar-brand">
+          <svg viewBox="0 0 24 24" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M19.51 3.08L3.08 19.51c.09.34.27.65.51.9.25.24.56.42.9.51L20.93 4.49c-.19-.69-.73-1.23-1.42-1.41zM11.88 3L3 11.88v2.83L14.71 3h-2.83zM5 3c-1.1 0-2 .9-2 2v2l4-4H5zm14 18c.55 0 1.05-.22 1.41-.59.37-.36.59-.86.59-1.41v-2l-4 4h2zm-9.71 0h2.83L21 12.12V9.29L9.29 21z" fill="#53a6fa" class="fill-theme"/>
+          </svg>
+         
+          <span class="hidden-folded d-inline">Traders App</span>
+        </a>
+        <!-- / brand -->
+      </div>
+    
+     <!-- Flex nav content -->
+      <div class="flex hide-scroll">
+          <div class="scroll">
+            <div class="nav-border b-primary" data-nav>
+              <ul class="nav bg">
+                
+                  <% if current_user.utype == "Seller" %>
+                  <li>
+                  <%= link_to dashboard_index_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-dashboard"></i>
+  </span>
+  <span class="nav-text">Dashboard</span>
+<% end %>
+                  </li>
+                  
+
+                <% end %>
+
+ <li>
+                  <%= link_to marketplaces_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-cart-plus"></i>
+  </span>
+  <span class="nav-text">Market Place</span>
+<% end %>
+                  </li>
+         
+
+          <% if current_user.utype == "Seller" %>
+         <li>
+                  <%= link_to walk_in_index_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-calculator"></i>
+  </span>
+  <span class="nav-text">Shop Sales</span>
+<% end %>
+                  </li>
+                   <li>
+                  <%= link_to b2b_index_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-ticket"></i>
+  </span>
+  <span class="nav-text">B2B Sales</span>
+<% end %>
+                  </li>
+         
+
+         <% end %>
+         <% if current_user.utype == "Employee" %>
+
+<% if @employee.position == "Manager" %>
+         <li>
+                  <%= link_to approval_index_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-check"></i>
+  </span>
+  <span class="nav-text">Stock Approval</span>
+<% end %>
+
+                  </li>
+
+                   <li>
+                  <%= link_to credit_approval_index_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-check-circle"></i>
+  </span>
+  <span class="nav-text">Credit Approval</span>
+<% end %>
+
+                  </li>
+
+                  <% elsif @employee.position == "Forklift" %>
+                    <li>
+                  <%= link_to forklifts_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-check"></i>
+  </span>
+  <span class="nav-text">Forklift Task</span>
+<% end %>
+
+                  </li>
+                  <% else %>
+ <li>
+                  <%= link_to packings_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-bus"></i>
+  </span>
+  <span class="nav-text">Packing</span>
+<% end %>
+
+                  </li>
+                  <% end %>
+                  <% end %>
+                  
+                  <% if current_user.utype == "Buyer" %>
+                  <li>
+                  <%= link_to purchases_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-credit-card"></i>
+  </span>
+  <span class="nav-text">My Purchases</span>
+<% end %>
+              </li>   
+<% end %>
+<% if current_user.utype == "Seller" %>
+
+<li>
+                  <%= link_to offers_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-leaf"></i>
+  </span>
+  <span class="nav-text">My Offers</span>
+  </li>
+<% end %>
+
+                   
+                  <% end %>
+                 
+                  <% if current_user.utype == "Seller" %>
+
+                   <li>
+                  <%= link_to stocks_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-cube"></i>
+  </span>
+  <span class="nav-text">My Stock</span>
+  </li>
+                 <% end %>
+                  <% end %>
+                  <% if current_user.utype == "Seller" %>
+
+
+                   <li>
+                  <%= link_to supplies_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-barcode"></i>
+  </span>
+  <span class="nav-text">My Supplies</span>
+  </li>
+                 <% end %>
+
+                  
+                  <% end %>
+                  
+                  <% if current_user.utype == "Seller" %>
+
+<li>
+                  <%= link_to credits_path  do %>
+                   <span class="nav-icon">
+  <i class="fa  fa-credit-card"></i>
+  </span>
+  <span class="nav-text">My Credits</span>
+  </li>
+<% end %>
+
+                   
+                  <% end %>
+                  <% if current_user.utype == "Seller" %>
+                  <li>
+                  <%= link_to reports_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-line-chart"></i>
+  </span>
+
+  <span class="nav-text">My Reports</span>
+  </li>
+                 <% end %>
+                  
+                  <% end %>
+<ul class="nav ">
+                
+                    <li class="nav-header hidden-folded mt-2">
+                      <span class="text-xs">Other Stuff</span>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="nav-caret">
+                          <i class="fa fa-caret-down"></i>
+                        </span>
+                        <span class="nav-icon no-fade">
+                          <i class="fa fa-cog"></i>
+                        </span>
+                        <span class="nav-text">Settings</span>
+                      </a>
+                      <ul class="nav-sub nav-mega nav-mega-3">
+                      <% if current_user.utype == "Seller" %>
+ <li>
+                  <%= link_to employees_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="nav-text">My Employees</span>
+  </li>
+                 <% end %>
+                    
+                  <% end %>
+                   <% if current_user.utype == "Seller" %>
+                  <li>
+                  <%= link_to networks_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-users"></i>
+  </span>
+  <span class="nav-text">My Network</span>
+  </li>
+                 <% end %>
+
+                 
+                  <% end %>
+<% if current_user.utype == "Seller" %>
+ <li>
+                  <%= link_to products_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="nav-text">My Products</span>
+  </li>
+                 <% end %>
+                    
+                  <% end %>
+                  
+                  <% if current_user.utype == "Seller" %>
+
+
+                   <li>
+                  <%= link_to services_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-truck"></i>
+  </span>
+  <span class="nav-text">My Services</span>
+  </li>
+                 <% end %>
+
+                  
+                  <% end %>
+                       <% if current_user.utype == "Seller" %>
+
+                  <li>
+                  <%= link_to sales_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-usd"></i>
+  </span>
+  <span class="nav-text">My Sales</span>
+  </li>
+<% end %>
+                 
+                  <% end %>
+
+                  <% if current_user.utype == "Seller" %>
+ <li>
+
+                  <%= link_to claim_wastages_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-trash"></i>
+  </span>
+  <span class="nav-text">Claim Wastage</span>
+  </li>
+                 <% end %>
+                    
+                  <% end %>
+                         
+   <% if current_user.utype == "Seller" || if current_user.utype == "Buyer" %>
+                  <li>
+                  <%= link_to chats_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-commenting-o"></i>
+  </span>
+  <span class="nav-text">My Chats</span>
+  </li>
+                 <% end %>
+<%end %>
+<%end %>
+                  
+                 
+                 
+
+                  <% if current_user.utype == "Seller" || if current_user.utype == "Buyer" %>
+                  <li>
+                  
+                  <% if current_user.utype == "Seller" %>
+                  <% seller = Seller.where(:uid => current_user.id).first %> 
+                  <%= link_to edit_seller_path(seller)  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-cog"></i>
+  </span>
+  <span class="nav-text">My Profile</span>
+  </li>
+                 <% end %>
+                 <% else %>
+                  <% customer  = Customer.where(:uid => current_user.id).first %> 
+                  <%= link_to edit_customer_path(customer)  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-cog"></i>
+  </span>
+  <span class="nav-text">My Profile</span>
+  </li>
+  <% end %>
+  <% end %>
+                 <% end %>
+                 <% end %>
+                 
+
+                  
+                      </ul>
+                    </li>
+
+
+                  
+              </ul>
+            </div>
+          </div>
+      </div>
+      
+      
+      <!-- sidenav bottom -->
+    </div>
+  </div>
+  <!-- ############ Aside END-->
+  <!-- ############ Content START-->
+  
+  <div id="content" class="app-content box-shadow-0" role="main">
+    <!-- Header -->
+      <div class="content-header white  box-shadow-0" id="content-header">
+        <div class="navbar navbar-expand-lg">
+          <!-- btn to toggle sidenav on small screen -->
+          <a class="d-lg-none mx-2" data-toggle="modal" data-target="#aside">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path d="M80 304h352v16H80zM80 248h352v16H80zM80 192h352v16H80z"/></svg>
+          </a>
+          <!-- Page title -->
+          <div class="navbar-text nav-title flex" id="pageTitle">Order</div>
+        
+          <ul class="nav flex-row order-lg-2">
+            <!-- Notification -->
+            <li class="nav-item dropdown">
+              <a class="nav-link px-3" data-toggle="dropdown">
+                <i class="fa fa-bell text-muted"></i>
+                <span class="badge badge-pill up danger">13</span>
+              </a>
+              <!-- dropdown -->
+             
+              <!-- / dropdown -->
+            </li>
+   <li class="nav-item dropdown">
+       <% if (current_user.utype == "Seller") %>
+
+        <%= link_to sales_path, :class => "nav-link px-3"   do %>
+                  
+   <i class="fa fa-usd text-muted"></i>
+                <span class="badge badge-pill up danger"></span>
+    <% end %>
+             
+
+              <% end %>
+  </li>
+               
+              <!-- dropdown -->
+             
+            
+
+            <li class="nav-item dropdown">
+             
+
+        <%= link_to chats_path, :class => "nav-link px-3"   do %>
+                  
+   <i class="fa fa-commenting-o text-muted"></i>
+                <span class="badge badge-pill up danger"></span>
+    <% end %>
+             
+
+             
+              
+              <!-- dropdown -->
+             
+              <!-- / dropdown -->
+            </li>
+
+             <li class="nav-item dropdown">
+              <a class="nav-link px-3" data-toggle="dropdown">
+                <i class="fa  fa-male text-muted"></i>
+                
+              </a>
+              <!-- dropdown -->
+             
+              <!-- / dropdown -->
+
+            </li>
+        <li class="nav-item dropdown">
+       <% if (current_user.utype == "Buyer") %>
+
+        <%= link_to cart_index_path, :class => "nav-link px-3"   do %>
+                  
+   <i class="fa fa-shopping-bag text-muted"></i>
+                <span class="badge badge-pill up danger"><%= Cart.where(:customer_id => Customer.where(:uid => current_user.id).first.id).count %></span>
+  
+  </li>
+                 <% end %>
+             
+
+              <% end %>
+              <!-- dropdown -->
+             
+              <!-- / dropdown -->
+              
+            </li>
+            </li>
+
+
+        
+            <!-- User dropdown menu -->
+         
+            <!-- Navarbar toggle btn -->
+            
+          </ul>
+          <!-- Navbar collapse -->
+          <div class="collapse navbar-collapse no-grow order-lg-1" id="navbarToggler">
+          <form class="input-group m-2 my-lg-0">
+             
+              
+
+              <% if user_signed_in? %>
+ 
+  <%= link_to('<i class="fa fa-sign-in text-muted"></i>'.html_safe, destroy_user_session_path, method: :delete) %>        
+ 
+<% else %>
+ 
+  <%= link_to('<i class="fa fa-sign-out text-muted"></i>'.html_safe, new_user_session_path)  %>  
+  
+<% end %>
+          </form>
+          </div>
+        
+        </div>
+      </div>
+      <!-- Main -->
+    <div class="content-main " id="content-main">
+
+<!-- ############ Main START-->
+
+
+<div class="padding">
+ 
+  
+
+      <div class="box">
+        <div class="box-header accent">
+
+
+          <h3 >Order ID :&nbsp;<%= @order.id %>            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                           Status:  <% if @order.shipping_type == "Market Drop-Off" %>
+
+        <% if @order.payment_type == "Seller Credit" %>
+
+              <% if @order.o_status == "Packing Under Process" %>
+                    Credit Approved 
+                     <% elsif @order.o_status == "Forklift Assigned" %>
+                     Packed
+                       <% elsif @order.o_status == "Order Delivered" %>
+                     Dropped-Off
+                 <% else %>
+                    <%= @order.o_status %>
+             <% end %>
+
+
+             <% elsif @order.payment_type == "Credit Co-OP" %>
+
+             <% if @order.o_status == "Packing Under Process" %>
+                    Credit Approved 
+                     <% elsif @order.o_status == "Forklift Assigned" %>
+                     Packed
+                       <% elsif @order.o_status == "Order Delivered" %>
+                     Dropped-Off
+                 <% else %>
+                    <%= @order.o_status %>
+             <% end %>
+
+             <% elsif @order.payment_type == "Cash" %>
+
+              <% if @order.o_status == "Packing Under Process" %>
+                    Paid
+                     <% elsif @order.o_status == "Forklift Assigned" %>
+                     Packed
+                       <% elsif @order.o_status == "Order Delivered" %>
+                     Dropped-Off
+                 <% else %>
+                    <%= @order.o_status %>
+             <% end %>
+
+             <% else %>
+
+             <% end %>
+          
+<% elsif @order.shipping_type == "Pick up at Stand" %>
+
+<% if @order.payment_type == "Seller Credit" %>
+
+              <% if @order.o_status == "Packing Under Process" %>
+                    Credit Approved 
+                
+                       <% elsif @order.o_status == "Order Receieved" %>
+                     Picked-up
+                 <% else %>
+                    <%= @order.o_status %>
+             <% end %>
+
+
+             <% elsif @order.payment_type == "Credit Co-OP" %>
+
+             <% if @order.o_status == "Packing Under Process" %>
+                    Credit Approved 
+                   
+                       <% elsif @order.o_status == "Order Receieved" %>
+                     Picked-Up
+                 <% else %>
+                    <%= @order.o_status %>
+             <% end %>
+
+             <% elsif @order.payment_type == "Cash" %>
+
+              <% if @order.o_status == "Packing Under Process" %>
+                    Paid
+                     
+                       <% elsif @order.o_status == "Order Receieved" %>
+                     Picked-Up
+                 <% else %>
+                    <%= @order.o_status %>
+             <% end %>
+
+             <% else %>
+
+             <% end %>
+
+<% else %>
+<% if @order.payment_type == "Seller Credit" %>
+
+              <% if @order.o_status == "Packing Under Process" %>
+                    Credit Approved 
+                
+                       <% elsif @order.o_status == "Order Delivered" %>
+                     Picked-up
+                 <% else %>
+                    <%= @order.o_status %>
+             <% end %>
+
+
+             <% elsif @order.payment_type == "Credit Co-OP" %>
+
+             <% if @order.o_status == "Packing Under Process" %>
+                    Credit Approved 
+                   
+                       <% elsif @order.o_status == "Order Delivered" %>
+                     Picked-Up
+                 <% else %>
+                    <%= @order.o_status %>
+             <% end %>
+
+             <% elsif @order.payment_type == "Cash" %>
+
+              <% if @order.o_status == "Packing Under Process" %>
+                    Paid
+                     
+                       <% elsif @order.o_status == "Order Delivered" %>
+                     Picked-Up
+                 <% else %>
+                    <%= @order.o_status %>
+             <% end %>
+
+             <% else %>
+
+             <% end %>
+
+<% end %></h3>
+        </div>
+        <div class="box-body">
+
+        <div class="form-row">
+        <div class="form-group col-md-3">
+       
+            <label for="male"><b>Seller</b></label> :  <label for="male"> <%= Seller.find(@ordered_item.seller_id).business_name %> </label> <br>
+            <label for="male"><b>Buyer</b></label> :  <label for="male"><%= Customer.find(@ordered_item.customer_id).business_name %></label> 
+            
+          </div><div class="form-group col-md-3">
+       
+            
+            
+          </div><div class="form-group col-md-3">
+       
+            
+            
+          </div>
+          <div class="form-group col-md-3">
+          
+            <label for="male"><b>Order Via</b></label> : <label for="male"><%= @order.otype %></label><br>
+            <label for="male"><b>Payment</b></label> :  <label for="male"><%= @order.payment_type %></label><br>
+            <label for="male"><b>Delivery</b></label> :  <label for="male"><%= @order.shipping_type %></label><br>
+             <%= link_to 'Invoice', @ordered_items.first ,  class: "btn btn-fw primary" %>
+          </div>
+          </div>
+
+                
+                <br>
+                  <div class="table-responsive">
+      <table class="table table-striped b-t">
+
+      
+        <thead>
+          <tr>
+           
+
+           <th>Product</th>
+           <th>Description </th>
+           <th>Quantity</th>
+         <th>Price</th>
+         <th>Value</th>
+         
+      
+     
+      
+      <th style="width:50px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+   
+            <% @ordered_items.each_with_index do |oitem, index| %>
+         <tr>
+            
+            <td><%= oitem.offer.stock.product.name %></td>
+            <td><%= oitem.offer.stock.product.desc %></td>
+            <td><%= oitem.quantity %> <%= oitem.offer.stock.order_quantity_unit %> </td>
+            <td><%= oitem.offer.selling_price.to_f %> per <%= oitem.offer.stock.order_quantity_unit %> </td>
+         <td><%= oitem.value.to_f %></td>
+
+        
+
+        
+
+            
+
+       
+          </tr>
+<% end %>
+     <tr>
+            <td colspan="4" class="text-right"><strong>Subtotal</strong></td>
+            <td> <%= @ordered_items.sum('value').to_f %></td>
+          </tr>
+          <tr>
+            <td colspan="4" class="text-right no-border"><strong>Shipping</strong></td>
+            <td>$0.0</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="text-right no-border"><strong>GST</strong></td>
+            <td>$0.0</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="text-right no-border"><strong>Total</strong></td>
+            <td><strong><%= @ordered_items.sum('value').to_f %></strong></td>
+          </tr>
+  
+        
+          
+        </tbody>
+      </table>
+    </div>
+    <br/>
+
+    <h6><b>Notes</b></h6>
+    <br/>
+    <div class="form-row">
+        <div class="form-group col-md-4">
+       
+            <label for="male"><b>Seller</b></label> :  <label for="male"> <%= Seller.find(@ordered_item.seller_id).business_name %> </label> <br>
+            <label for="male"><b>Buyer</b></label> :  <label for="male"><%= Customer.find(@ordered_item.customer_id).business_name %></label> 
+            
+          </div>
+          <div class="form-group col-md-4">
+          
+            <label for="male"><b>Note</b></label> : <label for="male"><%= @order.note_to_buyer %></label><br>
+            <label for="male"><b>Note</b></label> :  <label for="male"><%= @order.note_to_seller %></label><br>
+            
+           
+          </div>
+
+
+          </div>
+          <%= link_to 'Chat', chats_path,  class: "btn btn-fw primary" %>
+          
+         
+
+          <br>
+          <br>
+          <h6><b>Order Status</b></h6>
+          <br>
+                  <div class="table-responsive">
+      <table class="table table-striped b-t">
+
+      
+        <thead>
+          <tr>
+           
+
+           <th>Status</th>
+           <th>Date </th>
+           <th>Person</th>
+         <th>Action</th>
+         
+         
+      
+     
+      
+      <th style="width:50px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+   
+         <tr>
+            
+            <td><b>Order Placed</b></td>
+            <td><%= @order.created_at %></td>
+            <td><%= @order.customer.business_name %> </td>
+            <td>
+                <% if current_user.utype == "Seller" %>
+
+                 <% if @order.o_status == "Order Placed" %>
+    <a data-toggle="modal" class="open-ApproveOrderDialog btn btn-success big" href="#approveOrderDialog"><i class="fa fa-plus-square hided-icon big"></i> Approve Order </a>
+
+    <a data-toggle="modal" class="open-CancelOrderDialog btn btn-danger big" href="#cancelOrderDialog"><i class="fa fa-minus-square hided-icon big"></i> Cancel Order </a>
+
+<% end %>
+<% end %>
+
+ <% if current_user.utype == "Buyer" %>
+  <% if @order.o_status == "Order Placed" %>
+                <% time_diff = (Time.current - @order.created_at ) %>
+                <% diff = (time_diff / 1.minute).round %>
+                <% if  diff < 15 %>
+                 <a data-toggle="modal" class="open-CancelOrderDialog btn btn-danger big" href="#cancelOrderDialog"><i class="fa fa-plus-square hided-icon big"></i> Cancel Order </a>
+                <% end %>
+                <% end %>
+ <% end %>
+            </td>
+         
+          </tr>
+ 
+           <tr>
+            
+            <td><b>Order Approved</b></td>
+            <td><%= @order.order_approved_date %></td>
+            <td> <% if @order.otype != "Walk In" %><%= Offer.find(@order.items[1]).sales_man%><% end %></td>
+            <td>
+            <% if current_user.utype == "Seller" %>
+              <% if @order.o_status == "Credit Approved" %>
+<%= link_to 'Assign Market Staff',new_packing_path(:order_id => @order.id), {:class => "btn btn-fw primary",
+        :onclick=>"window.open(this.href,'Add Items', 'height=400, width=900');return false;" } %>
+
+<% end %>
+<% end %>
+<% if current_user.utype == "Seller" %>
+<% if @order.payment_type == "Cash" %>
+<% if @order.o_status == "Approved" %>
+ <a data-toggle="modal" class="open-CashdropoffRecievedDialog btn btn-success big" href="#cashdropoffRecievedDialog"><i class="fa fa-plus-square hided-icon big"></i> Payment Received</a>
+<% end %>
+<% end %>
+<% end %>
+            </td>
+        
+          </tr>
+           <tr>
+            
+            <td><b>Paid/Credit Approved</b></td>
+
+            <% if @order.payment_type == "Cash" %> 
+            <td><%= @order.payment_done_date %></td>
+            <% else %>
+            <% @credit = Credit.where(:order_id => @order.id).where(:status => "Approved").first %>
+            <td>
+               <% if @credit.present? %>
+              <%= @credit.updated_at %>
+              <% end %>
+                <% end %>
+              </td>
+            <td>
+              <% if @order.payment_type != "Cash" %>
+            AUTO 
+<% else %> 
+<% if @order.otype != "Walk In" %>
+<%= Offer.find(@order.items[1]).sales_man%>
+<% end %>
+<% end %>
+          </td>
+            <td>
+              <% if current_user.utype == "Seller" %>
+              <% if @order.o_status == "Credit Approved" %>
+<%= link_to 'Assign Market Staff',new_packing_path(:order_id => @order.id), {:class => "btn btn-fw primary",
+        :onclick=>"window.open(this.href,'Add Items', 'height=400, width=900');return false;" } %>
+
+<% end %>
+<% end %>
+            </td>
+         
+          </tr>
+           <tr>
+            
+            <td><b>Packed</b></td>
+            <td><% @packings = Packing.where(:order_id => @order.id).first %>
+              <% if @packings.present? %>
+              <% if @packings.status != "Assigned" %>
+              <%= @packings.updated_at %>
+             
+                 <% end %>
+              <% end %>
+            </td>
+
+            <td>
+              <% if @packings.present? %> <%= @packings.employee.name %> <% end %></td>
+            <td>
+                <% if current_user.utype == "Seller" %>
+              
+              <% if @order.o_status == "Packing Done" %>
+<% if @order.shipping_type == "Market Drop-Off" %>
+<%= link_to 'Assign Forklift', new_forklift_path(:pick_up_location => @order.pick_up_point,:drop_location => @order.drop_off_point,:order_id => @order.id,:invoice => @order.invoice_number,:customer_id => @order.customer_id),  {:class => "btn btn-fw primary",
+        :onclick=>"window.open(this.href,'Add Items', 'height=400, width=900');return false;" }%>
+<% elsif @order.shipping_type == "Shipping" %>
+    <a data-toggle="modal" class="open-ConfirmShippingDialog btn btn-success big" href="#confirmShippingDialog"><i class="fa fa-plus-square hided-icon big"></i> Click when you shipped order </a>
+    <% else %>
+        <a data-toggle="modal" class="open-PickUpDialog btn btn-success big" href="#pickUpDialog"><i class="fa fa-plus-square hided-icon big"></i> Did Buyer Pick up from stand ? </a>
+  
+<% end %>
+<% end %>
+<% end %>
+            </td>
+            
+         
+          </tr>
+           <tr>
+            
+            <td><b>Dropped-Off</b></td>
+            <td>
+              <% @forklift = Forklift.where(:order_id => @order.id).first %>
+              <% if @forklift.present? %>
+              <% if @forklift.status != "Assigned" %>
+              <%= @forklift.updated_at %>
+             
+               <% else %> 
+               <% end %>
+              <% end %>
+            </td>
+            <td> <% if @forklift.present? %> <%= @forklift.employee.name %> <% end %> </td>
+            <td>
+               <% if current_user.utype == "Buyer" %>
+
+        <% if @order.o_status == "Packed" %>
+    <% if @order.shipping_type == "Pick up at Stand" %>
+     <a data-toggle="modal" class="open-PickUpDialog btn btn-success big" href="#pickUpDialog"><i class="fa fa-plus-square hided-icon big"></i> Order Picked Up ? </a>
+    
+     <% end %>
+
+
+    
+
+<% end %>
+<% end %>
+            </td>
+         
+          </tr>
+ <tr>
+            
+            <td><b>Order Received</b></td>
+            <td>
+              
+
+              <%= @order.item_received_date %>
+            </td>
+            <td>  <%= @order.customer.business_name%></td>
+            <td>
+                  <% if current_user.utype == "Buyer" %>
+              <% if @orders.o_status == "Order Delivered" %>
+                 
+                    <a data-toggle="modal" class="open-ReceivedItemDialog btn btn-success big" href="#receivedItemDialog"><i class="fa fa-plus-square hided-icon big"></i> Click here once you recieve the Shipment </a>
+
+                    
+
+                <% end %>
+                <% end %>
+
+            </td>
+         
+          </tr>
+           <tr>
+            
+            <td><b>Credit Payment Done</b></td>
+            <td>
+              <% if @order.payment_type != "Cash" %>
+                 <%= @order.payment_done_date %>
+                 <% end %>
+            </td>
+            <td><% if @order.otype != "Walk In" %><%= Offer.find(@order.items[1]).sales_man%> <% end %></td>
+            <td>
+
+               <% if current_user.utype == "Buyer" %>
+              <% if @order.o_status == "Order Receieved" %>
+
+
+<% if @order.payment_type == "Seller Credit" %>
+    
+    <a data-toggle="modal" class="open-CreditRecievedDialog btn btn-success big" href="#creditRecievedDialog"><i class="fa fa-plus-square hided-icon big"></i> Confirm Credit Payment </a>
+
+    <% elsif @order.payment_type == "Credit Co-OP" %>
+      <a data-toggle="modal" class="open-CreditRecievedDialog btn btn-success big" href="#creditRecievedDialog"><i class="fa fa-plus-square hided-icon big"></i> Confirm Credit Payment </a>
+<% else %>
+<a data-toggle="modal" class="open-cashRecievedDialog btn btn-warning big" href="#cashRecievedDialog"><i class="fa fa-plus-square hided-icon big"></i> Close Order </a>
+<% end %>
+
+    
+
+<% end %>
+<% end %>
+            </td>
+         
+          </tr>
+           <tr>
+            
+            <td><b>Closed</b></td>
+            <td> <%= @order.closed_date %></td>
+            <td><% if @order.otype != "Walk In" %><%= Offer.find(@order.items[1]).sales_man%><% end %></td>
+            <td>
+              
+         <% if current_user.utype == "Seller" %>
+         <% if @order.o_status == "Credit Payment Done" %>
+    
+        <a data-toggle="modal" class="open-CloseOrderDialog btn btn-success big" href="#closeOrderDialog"><i class="fa fa-plus-square hided-icon big"></i> Close order</a>
+
+
+    
+
+<% end %>
+<% end %>
+            </td>
+         
+          </tr>
+        </div>
+      </div>
+
+
+    
+
+</div>
+
+
+<!-- ############ Main END-->
+
+      </div>
+      <!-- Footer -->
+     
+  </div>
+  <!-- ############ Content END-->
+
+<!-- ############ LAYOUT END-->
+
+</div>
+
+
+
+
+

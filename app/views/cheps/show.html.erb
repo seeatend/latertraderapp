@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @chep.customer %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @chep.order %>
+</p>
+
+<p>
+  <strong>Delivery date:</strong>
+  <%= @chep.delivery_date %>
+</p>
+
+<p>
+  <strong>Chep issued:</strong>
+  <%= @chep.chep_issued %>
+</p>
+
+<p>
+  <strong>Chep due:</strong>
+  <%= @chep.chep_due %>
+</p>
+
+<%= link_to 'Edit', edit_chep_path(@chep) %> |
+<%= link_to 'Back', cheps_path %>

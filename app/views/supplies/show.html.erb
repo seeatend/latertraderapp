@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Grower:</strong>
+  <%= @supply.grower %>
+</p>
+
+<p>
+  <strong>Consignment number:</strong>
+  <%= @supply.consignment_number %>
+</p>
+
+<p>
+  <strong>Date received:</strong>
+  <%= @supply.date_received %>
+</p>
+
+<p>
+  <strong>Ref no:</strong>
+  <%= @supply.ref_no %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @supply.value %>
+</p>
+
+<p>
+  <strong>Paid:</strong>
+  <%= @supply.paid %>
+</p>
+
+<p>
+  <strong>Due:</strong>
+  <%= @supply.due %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @supply.status %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @supply.image %>
+</p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @supply.employee %>
+</p>
+
+<%= link_to 'Edit', edit_supply_path(@supply) %> |
+<%= link_to 'Back', supplies_path %>

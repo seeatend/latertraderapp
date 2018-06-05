@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @grower.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @grower.address %>
+</p>
+
+<p>
+  <strong>Mobile number:</strong>
+  <%= @grower.mobile_number %>
+</p>
+
+<p>
+  <strong>Telephone number:</strong>
+  <%= @grower.telephone_number %>
+</p>
+
+<p>
+  <strong>Growers email:</strong>
+  <%= @grower.growers_email_id %>
+</p>
+
+<p>
+  <strong>Certificates:</strong>
+  <%= @grower.certificates %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @grower.company %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @grower.zip_code %>
+</p>
+
+<p>
+  <strong>Smcs member:</strong>
+  <%= @grower.smcs_member %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @grower.balance %>
+</p>
+
+<p>
+  <strong>Order to date:</strong>
+  <%= @grower.order_to_date %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @grower.status %>
+</p>
+
+<%= link_to 'Edit', edit_grower_path(@grower) %> |
+<%= link_to 'Back', growers_path %>

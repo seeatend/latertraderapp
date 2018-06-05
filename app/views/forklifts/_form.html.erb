@@ -1,0 +1,185 @@
+
+
+<%= form_for(@forklift) do |f| %>
+ 
+
+  <div class="box">
+    <div class="box-body">
+        <% if params[:order_id].present? %>
+
+       <div class="form-row">
+        <div class="form-group col-md-6">
+            <%= f.label :employee_id %><br>
+               <%= f.collection_select :employee_id, Employee.where(:position => 'Forklift').order(:name),:id,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :priority %><br>
+            <%= f.select :priority, ['Urgent','Normal'],{}, { :class => 'btn white dropdown-toggle' }%>
+          </div>
+          </div>
+
+           
+          
+          <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :customer_id %><br>
+            <%= f.text_field :customer_id,  class: "form-control",:readonly => true,:value =>  Customer.find(params[:customer_id]).business_name %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :order_id%><br>
+           <%= f.text_field :order_id,  class: "form-control",:readonly => true,:value =>  params[:order_id]%>
+          </div>
+
+         
+          
+        </div>
+
+          <div class="form-row">
+          <div class="form-group col-md-6">
+             <%= f.label :pick_up_location %><br>
+            <%= f.text_field :pick_up_location ,  class: "form-control",:readonly => true,:value =>  params[:pick_up_location]%>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :pick_up_date_and_time %><br>
+            <%= f.datetime_select :pick_up_date_and_time,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+
+         
+          
+        </div>
+         
+          <div class="form-row">
+          <div class="form-group col-md-6">
+             <%= f.label :drop_location %><br>
+            <%= f.text_field :drop_location ,  class: "form-control",:readonly => true,:value =>  params[:drop_location]%>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :drop_date_and_time%><br>
+            <%= f.datetime_select :drop_date_and_time,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+
+         
+          
+        </div>
+<div class="form-row">
+          <div class="form-group col-md-6">
+   <%= f.label :note_to_operator,'Note' %><br>
+    <%= f.text_field :note_to_operator, class: "form-control", placeholder: "Your Message to the Operators" %>
+         </div>
+      <div class="form-group col-md-6">
+   <%= f.label :status %><br>
+    <%= f.select :status, ['Assigned','Order Picked-Up','Delivered'],{}, { :class => 'btn white dropdown-toggle' }%>
+         </div>
+        </div>
+       <br/>
+       
+         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+      </form>
+    </div>
+  </div>
+
+        <% else %>
+     
+<div class="form-row">
+        <div class="form-group col-md-6">
+            <%= f.label :employee_id %><br>
+               <%= f.collection_select :employee_id, Employee.where(:position => 'Forklift').order(:name),:id,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :priority %><br>
+            <%= f.select :priority, ['Urgent','Normal'],{}, { :class => 'btn white dropdown-toggle' }%>
+          </div>
+          </div>
+
+           
+          
+          <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :buyer %><br>
+            <%= f.collection_select :customer_id, Customer.all.order(:business_name),:id,:business_name,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :order_id%><br>
+         <%= f.collection_select :order_id, Order.all,:id,:id,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+
+         
+          
+        </div>
+
+          <div class="form-row">
+          <div class="form-group col-md-6">
+             <%= f.label :pick_up_location %><br>
+            <%= f.text_field :pick_up_location, class: "form-control", placeholder: "Sydney" %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :pick_up_date_and_time %><br>
+            <%= f.datetime_select :pick_up_date_and_time,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+
+         
+          
+        </div>
+         
+          <div class="form-row">
+          <div class="form-group col-md-6">
+             <%= f.label :drop_location %><br>
+            <%= f.text_field :drop_location, class: "form-control", placeholder: "Sydney",:readonly => true %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :drop_date_and_time%><br>
+            <%= f.datetime_select :drop_date_and_time,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+
+         
+          
+        </div>
+<div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :chep_received %><br>
+    <%= f.text_field :chep_received, class: "form-control", placeholder: "55" %>
+   
+         </div>
+      <div class="form-group col-md-6">
+        <%= f.label :chep_issued %><br>
+    <%= f.text_field :chep_issued, class: "form-control", placeholder: "55",:readonly => true, :value => Chep.where(:order_id => @forklift.order_id).first.chep_issued%>
+  
+         </div>
+        </div>
+       
+<div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :chep_due %><br>
+    <%= f.text_field :chep_due, class: "form-control", placeholder: "55",:readonly => true,:value =>  Customer.find(@forklift.customer_id).chep_due %>
+
+         </div>
+      <div class="form-group col-md-6">
+  <%= f.label :note_to_operator,'Note' %><br>
+    <%= f.text_field :note_to_operator, class: "form-control", placeholder: "Your Message to the Operators" %>
+         </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+<%= f.label :image %><br>
+    <%= f.file_field :image %>
+         </div>
+      <div class="form-group col-md-6">
+   <%= f.label :status %><br>
+    <%= f.select :status, ['Assigned','Order Picked-Up','Delivered'],{}, { :class => 'btn white dropdown-toggle' }%>
+         </div>
+        </div>
+       <br/>
+      
+       
+         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+      </form>
+    </div>
+  </div>
+  <% end %>
+
+
+<%end %>
+
+
+

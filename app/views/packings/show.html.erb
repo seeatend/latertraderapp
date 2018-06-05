@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Employee:</strong>
+  <%= @packing.employee %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @packing.order %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @packing.status %>
+</p>
+
+<%= link_to 'Edit', edit_packing_path(@packing) %> |
+<%= link_to 'Back', packings_path %>

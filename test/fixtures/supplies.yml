@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  grower_id: 
+  consignment_number: MyString
+  date_received: 2018-04-07 10:17:21
+  ref_no: MyString
+  value: 9.99
+  paid: 9.99
+  due: 9.99
+  status: MyString
+  image: MyString
+  employee_id: 
+
+two:
+  grower_id: 
+  consignment_number: MyString
+  date_received: 2018-04-07 10:17:21
+  ref_no: MyString
+  value: 9.99
+  paid: 9.99
+  due: 9.99
+  status: MyString
+  image: MyString
+  employee_id: 

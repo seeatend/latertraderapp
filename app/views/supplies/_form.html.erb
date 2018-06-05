@@ -1,0 +1,102 @@
+
+
+
+
+
+<%= form_for(@supply) do |f| %>
+<script type="text/javascript" charset="utf-8">
+
+
+  function  ISQ()
+ {
+
+var value = document.getElementById('supply_value').value;
+  var paid = document.getElementById('supply_paid').value;
+var due = value - paid;
+ document.getElementById('supply_due').value = due;  
+  }
+
+ </script>
+</script>
+  <% if @supply.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@supply.errors.count, "error") %> prohibited this supply from being saved:</h2>
+
+      <ul>
+      <% @supply.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="box">
+    <div class="box-body">
+        
+     
+<div class="form-row">
+        <div class="form-group col-md-6">
+            <%= f.label :grower_id %><br>
+            <%= f.collection_select :grower_id, Grower.all,:id,:name,{}, { :class => 'btn white dropdown-toggle',:readonly => true } %>
+          </div>
+          <div class="form-group col-md-6">
+            <%= f.label :consignment_number%><br>
+            <%= f.text_field :consignment_number, class: "form-control", placeholder: "CONS312412"%>
+          </div>
+          </div>
+          <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :date_received  %><br>
+            <%= f.datetime_select :date_received %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :ref_no  %><br>
+             <%= f.text_field :ref_no, class: "form-control", placeholder: "INV123"%>
+          </div>
+          
+        </div>
+           <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :value  %><br>
+            <%= f.text_field :value, class: "form-control", placeholder: "10000$"%>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :paid %><br>
+             <%= f.text_field :paid, class: "form-control", placeholder: "0$",:onchange => "ISQ();"%>
+          </div>
+          
+        </div>
+           <div class="form-row">
+          <div class="form-group col-md-6">
+            <%= f.label :due  %><br>
+            <%= f.text_field :due, class: "form-control", placeholder: "0$",:readonly => true %>
+          </div>
+
+          <div class="form-group col-md-6">
+            <%= f.label :status %><br>
+             <%= f.select :status, ['Pending', 'Paid' ],{}, { :class => 'btn white dropdown-toggle',:readonly => true }%>
+          </div>
+          
+        </div>
+          <div class="form-row">
+         
+
+          <div class="form-group col-md-6">
+            <%= f.label :employee_id,'Entered By' %><br>
+              <%= f.collection_select :employee_id, Employee.where(:seller_id => Seller.where(:uid => current_user.id).first.id).order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+          </div>
+           <div class="form-group col-md-6">
+            <%= f.label :image %><br>
+             <%= f.file_field :image %>
+          </div>
+        </div>
+
+       <%= f.hidden_field :seller_id, value: Seller.where(:uid => current_user.id).first.id %>
+       
+         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+      </form>
+    </div>
+  </div>
+  <% end %>

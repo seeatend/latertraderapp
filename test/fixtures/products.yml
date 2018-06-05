@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  code: MyString
+  image: MyString
+  sku: MyString
+  category: MyString
+  quality: MyString
+  size: MyString
+  size_code: MyString
+  order_by: MyString
+  order_quantity_unit: MyString
+  net_weight: 9.99
+  packs_per_pellets: 9.99
+
+two:
+  name: MyString
+  code: MyString
+  image: MyString
+  sku: MyString
+  category: MyString
+  quality: MyString
+  size: MyString
+  size_code: MyString
+  order_by: MyString
+  order_quantity_unit: MyString
+  net_weight: 9.99
+  packs_per_pellets: 9.99

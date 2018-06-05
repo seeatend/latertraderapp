@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  address: MyString
+  mobile_number: MyString
+  telephone_number: MyString
+  growers_email_id: MyString
+  certificates: MyString
+  company: MyString
+  zip_code: MyString
+  smcs_member: false
+  balance: 9.99
+  order_to_date: 9.99
+  status: MyString
+
+two:
+  name: MyString
+  address: MyString
+  mobile_number: MyString
+  telephone_number: MyString
+  growers_email_id: MyString
+  certificates: MyString
+  company: MyString
+  zip_code: MyString
+  smcs_member: false
+  balance: 9.99
+  order_to_date: 9.99
+  status: MyString

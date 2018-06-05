@@ -1,0 +1,589 @@
+<div class="app" id="app">
+
+<!-- ############ LAYOUT START-->
+
+  <!-- ############ Aside START-->
+  <div id="aside" class="app-aside fade box-shadow-x nav-expand white" aria-hidden="true">
+    <div class="sidenav modal-dialog dk">
+      <!-- sidenav top -->
+      <div class="navbar lt">
+        <!-- brand -->
+        <a href="../index.html" class="navbar-brand">
+          <svg viewBox="0 0 24 24" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 0h24v24H0z" fill="none"/>
+              <path d="M19.51 3.08L3.08 19.51c.09.34.27.65.51.9.25.24.56.42.9.51L20.93 4.49c-.19-.69-.73-1.23-1.42-1.41zM11.88 3L3 11.88v2.83L14.71 3h-2.83zM5 3c-1.1 0-2 .9-2 2v2l4-4H5zm14 18c.55 0 1.05-.22 1.41-.59.37-.36.59-.86.59-1.41v-2l-4 4h2zm-9.71 0h2.83L21 12.12V9.29L9.29 21z" fill="#53a6fa" class="fill-theme"/>
+          </svg>
+         
+          <span class="hidden-folded d-inline">Traders App</span>
+        </a>
+        <!-- / brand -->
+      </div>
+    
+     <!-- Flex nav content -->
+      <div class="flex hide-scroll">
+          <div class="scroll">
+            <div class="nav-border b-primary" data-nav>
+              <ul class="nav bg">
+                
+                  <% if current_user.utype == "Seller" %>
+                  <li>
+                  <%= link_to dashboard_index_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-dashboard"></i>
+  </span>
+  <span class="nav-text">Dashboard</span>
+<% end %>
+                  </li>
+                  
+
+                <% end %>
+
+ <li>
+                  <%= link_to marketplaces_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-cart-plus"></i>
+  </span>
+  <span class="nav-text">Market Place</span>
+<% end %>
+                  </li>
+         
+
+          <% if current_user.utype == "Seller" %>
+         <li>
+                  <%= link_to walk_in_index_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-calculator"></i>
+  </span>
+  <span class="nav-text">Shop Sales</span>
+<% end %>
+                  </li>
+                   <li>
+                  <%= link_to b2b_index_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-ticket"></i>
+  </span>
+  <span class="nav-text">B2B Sales</span>
+<% end %>
+                  </li>
+         
+
+         <% end %>
+         <% if current_user.utype == "Employee" %>
+
+<% if @employee.position == "Manager" %>
+         <li>
+                  <%= link_to approval_index_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-check"></i>
+  </span>
+  <span class="nav-text">Stock Approval</span>
+<% end %>
+
+                  </li>
+
+                   <li>
+                  <%= link_to credit_approval_index_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-check-circle"></i>
+  </span>
+  <span class="nav-text">Credit Approval</span>
+<% end %>
+
+                  </li>
+
+                  <% elsif @employee.position == "Forklift" %>
+                    <li>
+                  <%= link_to forklifts_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-check"></i>
+  </span>
+  <span class="nav-text">Forklift Task</span>
+<% end %>
+
+                  </li>
+                  <% else %>
+ <li>
+                  <%= link_to packings_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-bus"></i>
+  </span>
+  <span class="nav-text">Packing</span>
+<% end %>
+
+                  </li>
+                  <% end %>
+                  <% end %>
+                  
+                  <% if current_user.utype == "Buyer" %>
+                  <li>
+                  <%= link_to purchases_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-credit-card"></i>
+  </span>
+  <span class="nav-text">My Purchases</span>
+<% end %>
+              </li>   
+<% end %>
+<% if current_user.utype == "Seller" %>
+
+<li>
+                  <%= link_to offers_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-leaf"></i>
+  </span>
+  <span class="nav-text">My Offers</span>
+  </li>
+<% end %>
+
+                   
+                  <% end %>
+                 
+                  <% if current_user.utype == "Seller" %>
+
+                   <li>
+                  <%= link_to stocks_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-cube"></i>
+  </span>
+  <span class="nav-text">My Stock</span>
+  </li>
+                 <% end %>
+                  <% end %>
+                  <% if current_user.utype == "Seller" %>
+
+
+                   <li>
+                  <%= link_to supplies_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-barcode"></i>
+  </span>
+  <span class="nav-text">My Supplies</span>
+  </li>
+                 <% end %>
+
+                  
+                  <% end %>
+                  
+                  <% if current_user.utype == "Seller" %>
+
+<li>
+                  <%= link_to credits_path  do %>
+                   <span class="nav-icon">
+  <i class="fa  fa-credit-card"></i>
+  </span>
+  <span class="nav-text">My Credits</span>
+  </li>
+<% end %>
+
+                   
+                  <% end %>
+                  <% if current_user.utype == "Seller" %>
+                  <li>
+                  <%= link_to reports_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-line-chart"></i>
+  </span>
+
+  <span class="nav-text">My Reports</span>
+  </li>
+                 <% end %>
+                  
+                  <% end %>
+<ul class="nav ">
+                
+                    <li class="nav-header hidden-folded mt-2">
+                      <span class="text-xs">Other Stuff</span>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="nav-caret">
+                          <i class="fa fa-caret-down"></i>
+                        </span>
+                        <span class="nav-icon no-fade">
+                          <i class="fa fa-cog"></i>
+                        </span>
+                        <span class="nav-text">Settings</span>
+                      </a>
+                      <ul class="nav-sub nav-mega nav-mega-3">
+                      <% if current_user.utype == "Seller" %>
+ <li>
+                  <%= link_to employees_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="nav-text">My Employees</span>
+  </li>
+                 <% end %>
+                    
+                  <% end %>
+                   <% if current_user.utype == "Seller" %>
+                  <li>
+                  <%= link_to networks_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-users"></i>
+  </span>
+  <span class="nav-text">My Network</span>
+  </li>
+                 <% end %>
+
+                 
+                  <% end %>
+<% if current_user.utype == "Seller" %>
+ <li>
+                  <%= link_to products_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-snowflake-o"></i>
+  </span>
+  <span class="nav-text">My Products</span>
+  </li>
+                 <% end %>
+                    
+                  <% end %>
+                  
+                  <% if current_user.utype == "Seller" %>
+
+
+                   <li>
+                  <%= link_to services_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-truck"></i>
+  </span>
+  <span class="nav-text">My Services</span>
+  </li>
+                 <% end %>
+
+                  
+                  <% end %>
+                       <% if current_user.utype == "Seller" %>
+
+                  <li>
+                  <%= link_to sales_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-usd"></i>
+  </span>
+  <span class="nav-text">My Sales</span>
+  </li>
+<% end %>
+                 
+                  <% end %>
+
+                  <% if current_user.utype == "Seller" %>
+ <li>
+
+                  <%= link_to claim_wastages_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-trash"></i>
+  </span>
+  <span class="nav-text">Claim Wastage</span>
+  </li>
+                 <% end %>
+                    
+                  <% end %>
+                         
+   <% if current_user.utype == "Seller" || if current_user.utype == "Buyer" %>
+                  <li>
+                  <%= link_to chats_path  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-commenting-o"></i>
+  </span>
+  <span class="nav-text">My Chats</span>
+  </li>
+                 <% end %>
+<%end %>
+<%end %>
+                  
+                 
+                 
+
+                  <% if current_user.utype == "Seller" || if current_user.utype == "Buyer" %>
+                  <li>
+                  
+                  <% if current_user.utype == "Seller" %>
+                  <% seller = Seller.where(:uid => current_user.id).first %> 
+                  <%= link_to edit_seller_path(seller)  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-cog"></i>
+  </span>
+  <span class="nav-text">My Profile</span>
+  </li>
+                 <% end %>
+                 <% else %>
+                  <% customer  = Customer.where(:uid => current_user.id).first %> 
+                  <%= link_to edit_customer_path(customer)  do %>
+                   <span class="nav-icon">
+  <i class="fa fa-cog"></i>
+  </span>
+  <span class="nav-text">My Profile</span>
+  </li>
+  <% end %>
+  <% end %>
+                 <% end %>
+                 <% end %>
+                 
+
+                  
+                      </ul>
+                    </li>
+
+
+                  
+              </ul>
+            </div>
+          </div>
+      </div>
+      
+      
+      <!-- sidenav bottom -->
+    </div>
+  </div>
+  <!-- ############ Aside END-->
+  <!-- ############ Content START-->
+  <div id="content" class="app-content box-shadow-0" role="main">
+    <!-- Header -->
+      <div class="content-header white  box-shadow-0" id="content-header">
+        <div class="navbar navbar-expand-lg">
+          <!-- btn to toggle sidenav on small screen -->
+          <a class="d-lg-none mx-2" data-toggle="modal" data-target="#aside">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path d="M80 304h352v16H80zM80 248h352v16H80zM80 192h352v16H80z"/></svg>
+          </a>
+          <!-- Page title -->
+          <div class="navbar-text nav-title flex" id="pageTitle">Employees</div>
+        
+          <ul class="nav flex-row order-lg-2">
+            <!-- Notification -->
+            <li class="nav-item dropdown">
+              <a class="nav-link px-3" data-toggle="dropdown">
+                <i class="fa fa-bell text-muted"></i>
+                <span class="badge badge-pill up danger">13</span>
+              </a>
+              <!-- dropdown -->
+             
+              <!-- / dropdown -->
+            </li>
+   <li class="nav-item dropdown">
+       <% if (current_user.utype == "Seller") %>
+
+        <%= link_to sales_path, :class => "nav-link px-3"   do %>
+                  
+   <i class="fa fa-usd text-muted"></i>
+                <span class="badge badge-pill up danger"></span>
+    <% end %>
+             
+
+              <% end %>
+  </li>
+               
+              <!-- dropdown -->
+             
+            
+
+            <li class="nav-item dropdown">
+             
+
+        <%= link_to chats_path, :class => "nav-link px-3"   do %>
+                  
+   <i class="fa fa-commenting-o text-muted"></i>
+                <span class="badge badge-pill up danger"></span>
+    <% end %>
+             
+
+             
+              
+              <!-- dropdown -->
+             
+              <!-- / dropdown -->
+            </li>
+
+             <li class="nav-item dropdown">
+              <a class="nav-link px-3" data-toggle="dropdown">
+                <i class="fa  fa-male text-muted"></i>
+                
+              </a>
+              <!-- dropdown -->
+             
+              <!-- / dropdown -->
+
+            </li>
+        <li class="nav-item dropdown">
+       <% if (current_user.utype == "Buyer") %>
+
+        <%= link_to cart_index_path, :class => "nav-link px-3"   do %>
+                  
+   <i class="fa fa-shopping-bag text-muted"></i>
+                <span class="badge badge-pill up danger"><%= Cart.where(:customer_id => Customer.where(:uid => current_user.id).first.id).count %></span>
+  
+  </li>
+                 <% end %>
+             
+
+              <% end %>
+              <!-- dropdown -->
+             
+              <!-- / dropdown -->
+              
+            </li>
+            </li>
+
+
+        
+            <!-- User dropdown menu -->
+         
+            <!-- Navarbar toggle btn -->
+            
+          </ul>
+          <!-- Navbar collapse -->
+          <div class="collapse navbar-collapse no-grow order-lg-1" id="navbarToggler">
+          <form class="input-group m-2 my-lg-0">
+             
+              
+
+              <% if user_signed_in? %>
+ 
+  <%= link_to('<i class="fa fa-sign-in text-muted"></i>'.html_safe, destroy_user_session_path, method: :delete) %>        
+ 
+<% else %>
+ 
+  <%= link_to('<i class="fa fa-sign-out text-muted"></i>'.html_safe, new_user_session_path)  %>  
+  
+<% end %>
+          </form>
+          </div>
+        
+        </div>
+      </div>
+      <!-- Main -->
+    <div class="content-main " id="content-main">
+
+<!-- ############ Main START-->
+
+<div class="padding">
+ 
+  <div class="box">
+    
+    <div class="p-2">
+      <div class="row">
+        <div class="col-sm-5">
+        <%= link_to 'New Employee', new_employee_path,  class: "btn btn-fw primary" %>
+                 
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-3">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-btn">
+              <button class="btn white" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped b-t">
+
+      
+        <thead>
+          <tr>
+            <th style="width:20px;">
+              <label class="ui-check m-0">
+                <input type="checkbox"><i></i>
+              </label>
+            </th>
+
+           
+             <th>Name</th>
+      <th>Mobile</th>
+      <th>Email</th>
+      <th>Position</th>
+      
+      
+      <th style="width:50px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+
+         <% @employees.each do |employee| %>
+
+         <tr>
+            <td><label class="ui-check m-0"><input type="checkbox" name="post[]"><i class="dark-white"></i></label></td>
+            <td><%= employee.name %></td>
+        <td><%= employee.mobile %></td>
+        <td><%= employee.email %></td>
+        <td><%= employee.position %></td>
+       
+            
+            <td>
+              <a href="#" class="active" data-toggle-class><i class="fa fa-check text-success d-none"></i><i class="fa fa-times text-danger d-inline"></i></a>
+            </td>
+              
+        <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
+        <td><%= link_to 'Destroy', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+
+    <% end %>
+          
+        </tbody>
+      </table>
+    </div>
+    <footer class="light lt p-2">
+      <div class="row">
+        <div class="col-sm-4 d-block-sm">
+          <select class="custom-select w-sm d-inline v-middle">
+            <option value="0">Bulk action</option>
+            <option value="1">Delete selected</option>
+            <option value="2">Bulk edit</option>
+            <option value="3">Export</option>
+          </select>
+          <button class="btn white">Apply</button>                  
+        </div>
+        <div class="col-sm-4">
+          <small class="text-muted py-2 d-block text-center">showing 20-30 of 50 items</small>
+        </div>
+        <div class="col-sm-4">                
+          <ul class="pagination justify-content-sm-end m-0">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+</div>
+
+
+<!-- ############ Main END-->
+
+      </div>
+      <!-- Footer -->
+      <div class="content-footer white " id="content-footer">
+        <div class="d-flex p-3">
+          <span class="text-sm text-muted flex">&copy; Copyright. Flatfull</span>
+          <div class="text-sm text-muted">Version 1.0.2</div>
+        </div>
+      </div>
+  </div>
+  <!-- ############ Content END-->
+
+<!-- ############ LAYOUT END-->
+
+</div>
