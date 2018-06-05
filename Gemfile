@@ -6,7 +6,7 @@ gem 'rails', '4.2.10'
 gem 'railties'
 # Use sqlite3 as the database for Active Record
 group :production do
-  gem "pg"
+  gem 'pg'
   gem 'rails_12factor'
 end
 
@@ -16,7 +16,7 @@ group :development, :test do
   gem "sqlite3"
 end
 
-gem "wicked"
+gem 'wicked'
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
