@@ -1,4 +1,4 @@
-class CreateCredits < ActiveRecord::Migration[5.2]
+class CreateCredits < ActiveRecord::Migration
   def change
     create_table :credits do |t|
       t.references :order, index: true, foreign_key: true

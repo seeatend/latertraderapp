@@ -1,4 +1,4 @@
-class CreateNotifications < ActiveRecord::Migration[5.2]
+class CreateNotifications < ActiveRecord::Migration
   def change
     create_table :notifications do |t|
       t.references :customer, index: true, foreign_key: true

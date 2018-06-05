@@ -1,4 +1,4 @@
-class CreateOrderedItems < ActiveRecord::Migration[5.2]
+class CreateOrderedItems < ActiveRecord::Migration
   def change
     create_table :ordered_items do |t|
       t.references :order, index: true, foreign_key: true

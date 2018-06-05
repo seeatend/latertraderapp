@@ -1,4 +1,4 @@
-class CreatePackings < ActiveRecord::Migration[5.2]
+class CreatePackings < ActiveRecord::Migration
   def change
     create_table :packings do |t|
       t.references :employee, index: true, foreign_key: true

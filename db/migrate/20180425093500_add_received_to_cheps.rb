@@ -1,4 +1,4 @@
-class AddReceivedToCheps < ActiveRecord::Migration[5.2]
+class AddReceivedToCheps < ActiveRecord::Migration
   def change
     add_column :cheps, :chep_received, :integer
   end

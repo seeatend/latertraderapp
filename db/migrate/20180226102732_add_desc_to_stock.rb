@@ -1,4 +1,4 @@
-class AddDescToStock < ActiveRecord::Migration[5.2]
+class AddDescToStock < ActiveRecord::Migration
   def change
     add_column :stocks, :desc, :string
   end

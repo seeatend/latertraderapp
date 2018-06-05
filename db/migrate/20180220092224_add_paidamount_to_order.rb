@@ -1,4 +1,4 @@
-class AddPaidamountToOrder < ActiveRecord::Migration[5.2]
+class AddPaidamountToOrder < ActiveRecord::Migration
   def change
     add_column :orders, :paid_amount, :integer
   end

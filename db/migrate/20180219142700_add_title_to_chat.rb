@@ -1,4 +1,4 @@
-class AddTitleToChat < ActiveRecord::Migration[5.2]
+class AddTitleToChat < ActiveRecord::Migration
   def change
     add_column :chats, :title, :string
   end

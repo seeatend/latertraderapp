@@ -1,4 +1,4 @@
-class AddVarietyToProducts < ActiveRecord::Migration[5.2]
+class AddVarietyToProducts < ActiveRecord::Migration
   def change
     add_column :products, :variety, :string
   end

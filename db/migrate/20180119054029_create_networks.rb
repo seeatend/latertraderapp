@@ -1,4 +1,4 @@
-class CreateNetworks < ActiveRecord::Migration[5.2]
+class CreateNetworks < ActiveRecord::Migration
   def change
     create_table :networks do |t|
 

@@ -1,4 +1,4 @@
-class AddInvoiceNumberToChep < ActiveRecord::Migration[5.2]
+class AddInvoiceNumberToChep < ActiveRecord::Migration
   def change
     add_column :cheps, :invoice_number, :string
   end

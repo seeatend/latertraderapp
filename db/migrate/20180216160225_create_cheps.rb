@@ -1,4 +1,4 @@
-class CreateCheps < ActiveRecord::Migration[5.2]
+class CreateCheps < ActiveRecord::Migration
   def change
     create_table :cheps do |t|
       t.references :customer, index: true, foreign_key: true

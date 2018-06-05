@@ -1,4 +1,4 @@
-class AddCountriesToSeller < ActiveRecord::Migration[5.2]
+class AddCountriesToSeller < ActiveRecord::Migration
   def change
     add_column :sellers, :country, :string
     add_column :sellers, :state, :string

@@ -1,4 +1,4 @@
-class CreateGrowers < ActiveRecord::Migration[5.2]
+class CreateGrowers < ActiveRecord::Migration
   def change
     create_table :growers do |t|
       t.string :name

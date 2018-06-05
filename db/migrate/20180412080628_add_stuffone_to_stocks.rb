@@ -1,4 +1,4 @@
-class AddStuffoneToStocks < ActiveRecord::Migration[5.2]
+class AddStuffoneToStocks < ActiveRecord::Migration
   def change
     add_reference :stocks, :supply, index: true, foreign_key: true
   end

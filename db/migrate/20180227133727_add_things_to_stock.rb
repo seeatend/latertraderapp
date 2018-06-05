@@ -1,4 +1,4 @@
-class AddThingsToStock < ActiveRecord::Migration[5.2]
+class AddThingsToStock < ActiveRecord::Migration
   def change
     add_column :stocks, :order_by, :string
     add_column :stocks, :order_quantity_unit, :string

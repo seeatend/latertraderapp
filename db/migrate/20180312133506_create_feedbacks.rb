@@ -1,4 +1,4 @@
-class CreateFeedbacks < ActiveRecord::Migration[5.2]
+class CreateFeedbacks < ActiveRecord::Migration
   def change
     create_table :feedbacks do |t|
       t.references :seller, index: true, foreign_key: true

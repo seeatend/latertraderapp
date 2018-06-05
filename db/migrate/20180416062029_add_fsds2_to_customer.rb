@@ -1,4 +1,4 @@
-class AddFsds2ToCustomer < ActiveRecord::Migration[5.2]
+class AddFsds2ToCustomer < ActiveRecord::Migration
   def change
     add_column :customers, :credit_terms, :string
   end

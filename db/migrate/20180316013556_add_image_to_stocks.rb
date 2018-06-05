@@ -1,4 +1,4 @@
-class AddImageToStocks < ActiveRecord::Migration[5.2]
+class AddImageToStocks < ActiveRecord::Migration
   def change
     add_column :stocks, :consignment_image, :string
     add_column :stocks, :consignment_number, :string

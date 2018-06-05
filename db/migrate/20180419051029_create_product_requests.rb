@@ -1,4 +1,4 @@
-class CreateProductRequests < ActiveRecord::Migration[5.2]
+class CreateProductRequests < ActiveRecord::Migration
   def change
     create_table :product_requests do |t|
       t.references :seller, index: true, foreign_key: true

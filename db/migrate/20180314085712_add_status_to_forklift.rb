@@ -1,4 +1,4 @@
-class AddStatusToForklift < ActiveRecord::Migration[5.2]
+class AddStatusToForklift < ActiveRecord::Migration
   def change
     add_column :forklifts, :status, :string
   end

@@ -1,4 +1,4 @@
-class CreateMarketplaces < ActiveRecord::Migration[5.2]
+class CreateMarketplaces < ActiveRecord::Migration
   def change
     create_table :marketplaces do |t|
 

@@ -1,4 +1,4 @@
-class AddStuff2ToOrders < ActiveRecord::Migration[5.2]
+class AddStuff2ToOrders < ActiveRecord::Migration
   def change
     add_column :orders, :dropoffdateandtime, :datetime
     add_column :orders, :pickupdateandtime, :datetime

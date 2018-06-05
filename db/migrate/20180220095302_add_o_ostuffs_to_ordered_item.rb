@@ -1,4 +1,4 @@
-class AddOOstuffsToOrderedItem < ActiveRecord::Migration[5.2]
+class AddOOstuffsToOrderedItem < ActiveRecord::Migration
   def change
     add_column :ordered_items, :payment_confirmed_by, :string
   end

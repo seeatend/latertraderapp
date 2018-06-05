@@ -1,4 +1,4 @@
-class CreateSlabs < ActiveRecord::Migration[5.2]
+class CreateSlabs < ActiveRecord::Migration
   def change
     create_table :slabs do |t|
       t.references :offer, index: true, foreign_key: true

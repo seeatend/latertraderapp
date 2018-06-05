@@ -1,4 +1,4 @@
-class AddApproveonholdToStocks < ActiveRecord::Migration[5.2]
+class AddApproveonholdToStocks < ActiveRecord::Migration
   def change
     add_column :stocks, :approve_on_hold_stocks, :integer
   end

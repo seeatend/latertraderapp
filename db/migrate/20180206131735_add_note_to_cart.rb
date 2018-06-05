@@ -1,4 +1,4 @@
-class AddNoteToCart < ActiveRecord::Migration[5.2]
+class AddNoteToCart < ActiveRecord::Migration
   def change
     add_column :carts, :note_to_seller, :string
   end

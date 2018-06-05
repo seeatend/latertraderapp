@@ -1,4 +1,4 @@
-class CreateSupplies < ActiveRecord::Migration[5.2]
+class CreateSupplies < ActiveRecord::Migration
   def change
     create_table :supplies do |t|
       t.references :grower, index: true, foreign_key: true

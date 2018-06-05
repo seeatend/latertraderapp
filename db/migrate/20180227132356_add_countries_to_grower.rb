@@ -1,4 +1,4 @@
-class AddCountriesToGrower < ActiveRecord::Migration[5.2]
+class AddCountriesToGrower < ActiveRecord::Migration
   def change
     add_column :growers, :country, :string
     add_column :growers, :state, :string

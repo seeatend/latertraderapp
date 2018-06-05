@@ -1,4 +1,4 @@
-class AddStuffToCart < ActiveRecord::Migration[5.2]
+class AddStuffToCart < ActiveRecord::Migration
   def change
 
     add_column :carts, :dropoffdateandtime, :datetime

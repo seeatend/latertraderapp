@@ -1,4 +1,4 @@
-class AddNoteToOffers < ActiveRecord::Migration[5.2]
+class AddNoteToOffers < ActiveRecord::Migration
   def change
     add_column :offers, :note_to_buyer, :string
   end

@@ -1,4 +1,4 @@
-class AddPnameToStocks < ActiveRecord::Migration[5.2]
+class AddPnameToStocks < ActiveRecord::Migration
   def change
     add_column :stocks, :product_name, :string
   end

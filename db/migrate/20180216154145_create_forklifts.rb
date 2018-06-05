@@ -1,4 +1,4 @@
-class CreateForklifts < ActiveRecord::Migration[5.2]
+class CreateForklifts < ActiveRecord::Migration
   def change
     create_table :forklifts do |t|
       t.references :employee, index: true, foreign_key: true

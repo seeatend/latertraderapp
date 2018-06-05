@@ -1,4 +1,4 @@
-class AddStatusToOffers < ActiveRecord::Migration[5.2]
+class AddStatusToOffers < ActiveRecord::Migration
   def change
     add_column :offers, :status, :string
   end

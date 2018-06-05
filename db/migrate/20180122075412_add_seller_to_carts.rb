@@ -1,4 +1,4 @@
-class AddSellerToCarts < ActiveRecord::Migration[5.2]
+class AddSellerToCarts < ActiveRecord::Migration
   def change
     add_reference :carts, :seller, index: true, foreign_key: true
   end

@@ -1,4 +1,4 @@
-class AddStuffsToOrderedItem < ActiveRecord::Migration[5.2]
+class AddStuffsToOrderedItem < ActiveRecord::Migration
   def change
     add_column :ordered_items, :consignment_number, :string
     add_column :ordered_items, :transport_contact_name, :string

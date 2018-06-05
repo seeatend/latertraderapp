@@ -1,4 +1,4 @@
-class AddStuffToOrders < ActiveRecord::Migration[5.2]
+class AddStuffToOrders < ActiveRecord::Migration
   def change
     
     add_column :orders, :shipping_type, :string

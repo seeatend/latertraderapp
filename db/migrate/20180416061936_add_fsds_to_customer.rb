@@ -1,4 +1,4 @@
-class AddFsdsToCustomer < ActiveRecord::Migration[5.2]
+class AddFsdsToCustomer < ActiveRecord::Migration
   def change
     add_column :customers, :Coop_type, :string
   end

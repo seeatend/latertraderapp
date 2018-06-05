@@ -1,4 +1,5 @@
-class AddMorestuffToPackings < ActiveRecord::Migration[5.2]
+
+class AddMorestuffToPackings < ActiveRecord::Migration
   def change
     add_column :packings, :priority, :string
     add_column :packings, :pickupdate, :datetime

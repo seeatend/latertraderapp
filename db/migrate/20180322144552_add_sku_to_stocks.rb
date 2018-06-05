@@ -1,4 +1,4 @@
-class AddSkuToStocks < ActiveRecord::Migration[5.2]
+class AddSkuToStocks < ActiveRecord::Migration
   def change
     add_column :stocks, :sku, :string
   end

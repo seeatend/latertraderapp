@@ -1,4 +1,4 @@
-class AddOnholdstuffToStocks < ActiveRecord::Migration[5.2]
+class AddOnholdstuffToStocks < ActiveRecord::Migration
   def change
     add_column :stocks, :onhold, :integer
     add_column :stocks, :sold, :integer

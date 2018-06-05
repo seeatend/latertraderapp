@@ -1,4 +1,4 @@
-class AddStatusToEmployees < ActiveRecord::Migration[5.2]
+class AddStatusToEmployees < ActiveRecord::Migration
   def change
     add_column :employees, :status, :string
   end

@@ -1,4 +1,4 @@
-class CreateClaimWastages < ActiveRecord::Migration[5.2]
+class CreateClaimWastages < ActiveRecord::Migration
   def change
     create_table :claim_wastages do |t|
       t.references :stock, index: true, foreign_key: true

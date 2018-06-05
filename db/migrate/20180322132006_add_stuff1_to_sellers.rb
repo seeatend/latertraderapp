@@ -1,4 +1,4 @@
-class AddStuff1ToSellers < ActiveRecord::Migration[5.2]
+class AddStuff1ToSellers < ActiveRecord::Migration
   def change
     add_column :sellers, :market_drop_off_location, :string
   end

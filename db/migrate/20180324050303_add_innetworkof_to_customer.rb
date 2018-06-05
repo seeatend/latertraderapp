@@ -1,4 +1,4 @@
-class AddInnetworkofToCustomer < ActiveRecord::Migration[5.2]
+class AddInnetworkofToCustomer < ActiveRecord::Migration
   def change
     add_column :customers, :in_network_of, :integer
   end

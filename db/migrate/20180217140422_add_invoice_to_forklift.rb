@@ -1,4 +1,4 @@
-class AddInvoiceToForklift < ActiveRecord::Migration[5.2]
+class AddInvoiceToForklift < ActiveRecord::Migration
   def change
     add_column :forklifts, :invoice, :string
   end

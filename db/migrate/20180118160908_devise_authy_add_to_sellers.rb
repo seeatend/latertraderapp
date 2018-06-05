@@ -1,4 +1,4 @@
-class DeviseAuthyAddToSellers < ActiveRecord::Migration[5.2]
+class DeviseAuthyAddToSellers < ActiveRecord::Migration
   def self.up
     change_table :sellers do |t|
       t.string    :authy_id

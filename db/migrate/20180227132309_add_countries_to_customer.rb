@@ -1,4 +1,4 @@
-class AddCountriesToCustomer < ActiveRecord::Migration[5.2]
+class AddCountriesToCustomer < ActiveRecord::Migration
   def change
     add_column :customers, :country, :string
     add_column :customers, :state, :string

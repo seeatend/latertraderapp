@@ -1,4 +1,4 @@
-class AddCreditstuff1ToCustomers < ActiveRecord::Migration[5.2]
+class AddCreditstuff1ToCustomers < ActiveRecord::Migration
   def change
     add_column :customers, :coop_credit, :boolean
     add_column :customers, :coop_credit_limit, :decimal

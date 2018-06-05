@@ -1,4 +1,4 @@
-class AddNotapprovedToStocks < ActiveRecord::Migration[5.2]
+class AddNotapprovedToStocks < ActiveRecord::Migration
   def change
     add_column :stocks, :not_approved, :integer
   end

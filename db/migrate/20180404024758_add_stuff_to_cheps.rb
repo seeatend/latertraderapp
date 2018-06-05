@@ -1,4 +1,4 @@
-class AddStuffToCheps < ActiveRecord::Migration[5.2]
+class AddStuffToCheps < ActiveRecord::Migration
   def change
     add_column :cheps, :chep_type, :string
   end

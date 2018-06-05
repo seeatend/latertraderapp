@@ -1,4 +1,4 @@
-class AddStatustToProductRequest < ActiveRecord::Migration[5.2]
+class AddStatustToProductRequest < ActiveRecord::Migration
   def change
     add_column :product_requests, :status, :string
   end

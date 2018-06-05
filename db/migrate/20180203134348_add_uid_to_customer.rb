@@ -1,4 +1,4 @@
-class AddUidToCustomer < ActiveRecord::Migration[5.2]
+class AddUidToCustomer < ActiveRecord::Migration
   def change
     add_column :customers, :uid, :integer
   end

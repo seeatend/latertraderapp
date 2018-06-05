@@ -1,4 +1,4 @@
-class AddQuantityToCarts < ActiveRecord::Migration[5.2]
+class AddQuantityToCarts < ActiveRecord::Migration
   def change
     add_column :carts, :quantity, :integer
   end

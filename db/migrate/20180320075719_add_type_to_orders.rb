@@ -1,4 +1,4 @@
-class AddTypeToOrders < ActiveRecord::Migration[5.2]
+class AddTypeToOrders < ActiveRecord::Migration
   def change
     add_column :orders, :otype, :string
   end

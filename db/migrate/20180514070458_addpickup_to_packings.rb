@@ -1,4 +1,4 @@
-class AddpickupToPackings < ActiveRecord::Migration[5.2]
+class AddpickupToPackings < ActiveRecord::Migration
   def change
   end
 end

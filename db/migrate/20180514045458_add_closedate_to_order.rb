@@ -1,4 +1,4 @@
-class AddClosedateToOrder < ActiveRecord::Migration[5.2]
+class AddClosedateToOrder < ActiveRecord::Migration
   def change
     add_column :orders, :closed_date, :datetime
   end

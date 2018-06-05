@@ -1,4 +1,4 @@
-class AddTypeToCarts < ActiveRecord::Migration[5.2]
+class AddTypeToCarts < ActiveRecord::Migration
   def change
     add_column :carts, :otype, :string
   end

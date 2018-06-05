@@ -1,4 +1,4 @@
-class AddDescToOffer < ActiveRecord::Migration[5.2]
+class AddDescToOffer < ActiveRecord::Migration
   def change
     add_column :offers, :desc, :string
   end

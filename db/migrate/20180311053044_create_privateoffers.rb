@@ -1,4 +1,4 @@
-class CreatePrivateoffers < ActiveRecord::Migration[5.2]
+class CreatePrivateoffers < ActiveRecord::Migration
   def change
     create_table :privateoffers do |t|
       t.references :offer, index: true, foreign_key: true

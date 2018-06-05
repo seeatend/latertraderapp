@@ -1,4 +1,4 @@
-class AddImageToForklift < ActiveRecord::Migration[5.2]
+class AddImageToForklift < ActiveRecord::Migration
   def change
     add_column :forklifts, :image, :string
   end

@@ -1,4 +1,4 @@
-class CreateChats < ActiveRecord::Migration[5.2]
+class CreateChats < ActiveRecord::Migration
   def change
     create_table :chats do |t|
       t.references :order, index: true, foreign_key: true

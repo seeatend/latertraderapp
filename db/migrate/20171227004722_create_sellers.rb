@@ -1,4 +1,4 @@
-class CreateSellers < ActiveRecord::Migration[5.2]
+class CreateSellers < ActiveRecord::Migration
   def change
     create_table :sellers do |t|
       t.string :business_name

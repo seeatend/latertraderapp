@@ -1,4 +1,4 @@
-class AddVal2ToStocks < ActiveRecord::Migration[5.2]
+class AddVal2ToStocks < ActiveRecord::Migration
   def change
     add_column :stocks, :osqval, :decimal
     add_column :stocks, :soldval, :decimal

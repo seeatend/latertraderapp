@@ -1,4 +1,4 @@
-class CreateB2bOrders < ActiveRecord::Migration[5.2]
+class CreateB2bOrders < ActiveRecord::Migration
   def change
     create_table :b2b_orders do |t|
       t.references :seller, index: true, foreign_key: true

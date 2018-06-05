@@ -1,4 +1,4 @@
-class AddStockToPrivateoffers < ActiveRecord::Migration[5.2]
+class AddStockToPrivateoffers < ActiveRecord::Migration
   def change
     add_column :privateoffers, :stock_id, :integer
   end

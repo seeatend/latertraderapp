@@ -1,4 +1,4 @@
-class AddUidToSeller < ActiveRecord::Migration[5.2]
+class AddUidToSeller < ActiveRecord::Migration
   def change
     add_column :sellers, :uid, :integer
   end

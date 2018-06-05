@@ -1,4 +1,4 @@
-class Addselleridtooffers < ActiveRecord::Migration[5.2]
+class Addselleridtooffers < ActiveRecord::Migration
   def change
   end
 end
