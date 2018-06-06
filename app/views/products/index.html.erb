@@ -510,9 +510,9 @@
 
          <tr>
             <td><label class="ui-check m-0"><input type="checkbox" name="post[]"><i class="dark-white"></i></label></td>
-            <% if product.image.attached? %>
+            
             <td><%= image_tag(product.image, size: "32x32", alt: "Product Image") %></td>  
-            <% end %>
+            
              <td><%= product.name %></td>
              <td><%= product.variety %></td>
              <td><%= product.code %></td>
