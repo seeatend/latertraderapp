@@ -1,5 +1,5 @@
 class Supply < ActiveRecord::Base
-has_one_attached :image
+mount_uploader :image, ImageUploader
   belongs_to :grower
   belongs_to :employee
 
