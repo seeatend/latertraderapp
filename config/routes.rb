@@ -3,6 +3,7 @@ Rails.application.routes.draw do
  
 
 
+  resources :b2b_ordered_items
   resources :contacts
   resources :b2b_orders
   get 'credit_approval/index'

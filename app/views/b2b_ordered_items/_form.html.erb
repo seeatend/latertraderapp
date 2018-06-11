@@ -1,0 +1,45 @@
+<%= form_for(@b2b_ordered_item) do |f| %>
+  <% if @b2b_ordered_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@b2b_ordered_item.errors.count, "error") %> prohibited this b2b_ordered_item from being saved:</h2>
+
+      <ul>
+      <% @b2b_ordered_item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :b2b_order_id %><br>
+    <%= f.text_field :b2b_order_id %>
+  </div>
+  <div class="field">
+    <%= f.label :seller_id %><br>
+    <%= f.text_field :seller_id %>
+  </div>
+  <div class="field">
+    <%= f.label :poi_id %><br>
+    <%= f.number_field :poi_id %>
+  </div>
+  <div class="field">
+    <%= f.label :offer_id %><br>
+    <%= f.text_field :offer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br>
+    <%= f.number_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :o_status %><br>
+    <%= f.text_field :o_status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

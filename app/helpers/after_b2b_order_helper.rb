@@ -1,0 +1,2 @@
+module AfterB2bOrderHelper
+end

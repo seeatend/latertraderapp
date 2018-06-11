@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  b2b_order_id: 
+  seller_id: 
+  poi_id: 1
+  offer_id: 
+  quantity: 1
+  value: 1
+  o_status: MyString
+
+two:
+  b2b_order_id: 
+  seller_id: 
+  poi_id: 1
+  offer_id: 
+  quantity: 1
+  value: 1
+  o_status: MyString

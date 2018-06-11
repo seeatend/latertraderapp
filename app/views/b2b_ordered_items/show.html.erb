@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>B2b order:</strong>
+  <%= @b2b_ordered_item.b2b_order %>
+</p>
+
+<p>
+  <strong>Seller:</strong>
+  <%= @b2b_ordered_item.seller %>
+</p>
+
+<p>
+  <strong>Poi:</strong>
+  <%= @b2b_ordered_item.poi_id %>
+</p>
+
+<p>
+  <strong>Offer:</strong>
+  <%= @b2b_ordered_item.offer %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @b2b_ordered_item.quantity %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @b2b_ordered_item.value %>
+</p>
+
+<p>
+  <strong>O status:</strong>
+  <%= @b2b_ordered_item.o_status %>
+</p>
+
+<%= link_to 'Edit', edit_b2b_ordered_item_path(@b2b_ordered_item) %> |
+<%= link_to 'Back', b2b_ordered_items_path %>
