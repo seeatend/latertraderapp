@@ -11,17 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180605204356) do
+ActiveRecord::Schema.define(version: 20180606011108) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string   "name",        null: false
-    t.string   "record_type", null: false
     t.integer  "record_id",   null: false
+    t.string   "record_type", null: false
     t.integer  "blob_id",     null: false
     t.datetime "created_at",  null: false
   end
 
-  add_index "active_storage_attachments", ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
   add_index "active_storage_attachments", ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
 
   create_table "active_storage_blobs", force: :cascade do |t|
@@ -47,20 +46,12 @@ ActiveRecord::Schema.define(version: 20180605204356) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "admins", ["email"], name: "index_admins_on_email", unique: true
   add_index "admins", ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
-
-  create_table "ar_internal_metadata", primary_key: "key", force: :cascade do |t|
-    t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "ar_internal_metadata", ["key"], name: "sqlite_autoindex_ar_internal_metadata_1", unique: true
 
   create_table "b2b_orders", force: :cascade do |t|
     t.integer  "seller_id"
@@ -257,7 +248,7 @@ ActiveRecord::Schema.define(version: 20180605204356) do
     t.integer  "chep_issued"
     t.integer  "chep_due"
     t.integer  "chep_received"
-    t.integer  "in_chep_network_of"
+    t.string   "in_chep_network_of"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -736,8 +727,8 @@ ActiveRecord::Schema.define(version: 20180605204356) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                              null: false
-    t.datetime "updated_at",                              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "utype"
     t.string   "authy_id"
     t.datetime "last_sign_in_with_authy"
@@ -750,8 +741,8 @@ ActiveRecord::Schema.define(version: 20180605204356) do
 
   create_table "works", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
