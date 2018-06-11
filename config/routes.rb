@@ -22,6 +22,7 @@ Rails.application.routes.draw do
  
 
   resources :order_histroy
+  resources :after_b2b_order
 resources :after_order
 resources :orders
   resources :walk_in

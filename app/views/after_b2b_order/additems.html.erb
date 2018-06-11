@@ -516,7 +516,7 @@
 
        
        <%= f.hidden_field :seller_id, value: Seller.where(:uid => current_user.id).first.id %>
-       <%= f.hidden_field :poi_id, value: @b2border.customer_id %>
+       <%= f.hidden_field :poi_id, value: @b2border.poi_id %>
        <%= f.hidden_field :b2b_order_id, value: @b2border.id %>
          <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
       </form>

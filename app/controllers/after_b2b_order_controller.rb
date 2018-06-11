@@ -10,10 +10,7 @@ def show
     render_wizard
   end
   
-def walk_in_add_items
-    puts "It works"
-    return true
-  end
+
 
   def update
   @b2border = B2bOrder.find(session[:order_id])
@@ -33,4 +30,3 @@ private
     end
 end
 
-end

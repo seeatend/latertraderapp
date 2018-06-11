@@ -32,7 +32,9 @@ class B2bOrdersController < ApplicationController
 
     respond_to do |format|
       if @b2b_order.save
-        format.html { redirect_to @b2b_order, notice: 'B2b order was successfully created.' }
+         session[:order_id] =  @b2b_order.id
+        format.html { redirect_to after_b2b_order_index_path }
+   
         format.json { render :show, status: :created, location: @b2b_order }
       else
         format.html { render :new }
