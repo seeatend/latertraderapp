@@ -1014,22 +1014,22 @@
       <div class="col-sm-6">
         <div class="box p-3">
           <strong class="text-muted">TO:</strong>
-          <h6><%= @ordered_item.customer.business_name%></h6>
+          <h6><%= Seller.find(@ordered_item.poi_id).business_name%></h6>
           <p class="text-muted">
-            <%= @ordered_item.customer.office_address%><br>
-            Phone:  <%= @ordered_item.customer.office_phone%><br>
-            Email:  <%= @ordered_item.customer.buyer_email%><br>
+            <%= Seller.find(@ordered_item.poi_id).office_address%><br>
+            Phone:  <%= Seller.find(@ordered_item.poi_id).office_phone%><br>
+            Email:  <%= Seller.find(@ordered_item.poi_id).seller_email%><br>
           </p>
         </div>
       </div>
       <div class="col-sm-6">
         <div class="box p-3">
           <strong class="text-muted">SHIP TO:</strong>
-          <h6><%= @ordered_item.customer.business_name%></h6>
+          <h6><%= Seller.find(@ordered_item.poi_id).business_name%></h6>
           <p class="text-muted">
-             <%= @ordered_item.customer.shipping_address%><br>
-            Phone: <%= @ordered_item.customer.office_phone%><br>
-            Email:  <%= @ordered_item.customer.buyer_email%><br>
+             <%= Seller.find(@ordered_item.poi_id).shipping_address%><br>
+            Phone: <%= Seller.find(@ordered_item.poi_id).office_phone%><br>
+            Email:  <%= Seller.find(@ordered_item.poi_id).seller_email%><br>
           </p>
         </div>
       </div>
@@ -1115,7 +1115,7 @@
 
 <% if @orders.otype == "B2B" %>
 <%= link_to 'Add More Items',
-         new_ordered_item_path(:order_id => @orders.id, :customer_id => @orders.customer_id ), {:class => "btn btn-fw primary",
+         new_ordered_item_path, {:class => "btn btn-fw primary",
         :onclick=>"window.open(this.href,'Add Items', 'height=600, width=600');return false;" }
 %>
 
