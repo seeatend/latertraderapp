@@ -10,6 +10,12 @@ class B2bOrderedItemsController < ApplicationController
   # GET /b2b_ordered_items/1
   # GET /b2b_ordered_items/1.json
   def show
+    @orders = B2bOrder.find(@ordered_item.b2b_order_id)
+    
+ @seller = Seller.where(:uid => current_user.id).first
+    
+    @ordered_items = B2bOrderedItem.where(:seller_id => @seller.id).where(:b2b_order_id =>  @ordered_item.b2b_order_id)
+  
   end
 
   # GET /b2b_ordered_items/new
@@ -24,7 +30,11 @@ class B2bOrderedItemsController < ApplicationController
   # POST /b2b_ordered_items
   # POST /b2b_ordered_items.json
   def create
-    @b2b_ordered_item = B2bOrderedItem.new(b2b_ordered_item_params)
+     @offer = Offer.find(b2b_ordered_item_params[:offer_id])
+    value = @offer.selling_price * b2b_ordered_item_params[:quantity].to_i
+    puts value
+    
+    @b2b_ordered_item = B2bOrderedItem.new(b2b_ordered_item_params.merge(:value => value))
 
     respond_to do |format|
       if @b2b_ordered_item.save
@@ -64,7 +74,7 @@ class B2bOrderedItemsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_b2b_ordered_item
-      @b2b_ordered_item = B2bOrderedItem.find(params[:id])
+      @ordered_item = B2bOrderedItem.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

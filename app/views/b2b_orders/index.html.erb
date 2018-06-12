@@ -503,21 +503,25 @@
   </thead>
 
   <tbody>
+ 
     <% @b2b_orders.each do |b2b_order| %>
       <tr>
         <td> <div class="progress mt-2" style="height:5px">
                   <div class="progress-bar info" style="width: 45%"></div></td>
         <td><%= b2b_order.id %></td>
+        <% @order_item = B2bOrderedItem.where(:b2b_order_id => b2b_order.id).first %>
         <td><%= b2b_order.otype %></td>
         <td><%= Seller.find(b2b_order.poi_id).business_name %></td>
-        <td>Value</td>
+        
+
+        
         <td><%= b2b_order.payment_type %></td>
         <td><%= b2b_order.shipping_type %></td>
         <td> <%=b2b_order.created_at.strftime("%d %h %y | %H:%M") %></td>
         <td><%= b2b_order.o_status %></td>
         
         
-        <td><%= link_to 'Show', b2b_order %></td>
+        <td><%= link_to 'Show', @order_item %></td>
         <td><%= link_to 'Edit', edit_b2b_order_path(b2b_order) %></td>
         <td><%= link_to 'Destroy', b2b_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

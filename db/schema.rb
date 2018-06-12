@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180611101716) do
+ActiveRecord::Schema.define(version: 20180612035102) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string   "name",        null: false
@@ -61,8 +61,15 @@ ActiveRecord::Schema.define(version: 20180611101716) do
     t.integer  "quantity"
     t.integer  "value"
     t.string   "o_status"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+    t.string   "consignment_number"
+    t.string   "transport_contact_number"
+    t.string   "transport_contact_name"
+    t.string   "note_to_buyer"
+    t.integer  "paid_amount"
+    t.datetime "payment_done_date"
+    t.string   "payment_confirmed_by"
   end
 
   add_index "b2b_ordered_items", ["b2b_order_id"], name: "index_b2b_ordered_items_on_b2b_order_id"

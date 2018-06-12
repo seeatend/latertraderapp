@@ -8,6 +8,8 @@ class B2bOrdersController < ApplicationController
   # GET /b2b_orders
   # GET /b2b_orders.json
   def index
+     @seller = Seller.where(:uid => current_user.id).first
+    @orders = B2bOrder.where(:seller_id => @seller.id)
     @b2b_orders = B2bOrder.all
   end
 
