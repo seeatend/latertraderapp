@@ -79,6 +79,6 @@ class B2bOrderedItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def b2b_ordered_item_params
-      params.require(:b2b_ordered_item).permit(:b2b_order_id, :seller_id, :poi_id, :offer_id, :quantity, :value, :o_status)
+      params.require(:b2b_ordered_item).permit(:b2b_order_id, :seller_id, :poi_id, :offer_id, :quantity, :value, :o_status,:in_network_of,:credit_limit,:credit_utilized,:credit_available,:credit_due,:credit_type,:Coop_type,:Coop_ref_no,:credit_terms,:coop_credit,:coop_credit_limit,:coop_credit_utilized,:coop_credit_available,:coop_credit_due,:chep_issued,:chep_due,:chep_received,:in_chep_network_of)
     end
 end

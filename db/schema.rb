@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180612035102) do
+ActiveRecord::Schema.define(version: 20180628152257) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string   "name",        null: false
@@ -639,6 +639,24 @@ ActiveRecord::Schema.define(version: 20180612035102) do
     t.string   "city"
     t.string   "zip"
     t.string   "market_drop_off_location"
+    t.decimal  "credit_limit"
+    t.integer  "in_network_of"
+    t.decimal  "credit_utilized"
+    t.decimal  "credit_available"
+    t.decimal  "credit_due"
+    t.string   "credit_type"
+    t.string   "Coop_type"
+    t.string   "Coop_ref_no"
+    t.string   "credit_terms"
+    t.boolean  "coop_credit"
+    t.decimal  "coop_credit_limit"
+    t.decimal  "coop_credit_utilized"
+    t.decimal  "coop_credit_available"
+    t.decimal  "coop_credit_due"
+    t.integer  "chep_issued"
+    t.integer  "chep_due"
+    t.integer  "chep_received"
+    t.string   "in_chep_network_of"
   end
 
   add_index "sellers", ["authy_id"], name: "index_sellers_on_authy_id"
