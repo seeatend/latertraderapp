@@ -71,7 +71,7 @@ class B2bOrderedItemsController < ApplicationController
        @order = B2bOrder.find(@ordered_item.b2b_order_id)
        ordered_items = B2bOrderedItem.where(:b2b_order_id => @order.id)
        if @order.payment_type == "Cash"
-        @notification = Notification.create(customer_id: @ordered_item.customer_id, seller_id: @ordered_item.seller_id, order_id: @ordered_item.b2b_order_id, content: "Make payment cash payment for your approved order " + @ordered_item.offer.desc, ntype: "Payment" )
+        
         if @order.shipping_type == "Market Drop-Off"
            deduct_from_offer(@order.id)
            @order.update_column(:o_status,"Approved")
@@ -210,7 +210,7 @@ class B2bOrderedItemsController < ApplicationController
     end
 
     elsif b2b_ordered_item_params[:o_status] == "Receieved"
-        @order = B2bOrder.find(@ordered_item.order_id)
+        @order = B2bOrder.find(@ordered_item.b2b_order_id)
          @customer = Seller.find(ordered_items.first.poi_id)
       @order.update_column(:o_status,"Order Receieved")
       @order.update_column(:item_received_date,DateTime.now)
@@ -220,7 +220,7 @@ class B2bOrderedItemsController < ApplicationController
       redirect_to @ordered_item
 
 elsif ordered_item_params[:o_status] == "Credit Payment Done"
-        @order = B2bOrder.find(@ordered_item.order_id)
+        @order = B2bOrder.find(@ordered_item.b2b_order_id)
         
       @order.update_column(:o_status,"Credit Payment Done")
       @order.update_column(:payment_done_date,DateTime.now)
@@ -228,7 +228,7 @@ elsif ordered_item_params[:o_status] == "Credit Payment Done"
      
       redirect_to @ordered_item
     elsif ordered_item_params[:o_status] == "Shipped"
-       @order = B2bOrder.find(@ordered_item.order_id)
+       @order = B2bOrder.find(@ordered_item.b2b_order_id)
       @order.update_column(:o_status,"Shipped")
       @order.update_column(:consignment_number,ordered_item_params[:consignment_number])
       @order.update_column(:transport_contact_name ,ordered_item_params[:transport_contact_name])
@@ -238,14 +238,14 @@ elsif ordered_item_params[:o_status] == "Credit Payment Done"
       redirect_to @ordered_item
 
     elsif ordered_item_params[:o_status] == "Closed"
-       @order = B2bOrder.find(@ordered_item.order_id)
+       @order = B2bOrder.find(@ordered_item.b2b_order_id)
       @order.update_column(:o_status,"Closed")
   
       @order.update_column(:closed_date,DateTime.now)
       redirect_to @ordered_item
 
     else
-      @order = B2bOrder.find(@ordered_item.order_id)
+      @order = B2bOrder.find(@ordered_item.b2b_order_id)
       @order.update_column(:o_status,"Closed")
       @order.update_column(:closed_date,DateTime.now)
       
@@ -266,6 +266,22 @@ elsif ordered_item_params[:o_status] == "Credit Payment Done"
 
     
   end
+
+def deduct_from_offer(order_id)
+  @deditems = B2bOrderedItem.where(:b2b_order_id => order_id)
+  @deditems.each do |oitem|
+    offer = Offer.find(oitem.offer_id)
+    new_offer_quantity  = offer.total_quantity_on_offer.to_i - oitem.quantity.to_i
+    new_sold_quantity = offer.stock.sold.to_i + oitem.quantity.to_i
+    new_offered_quantity = offer.stock.offered.to_i - oitem.quantity.to_i
+    offer.update_column(:total_quantity_on_offer,new_offer_quantity)
+    offer.stock.update_column(:sold,new_sold_quantity)
+    offer.stock.update_column(:offered,new_offered_quantity)
+  end
+  
+  
+  return true
+end 
 
   # DELETE /b2b_ordered_items/1
   # DELETE /b2b_ordered_items/1.json

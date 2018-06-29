@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180628152257) do
+ActiveRecord::Schema.define(version: 20180629073353) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string   "name",        null: false
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(version: 20180628152257) do
     t.string   "otype"
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
+    t.datetime "order_approved_date"
   end
 
   add_index "b2b_orders", ["seller_id"], name: "index_b2b_orders_on_seller_id"
