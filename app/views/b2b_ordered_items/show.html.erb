@@ -1104,9 +1104,9 @@
 <% end %>
 
 <% if @orders.otype == "Walk In" %>
-<% if @orders.o_status != "Closed" %>
+<% if @orders.o_status == "Order Placed" %>
 <%= link_to 'Add More Items',
-         new_ordered_item_path(:order_id => @orders.id, :customer_id => @orders.customer_id ), {:class => "btn btn-fw primary",
+         new_b2b_ordered_item_path(:order_id => @orders.id, :customer_id => @orders.customer_id ), {:class => "btn btn-fw primary",
         :onclick=>"window.open(this.href,'Add Items', 'height=600, width=600');return false;" }
 %>
  
