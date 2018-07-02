@@ -1005,7 +1005,7 @@
 
         </span>   <br>
         Payment: <strong><% if @orders.o_status == "Credit Payment Done" %> Done <% elsif @orders.o_status == "Paid" %> Done <% elsif @orders.o_status == "Closed" %> Done <% else %> Pending <% end %> </strong><br><br>
-        <%= link_to 'Track',order_histroy_index_path(:id => @ordered_item.id) ,  class: "btn btn-fw primary" %> <br> <br><a href="#" class="btn btn-sm primary float-right hidden-print" onClick="window.print();">Print</a>
+      <br> <br><a href="#" class="btn btn-sm primary float-right hidden-print" onClick="window.print();">Print</a>
         <br>
       </div>
 
@@ -1106,16 +1106,16 @@
 <% if @orders.otype == "Walk In" %>
 <% if @orders.o_status == "Order Placed" %>
 <%= link_to 'Add More Items',
-         new_b2b_ordered_item_path(:order_id => @orders.id, :customer_id => @orders.customer_id ), {:class => "btn btn-fw primary",
+         new_b2b_ordered_item_path(:b2b_order_id => @orders.id, :poi_id => @orders.poi_id), {:class => "btn btn-fw primary",
         :onclick=>"window.open(this.href,'Add Items', 'height=600, width=600');return false;" }
 %>
  
 <% end %>
 <% end %>
 
-<% if @orders.otype == "B2B" %>
+<% if @orders.o_status == "Order Placed" %>
 <%= link_to 'Add More Items',
-         new_ordered_item_path, {:class => "btn btn-fw primary",
+         new_b2b_ordered_item_path(:b2b_order_id => @orders.id, :poi_id => @orders.poi_id), {:class => "btn btn-fw primary",
         :onclick=>"window.open(this.href,'Add Items', 'height=600, width=600');return false;" }
 %>
 

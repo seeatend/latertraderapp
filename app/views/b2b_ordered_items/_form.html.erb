@@ -11,35 +11,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :b2b_order_id %><br>
-    <%= f.text_field :b2b_order_id %>
+  <div class="box">
+    <div class="box-body">
+        
+     
+<div class="form-row">
+        <div class="form-group col-md-6">
+         <%= f.label :offer_id,'Items'%><br>
+            <%= f.collection_select :offer_id, Offer.where(:seller_id => Seller.where(:uid => current_user.id).first.id),:id,:desc,{}, { :class => 'btn white dropdown-toggle' } %>
+            
+          </div>
+          <div class="form-group col-md-6">
+           <%= f.label :quantity%><br>
+            <%= f.text_field :quantity, class: "form-control", placeholder: "10" %>
+          </div>
+          </div>
+          
+         
+
+       
+       <%= f.hidden_field :seller_id, value: Seller.where(:uid => current_user.id).first.id %>
+       <%= f.hidden_field :b2b_order_id, value: params[:b2b_order_id] %>
+       
+       <%= f.hidden_field :poi_id, value: params[:poi_id] %>
+       
+         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
+      </form>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :seller_id %><br>
-    <%= f.text_field :seller_id %>
-  </div>
-  <div class="field">
-    <%= f.label :poi_id %><br>
-    <%= f.number_field :poi_id %>
-  </div>
-  <div class="field">
-    <%= f.label :offer_id %><br>
-    <%= f.text_field :offer_id %>
-  </div>
-  <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.number_field :quantity %>
-  </div>
-  <div class="field">
-    <%= f.label :value %><br>
-    <%= f.number_field :value %>
-  </div>
-  <div class="field">
-    <%= f.label :o_status %><br>
-    <%= f.text_field :o_status %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
 <% end %>
+
+
+
+
