@@ -461,7 +461,12 @@
               <a href="#" class="active" data-toggle-class><i class="fa fa-check text-success d-none"></i><i class="fa fa-times text-danger d-inline"></i></a>
             </td>
              
-        <td><%= link_to 'Show', edit_stock_path(stock) %></td>
+        <td><% if stock.status == "Not Approved" %>
+          <%= link_to 'Approve', edit_stock_path(stock) %>
+            <% else %>
+            <%= link_to 'Show', edit_stock_path(stock) %>
+            <% end %>
+          </td>
         
           </tr>
 
