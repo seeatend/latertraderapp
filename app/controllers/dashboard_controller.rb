@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
 		 @seller = Seller.where(:seller_email => current_user.email).first
 		@stocks = Stock.where(:seller_id => @seller.id)
 		@offers = Offer.where(:seller_id => @seller.id)
-		@credits = Credit.all
+		
 	end
 
 end
