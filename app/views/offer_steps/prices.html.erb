@@ -519,12 +519,12 @@
           
           
            <div class="form-group col-md-4">
-            <%= f.label :total_quantity_on_offer%><br>
+            <%= f.label :total_quantity_on_offer,'Set Quantity on Offer'%><br>
             <%= f.text_field :total_quantity_on_offer, class: "form-control", placeholder: "100", :value => @offer.stock.in_stock_quantity  %>
           </div>
 
   <div class="form-group col-md-4">
-            <%= f.label :min_order_quantity %><br>
+            <%= f.label :min_order_quantity,'Set Minimum Order Quantity' %><br>
             <%= f.text_field :min_order_quantity, class: "form-control", placeholder: "70" %>
           </div>
           

@@ -1273,7 +1273,7 @@
             <td>  <%= @order.customer.business_name%></td>
             <td>
                   <% if current_user.utype == "Buyer" %>
-              <% if @orders.o_status == "Order Delivered" %>
+              <% if @order.o_status == "Order Delivered" %>
                  
                     <a data-toggle="modal" class="open-ReceivedItemDialog btn btn-success big" href="#receivedItemDialog"><i class="fa fa-plus-square hided-icon big"></i> Click here once you recieve the Shipment </a>
 
