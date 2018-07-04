@@ -371,7 +371,7 @@
    <i class="fa fa-usd text-muted"></i>
                 <span class="badge badge-pill up danger"><% if (current_user.utype == "Buyer") %>
                   <%= Order.where(:customer_id => Customer.where(:uid => current_user.id).first.id).where.not(o_status: "Closed").count %>
-                    <% else %>
+                    <% elsif  (current_user.utype == "Seller")%>
                     <%= Order.where(:seller_id => Seller.where(:uid => current_user.id).first.id).where.not(o_status: "Closed").count %>
                     <% end %></span>
     <% end %>
@@ -392,7 +392,7 @@
    <i class="fa fa-commenting-o text-muted"></i>
                 <span class="badge badge-pill up danger"><% if (current_user.utype == "Buyer") %>
                   <%= Chat.where(:customer_id => Customer.where(:uid => current_user.id).first.id).count %>
-                    <% else %>
+                    <% elsif  (current_user.utype == "Seller")%>
                     <%= Chat.where(:seller_id => Seller.where(:uid => current_user.id).first.id).count %>
                     <% end %>
                   </span>
@@ -415,7 +415,7 @@
                 
                <% end %>
 
-               <% else %>
+              <% elsif (current_user.utype == "Buyer")%>
                 <% customer  = Customer.where(:uid => current_user.id).first %> 
                   <%= link_to edit_customer_path(customer), :class => "nav-link px-3"   do %>
                     <i class="fa  fa-male text-muted"></i>
