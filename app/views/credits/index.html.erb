@@ -608,8 +608,15 @@
         
         <td><%= credit.status %></td>
         <td><%= credit.approved_by %></td>
-        
-        <td><%= link_to 'Approve', edit_credit_path(credit) %></td>
+<% if credit.approved_by == "AUTO" %>
+<td></td>
+<% else %>
+        <% if credit.status == "Approved" %>
+        <td><%= link_to 'Edit', edit_credit_path(credit) %></td>
+        <% else %>
+            <td><%= link_to 'Approve', edit_credit_path(credit) %></td>
+            <% end %>
+            <% end %>
         
       </tr>
     <% end %>
