@@ -369,7 +369,11 @@
         <%= link_to sales_path, :class => "nav-link px-3"   do %>
                   
    <i class="fa fa-usd text-muted"></i>
-                <span class="badge badge-pill up danger"></span>
+                <span class="badge badge-pill up danger"><% if (current_user.utype == "Buyer") %>
+                  <%= Order.where(:customer_id => Customer.where(:uid => current_user.id).first.id).where.not(o_status: "Closed").count %>
+                    <% else %>
+                    <%= Order.where(:seller_id => Seller.where(:uid => current_user.id).first.id).where.not(o_status: "Closed").count %>
+                    <% end %></span>
     <% end %>
              
 
@@ -386,7 +390,12 @@
         <%= link_to chats_path, :class => "nav-link px-3"   do %>
                   
    <i class="fa fa-commenting-o text-muted"></i>
-                <span class="badge badge-pill up danger"></span>
+                <span class="badge badge-pill up danger"><% if (current_user.utype == "Buyer") %>
+                  <%= Chat.where(:customer_id => Customer.where(:uid => current_user.id).first.id).count %>
+                    <% else %>
+                    <%= Chat.where(:seller_id => Seller.where(:uid => current_user.id).first.id).count %>
+                    <% end %>
+                  </span>
     <% end %>
              
 
@@ -397,11 +406,21 @@
               <!-- / dropdown -->
             </li>
 
+
              <li class="nav-item dropdown">
-              <a class="nav-link px-3" data-toggle="dropdown">
+               <% if current_user.utype == "Seller" %>
+                  <% seller = Seller.where(:uid => current_user.id).first %> 
+                  <%= link_to edit_seller_path(seller), :class => "nav-link px-3"   do %>
                 <i class="fa  fa-male text-muted"></i>
                 
-              </a>
+               <% end %>
+
+               <% else %>
+                <% customer  = Customer.where(:uid => current_user.id).first %> 
+                  <%= link_to edit_customer_path(customer), :class => "nav-link px-3"   do %>
+                    <i class="fa  fa-male text-muted"></i>
+                    <% end %>
+               <% end %>
               <!-- dropdown -->
              
               <!-- / dropdown -->
