@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180704144636) do
+ActiveRecord::Schema.define(version: 20180704161938) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string   "name",        null: false
@@ -202,6 +202,7 @@ ActiveRecord::Schema.define(version: 20180704144636) do
     t.decimal  "requested"
     t.decimal  "extended"
     t.decimal  "utilised"
+    t.string   "customer_type"
   end
 
   add_index "credits", ["employee_id"], name: "index_credits_on_employee_id"

@@ -579,6 +579,7 @@
            
              <th>Order Id</th>
              <th>Customer(Title)</th>
+             <th>Customer Type</th>
              <th>Credit Type</th>
       <th>Requested($)</th>
        <th>Extended($)</th>
@@ -598,6 +599,7 @@
       <td><label class="ui-check m-0"><input type="checkbox" name="post[]"><i class="dark-white"></i></label></td>
         <td><%= credit.order.id%></td>
         <td><%= credit.order.customer.business_name%></td>
+        <td><%= credit.customer_type %></td>
         <td><%= credit.ctype %></td>
        <td><%= credit.requested %></td>
        <td><%= credit.extended %></td>

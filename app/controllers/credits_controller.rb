@@ -163,6 +163,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def credit_params
-      params.require(:credit).permit(:order_id, :value, :ctype, :status,:employee_id,:approved_by,:note_to_buyer,:requested,:extended,:utilised)
+      params.require(:credit).permit(:order_id, :value, :ctype, :status,:employee_id,:approved_by,:note_to_buyer,:requested,:extended,:utilised,:customer_type)
     end
 end
