@@ -503,15 +503,19 @@
         <div class="form-row">
           
             <%= f.label :logo %>
-            <%= f.text_field :logo_for_customer_area, class: "form-control", placeholder: "Paste your logo url here" %>
+            <br/>
+            <%= f.file_field :logo_for_customer_area %>
+            
             
           
         </div>
         <br/>
         <div class="form-row">
           
-            <%= f.label :logo_for_invoices %>
-            <%= f.text_field :logo_for_invoices, class: "form-control", placeholder: "Paste your logo url here" %>
+            <%= f.label :logo_for_invoices %> 
+            <br/>
+            <%= f.file_field :logo_for_invoices %>
+            
             
           
         </div>

@@ -156,7 +156,8 @@
         </div>
 
          <div class="form-row">
-         
+          <%= f.hidden_field :in_network_of, value: Seller.where(:uid => current_user.id).first.id %>
+           <%= f.hidden_field :in_chep_network_of, value: Seller.where(:uid => current_user.id).first.id %>
          
         </div>
          <%= f.submit 'Continue', :class => 'btn btn-fw success' %>

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
  
 
-
+  resources :states, only: :index
   resources :b2b_ordered_items
   resources :contacts
   resources :b2b_orders

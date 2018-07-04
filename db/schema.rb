@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180629073353) do
+ActiveRecord::Schema.define(version: 20180704144636) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string   "name",        null: false
@@ -273,6 +273,8 @@ ActiveRecord::Schema.define(version: 20180629073353) do
     t.integer  "chep_due"
     t.integer  "chep_received"
     t.string   "in_chep_network_of"
+    t.string   "hometown"
+    t.string   "pincode"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -658,6 +660,8 @@ ActiveRecord::Schema.define(version: 20180629073353) do
     t.integer  "chep_due"
     t.integer  "chep_received"
     t.string   "in_chep_network_of"
+    t.string   "hometown"
+    t.string   "pincode"
   end
 
   add_index "sellers", ["authy_id"], name: "index_sellers_on_authy_id"

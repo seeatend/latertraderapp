@@ -10,7 +10,7 @@ class NetworksController < ApplicationController
     if params[:ntype] == "grower"
     @growers = Grower.where(:seller_id => Seller.where(:uid => current_user.id).first.id)
   elsif params[:ntype] == "seller"
-   @sellers = Customer.where(:in_network_of => Seller.where(:uid => current_user.id).first.id)
+   @sellers = Seller.where(:in_network_of => Seller.where(:uid => current_user.id).first.id)
   else
        @customers = Customer.where(:in_chep_network_of => Seller.where(:uid => current_user.id).first.id)
   end
