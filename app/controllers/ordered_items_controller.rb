@@ -60,7 +60,7 @@ end
       if ordered_item_params[:o_status] == "Order Cancelled"
           @order = Order.find(@ordered_item.order_id)
       @order.update_column(:o_status,"Order Cancelled")
-      redirect_to @ordered_item
+      redirect_to order_histroy_index_url(:id => @order.id)
 
        elsif ordered_item_params[:o_status] == "Paid"
          @order = Order.find(@ordered_item.order_id)
@@ -70,7 +70,7 @@ end
           @packing = Packing.create(employee_id: @employee.id,order_id: @order.id,status: "Assigned")
           @order.update_column(:o_status,"Paid")
           @order.update_column(:payment_done_date,DateTime.now)
-        redirect_to @ordered_item
+        redirect_to order_histroy_index_url(:id => @order.id)
 
       elsif ordered_item_params[:o_status] == "Order Approved"
        @order = Order.find(@ordered_item.order_id)
@@ -81,26 +81,26 @@ end
            deduct_from_offer(@order.id)
            @order.update_column(:o_status,"Approved")
            @order.update_column(:order_approved_date,DateTime.now)
-           redirect_to @ordered_item
+           redirect_to order_histroy_index_url(:id => @order.id)
 
 
            elsif @order.shipping_type == "Shipping"
            deduct_from_offer(@order.id)
            @order.update_column(:o_status,"Approved")
            @order.update_column(:order_approved_date,DateTime.now)
-           redirect_to @ordered_item
+           redirect_to order_histroy_index_url(:id => @order.id)
 
            elsif @order.shipping_type == "Pick up at Stand"
            deduct_from_offer(@order.id)
            @order.update_column(:o_status,"Approved")
            @order.update_column(:order_approved_date,DateTime.now)
-           redirect_to @ordered_item
+           redirect_to order_histroy_index_url(:id => @order.id)
         else
 
         deduct_from_offer(@order.id)
         @order.update_column(:o_status,"Payment Done")
         @order.update_column(:order_approved_date,DateTime.now)
-        redirect_to @ordered_item
+        redirect_to order_histroy_index_url(:id => @order.id)
       end
    
     elsif @order.payment_type == "Credit Co-OP"
@@ -132,7 +132,7 @@ end
              @credit.order.update_column(:o_status,"Packing Under Process")
              @employee.update_column(:status,'Assigned')
              deduct_from_offer(@order.id)
-             redirect_to @ordered_item
+             redirect_to order_histroy_index_url(:id => @order.id)
           else
             credit_to_be_approved =  ordered_items.sum('value').to_f -  @customer.coop_credit_available.to_f
             credit_utilized = @customer.coop_credit_utilized.to_f + @customer.coop_credit_available.to_f
@@ -149,14 +149,14 @@ end
             @credit.order.update_column(:order_approved_date,DateTime.now)
             
             @order.update_column(:o_status,"Pending Approval")
-            redirect_to @ordered_item
+            redirect_to order_histroy_index_url(:id => @order.id)
           end
 
      else
           @credit = Credit.create(order_id: @order.id,value: ordered_items.sum('value'),ctype: @order.payment_type)
           @order.update_column(:o_status,"Pending Approval")
           @order.update_column(:order_approved_date,DateTime.now)
-          redirect_to @ordered_item
+          redirect_to order_histroy_index_url(:id => @order.id)
   end
 
     elsif @order.payment_type == "Seller Credit"
@@ -185,7 +185,7 @@ end
              @credit.order.update_column(:o_status,"Packing Under Process")
              @employee.update_column(:status,'Assigned')
              deduct_from_offer(@order.id)
-             redirect_to @ordered_item
+             redirect_to order_histroy_index_url(:id => @order.id)
           else
             credit_to_be_approved =  ordered_items.sum('value').to_f -  @customer.credit_available.to_f
             credit_utilized = @customer.credit_utilized.to_f + @customer.credit_available.to_f
@@ -197,21 +197,21 @@ end
             @credit.order.update_column(:order_approved_date,DateTime.now)
             
             @order.update_column(:o_status,"Pending Approval")
-            redirect_to @ordered_item
+            redirect_to order_histroy_index_url(:id => @order.id)
           end
 
      else
           @credit = Credit.create(order_id: @order.id,value: ordered_items.sum('value'),ctype: @order.payment_type)
           @order.update_column(:o_status,"Pending Approval")
           @order.update_column(:order_approved_date,DateTime.now)
-          redirect_to @ordered_item
+          redirect_to order_histroy_index_url(:id => @order.id)
   end
 
     else
       @order.update_column(:o_status,"Order Approved")
       deduct_from_offer(@order.id)
       @order.update_column(:order_approved_date,DateTime.now)
-      redirect_to @ordered_item
+      redirect_to order_histroy_index_url(:id => @order.id)
     end
 
     elsif ordered_item_params[:o_status] == "Receieved"
@@ -222,7 +222,7 @@ end
       @order.update_column(:item_recevied_by_name,@customer.business_name)
       @order.update_column(:item_received_by_number,@customer.mobile)
      
-      redirect_to @ordered_item
+      redirect_to order_histroy_index_url(:id => @order.id)
 
 elsif ordered_item_params[:o_status] == "Credit Payment Done"
         @order = Order.find(@ordered_item.order_id)
@@ -231,7 +231,7 @@ elsif ordered_item_params[:o_status] == "Credit Payment Done"
       @order.update_column(:payment_done_date,DateTime.now)
     
      
-      redirect_to @ordered_item
+      redirect_to order_histroy_index_url(:id => @order.id)
     elsif ordered_item_params[:o_status] == "Shipped"
        @order = Order.find(@ordered_item.order_id)
       @order.update_column(:o_status,"Shipped")
@@ -240,21 +240,21 @@ elsif ordered_item_params[:o_status] == "Credit Payment Done"
       @order.update_column(:transport_contact_number ,ordered_item_params[:transport_contact_number])
       @order.update_column(:note_to_buyer ,ordered_item_params[:note_to_buyer])
       @order.update_column(:item_shipped_date,DateTime.now)
-      redirect_to @ordered_item
+      redirect_to order_histroy_index_url(:id => @order.id)
 
     elsif ordered_item_params[:o_status] == "Closed"
        @order = Order.find(@ordered_item.order_id)
       @order.update_column(:o_status,"Closed")
   
       @order.update_column(:closed_date,DateTime.now)
-      redirect_to @ordered_item
+      redirect_to order_histroy_index_url(:id => @order.id)
 
     else
       @order = Order.find(@ordered_item.order_id)
       @order.update_column(:o_status,"Closed")
       @order.update_column(:closed_date,DateTime.now)
       
-          redirect_to @ordered_item
+          redirect_to order_histroy_index_url(:id => @order.id)
    end
     else 
       respond_to do |format|
