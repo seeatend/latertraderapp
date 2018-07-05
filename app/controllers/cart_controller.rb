@@ -43,9 +43,9 @@ random_invoice = 7.times.map { rand(1..9) }.join.to_i
   if cart.otype == "private"
     @privateoffer = Privateoffer.where(:offer_id => cart.offer.id).where(:customer_id => @customer.id).first
     cvalue = cart.quantity * @privateoffer.offered_price
-    @ordered_item = OrderedItem.create(order_id: @orders.id,customer_id: cart.customer_id,seller_id: cart.seller_id,offer_id: cart.offer_id,quantity: cart.quantity,value: cvalue )
+    @ordered_item = OrderedItem.create(order_id: @orders.id,customer_id: cart.customer_id,seller_id: cart.seller_id,offer_id: cart.offer_id,quantity: cart.quantity,value: cvalue,offered_price: @privateoffer.offered_price)
   else 
-@ordered_item = OrderedItem.create(order_id: @orders.id,customer_id: cart.customer_id,seller_id: cart.seller_id,offer_id: cart.offer_id,quantity: cart.quantity,value: (cart.quantity * cart.offer.selling_price) )
+@ordered_item = OrderedItem.create(order_id: @orders.id,customer_id: cart.customer_id,seller_id: cart.seller_id,offer_id: cart.offer_id,quantity: cart.quantity,value: (cart.quantity * cart.offer.selling_price),offered_price: cart.offer.selling_price)
 end
 end
 
@@ -72,7 +72,7 @@ end
     end
 
       def category_params
-    params.require(:cart).permit(:customer_id, :offer_id,:seller_id,:quantity,:payment_type,:shipping_type,:drop_off_point,:pick_up_point,:different_drop_location,:otype,:different_shipping_location,:dropoffdateandtime,:pickupdateandtime,:note_to_seller)
+    params.require(:cart).permit(:customer_id, :offer_id,:seller_id,:quantity,:payment_type,:shipping_type,:drop_off_point,:pick_up_point,:different_drop_location,:otype,:different_shipping_location,:dropoffdateandtime,:pickupdateandtime,:note_to_seller,:offered_price)
   end
 
 

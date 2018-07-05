@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180704161938) do
+ActiveRecord::Schema.define(version: 20180705111643) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string   "name",        null: false
@@ -128,6 +128,7 @@ ActiveRecord::Schema.define(version: 20180704161938) do
     t.string   "different_shipping_location"
     t.datetime "dropoffdateandtime"
     t.datetime "pickupdateandtime"
+    t.decimal  "offered_price"
   end
 
   add_index "carts", ["customer_id"], name: "index_carts_on_customer_id"
@@ -450,6 +451,7 @@ ActiveRecord::Schema.define(version: 20180704161938) do
     t.integer  "paid_amount"
     t.datetime "payment_done_date"
     t.string   "payment_confirmed_by"
+    t.decimal  "offered_price"
   end
 
   add_index "ordered_items", ["customer_id"], name: "index_ordered_items_on_customer_id"

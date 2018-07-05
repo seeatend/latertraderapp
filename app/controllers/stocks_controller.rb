@@ -48,7 +48,7 @@ class StocksController < ApplicationController
     stock_params[:wasted_stock_quantity] =  stock_params[:wasted_stock_quantity].scan(/\d/).join('').to_i
   end
  
-    @stock = Stock.new(stock_params.merge(:product_name => @product.name,:in_stock_quantity => stock_params[:purchased_stock_quantity],:not_approved => stock_params[:purchased_stock_quantity],:desc => @product.name + '| ' + @product.category + '| ' + @product.quality + '| ' + @product.size.to_s + '| ' ))
+    @stock = Stock.new(stock_params.merge(:product_name => @product.name,:in_stock_quantity => stock_params[:purchased_stock_quantity],:not_approved => stock_params[:purchased_stock_quantity],:desc => @product.desc))
     @product.update_attributes(:order_quantity_unit => stock_params[:order_quantity_unit])
     respond_to do |format|
       if @stock.save

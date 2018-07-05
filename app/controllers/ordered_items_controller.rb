@@ -310,6 +310,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ordered_item_params
-      params.require(:ordered_item).permit(:order_id, :customer_id, :seller_id, :offer_id, :quantity,:value,:o_status,:consignment_number,:transport_contact_name,:transport_contact_number,:note_to_buyer,:payment_done_date, :payment_confirmed_by,:paid_amount,:quantity,:closed_date)
+      params.require(:ordered_item).permit(:order_id, :customer_id, :seller_id, :offer_id, :quantity,:value,:o_status,:consignment_number,:transport_contact_name,:transport_contact_number,:note_to_buyer,:payment_done_date, :payment_confirmed_by,:paid_amount,:quantity,:closed_date,:offered_price)
     end
 end
