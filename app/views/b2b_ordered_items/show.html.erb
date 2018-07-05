@@ -1122,7 +1122,7 @@
 <% end %>
 
 
-          <% if @orders.o_status == "Pending Approval" %>
+          <% if @orders.o_status == "Pending Credit Approval" %>
           <%= link_to 'Approve Through Credit',credits_path, {:class => "btn btn-fw primary",
         :onclick=>"window.open(this.href,'Add Items', 'height=400, width=900');return false;" }
 %>

@@ -148,13 +148,13 @@ end
             @customer.update_column(:coop_credit_due,credit_utilized)
             @credit.order.update_column(:order_approved_date,DateTime.now)
             
-            @order.update_column(:o_status,"Pending Approval")
+            @order.update_column(:o_status,"Pending Credit Approval")
             redirect_to order_histroy_index_url(:id => @order.id)
           end
 
      else
           @credit = Credit.create(order_id: @order.id,value: ordered_items.sum('value'),ctype: @order.payment_type)
-          @order.update_column(:o_status,"Pending Approval")
+          @order.update_column(:o_status,"Pending Credit Approval")
           @order.update_column(:order_approved_date,DateTime.now)
           redirect_to order_histroy_index_url(:id => @order.id)
   end
@@ -196,13 +196,13 @@ end
             @customer.update_column(:credit_due,credit_utilized)
             @credit.order.update_column(:order_approved_date,DateTime.now)
             
-            @order.update_column(:o_status,"Pending Approval")
+            @order.update_column(:o_status,"Pending Credit Approval")
             redirect_to order_histroy_index_url(:id => @order.id)
           end
 
      else
           @credit = Credit.create(order_id: @order.id,value: ordered_items.sum('value'),ctype: @order.payment_type)
-          @order.update_column(:o_status,"Pending Approval")
+          @order.update_column(:o_status,"Pending Credit Approval")
           @order.update_column(:order_approved_date,DateTime.now)
           redirect_to order_histroy_index_url(:id => @order.id)
   end
