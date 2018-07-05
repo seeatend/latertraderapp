@@ -1211,7 +1211,7 @@
             <td><%= oitem.offer.stock.product.name %></td>
             <td><%= oitem.offer.stock.product.desc %></td>
             <td><%= oitem.quantity %> <%= oitem.offer.stock.order_quantity_unit %> </td>
-            <td><%= oitem.offer.selling_price %> per <%= oitem.offer.stock.order_quantity_unit %> </td>
+            <td><%= oitem.offered_price %> per <%= oitem.offer.stock.order_quantity_unit %> </td>
          <td><%= oitem.value.to_f %></td>
 <% if @orders.o_status == "Order Placed" %>
          <td><%= link_to 'Delete', oitem, method: :delete, data: { confirm: 'Are you sure?' } %></td>
