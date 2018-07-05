@@ -1167,7 +1167,12 @@
            <tr>
             
             <td><b>Paid/Credit Approved</b></td>
+ <% if @orders.o_status == "Pending Credit Approval" %>
+        <td>  <%= link_to 'Approve Through Credit',credits_path, {:class => "btn btn-fw primary",
+        :onclick=>"window.open(this.href,'Add Items', 'height=400, width=900');return false;" }
+%> </td>
 
+<% end %>
             <% if @order.payment_type == "Cash" %> 
             <td><%= @order.payment_done_date %></td>
             <% else %>
