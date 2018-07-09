@@ -525,7 +525,7 @@
           </div>
         </div>
         <!-- / .modal -->
-        <% @oitems = @orders.group("customer_id").group("ordered_items.id") %>
+        <% @oitems = @orders.group("order_id") %>
 <% osum = @oitems.sum("value") %>
 <% keys = osum.keys %>
 <% @oitems.each_with_index do |oitem, index| %>
