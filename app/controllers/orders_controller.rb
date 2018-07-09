@@ -27,8 +27,9 @@ class OrdersController < ApplicationController
   # POST /orders
   # POST /orders.json
   def create
-    @order = Order.new(order_params)
-
+    random_invoice = 7.times.map { rand(1..9) }.join.to_i
+    @order = Order.new(order_params.merge(:invoice_number=> random_invoice))
+    
     respond_to do |format|
       if @order.save
          session[:order_id] = @order.id

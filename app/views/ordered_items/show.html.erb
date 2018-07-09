@@ -1270,7 +1270,7 @@
         <div class="box p-3">
           <strong class="text-muted">Order Information:</strong>
           <p class="text-muted">
-           Order Via: <%= @orders.otype %> <br>
+           Order Via: <% if @orders.otype == "Walk In" %> Shop Sales <% else %> <%= @orders.otype %> <% end %> <br>
            Payment: <%= @orders.payment_type %> <br>
            Delivery: <%= @orders.shipping_type %>
           </p>

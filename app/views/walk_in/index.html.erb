@@ -514,8 +514,12 @@
        
         <td><%= order.o_status %></td>
 
-       
+        <% oitem = OrderedItem.where(:order_id => order.id) %>
+         <td><%= link_to 'Invoice', oitem.first %></td>
 
+
+<td><%= link_to 'Track', order_histroy_index_path(:otype => "shop sales",:id => order.id) %></td>
+         
         
       </tr>
     <% end %>
