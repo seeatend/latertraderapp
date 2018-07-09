@@ -38,8 +38,9 @@ end
   def create
     @offer = Offer.find(ordered_item_params[:offer_id])
     value = @offer.selling_price * ordered_item_params[:quantity].to_i
+
     puts value
-    @ordered_item = OrderedItem.new(ordered_item_params.merge(:value => value))
+    @ordered_item = OrderedItem.new(ordered_item_params.merge(:value => value,:offered_price => @offer.selling_price ))
 
     respond_to do |format|
       if @ordered_item.save
