@@ -10,13 +10,12 @@
       <!-- sidenav top -->
       <div class="navbar lt">
         <!-- brand -->
-        <a href="../index.html" class="navbar-brand">
+        <a href="../index.html" class="navbar-brand tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Traders App">
           <svg viewBox="0 0 24 24" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 0h24v24H0z" fill="none"/>
               <path d="M19.51 3.08L3.08 19.51c.09.34.27.65.51.9.25.24.56.42.9.51L20.93 4.49c-.19-.69-.73-1.23-1.42-1.41zM11.88 3L3 11.88v2.83L14.71 3h-2.83zM5 3c-1.1 0-2 .9-2 2v2l4-4H5zm14 18c.55 0 1.05-.22 1.41-.59.37-.36.59-.86.59-1.41v-2l-4 4h2zm-9.71 0h2.83L21 12.12V9.29L9.29 21z" fill="#53a6fa" class="fill-theme"/>
           </svg>
          
-          <span class="hidden-folded d-inline">Traders App</span>
         </a>
         <!-- / brand -->
       </div>
@@ -30,87 +29,77 @@
                   <% if current_user.utype == "Seller" %>
                   <li>
                   <%= link_to dashboard_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-dashboard"></i>
-  </span>
-  <span class="nav-text">Dashboard</span>
-<% end %>
+                    <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Dashboard"><i class="fa fa-dashboard"></i></span>
+                  <% end %>
                   </li>
                   
 
                 <% end %>
 
- <li>
+                <li>
                   <%= link_to marketplaces_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cart-plus"></i>
-  </span>
-  <span class="nav-text">Market Place</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Market Place">
+                  <i class="fa fa-cart-plus"></i>
+                  </span>
+                <% end %>
                   </li>
          
 
-          <% if current_user.utype == "Seller" %>
-         <li>
+                  <% if current_user.utype == "Seller" %>
+                <li>
                   <%= link_to walk_in_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-calculator"></i>
-  </span>
-  <span class="nav-text">Shop Sales</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Shop Sales">
+                    <i class="fa fa-calculator"></i>
+                    </span>
+                  <% end %>
                   </li>
                    <li>
                   <%= link_to b2b_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-ticket"></i>
-  </span>
-  <span class="nav-text">B2B Sales</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="B2B Sales">
+                    <i class="fa fa-ticket"></i>
+                    </span>
+                  <% end %>
                   </li>
          
 
-         <% end %>
-         <% if current_user.utype == "Employee" %>
+                    <% end %>
+                    <% if current_user.utype == "Employee" %>
 
-<% if @employee.position == "Manager" %>
-         <li>
+            <% if @employee.position == "Manager" %>
+                    <li>
                   <%= link_to approval_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-check"></i>
-  </span>
-  <span class="nav-text">Stock Approval</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Stock Approval">
+                    <i class="fa fa-check"></i>
+                    </span>
+                  <% end %>
 
                   </li>
 
                    <li>
                   <%= link_to credit_approval_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-check-circle"></i>
-  </span>
-  <span class="nav-text">Credit Approval</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Credit Approval">
+                    <i class="fa fa-check-circle"></i>
+                    </span>
+                  <% end %>
 
                   </li>
 
                   <% elsif @employee.position == "Forklift" %>
                     <li>
                   <%= link_to forklifts_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-check"></i>
-  </span>
-  <span class="nav-text">Forklift Task</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Forklift Task">
+                    <i class="fa fa-check"></i>
+                    </span>
+                  <% end %>
 
                   </li>
                   <% else %>
- <li>
+                  <li>
                   <%= link_to packings_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-bus"></i>
-  </span>
-  <span class="nav-text">Packing</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Packing">
+                    <i class="fa fa-bus"></i>
+                    </span>
+                  <% end %>
 
                   </li>
                   <% end %>
@@ -119,23 +108,21 @@
                   <% if current_user.utype == "Buyer" %>
                   <li>
                   <%= link_to purchases_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-credit-card"></i>
-  </span>
-  <span class="nav-text">My Purchases</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Purchases">
+                      <i class="fa fa-credit-card"></i>
+                      </span>
+                    <% end %>
               </li>   
-<% end %>
-<% if current_user.utype == "Seller" %>
+                  <% end %>
+                  <% if current_user.utype == "Seller" %>
 
-<li>
+                  <li>
                   <%= link_to offers_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-leaf"></i>
-  </span>
-  <span class="nav-text">My Offers</span>
-  </li>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Offers">
+                    <i class="fa fa-leaf"></i>
+                    </span>
+                    </li>
+                  <% end %>
 
                    
                   <% end %>
@@ -144,11 +131,10 @@
 
                    <li>
                   <%= link_to stocks_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cube"></i>
-  </span>
-  <span class="nav-text">My Stock</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Stock">
+                    <i class="fa fa-cube"></i>
+                    </span>
+                    </li>
                  <% end %>
                   <% end %>
                   <% if current_user.utype == "Seller" %>
@@ -156,11 +142,10 @@
 
                    <li>
                   <%= link_to supplies_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-barcode"></i>
-  </span>
-  <span class="nav-text">My Supplies</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Supplies">
+                  <i class="fa fa-barcode"></i>
+                  </span>
+                  </li>
                  <% end %>
 
                   
@@ -168,30 +153,27 @@
                   
                   <% if current_user.utype == "Seller" %>
 
-<li>
+                  <li>
                   <%= link_to credits_path  do %>
-                   <span class="nav-icon">
-  <i class="fa  fa-credit-card"></i>
-  </span>
-  <span class="nav-text">My Credits</span>
-  </li>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Credits">
+                    <i class="fa  fa-credit-card"></i>
+                    </span>
+                    </li>
+                  <% end %>
 
                    
                   <% end %>
                   <% if current_user.utype == "Seller" %>
                   <li>
                   <%= link_to reports_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-line-chart"></i>
-  </span>
-
-  <span class="nav-text">My Reports</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Reports">
+                      <i class="fa fa-line-chart"></i>
+                      </span>
+                      </li>
                  <% end %>
                   
                   <% end %>
-<ul class="nav ">
+                  <ul class="nav ">
                 
                     <li class="nav-header hidden-folded mt-2">
                       <span class="text-xs">Other Stuff</span>
@@ -201,19 +183,17 @@
                         <span class="nav-caret">
                           <i class="fa fa-caret-down"></i>
                         </span>
-                        <span class="nav-icon no-fade">
+                        <span class="nav-icon tool_tip no-fade" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Settings">
                           <i class="fa fa-cog"></i>
                         </span>
-                        <span class="nav-text">Settings</span>
                       </a>
                       <ul class="nav-sub nav-mega nav-mega-3">
                       <% if current_user.utype == "Seller" %>
  <li>
                   <%= link_to employees_path  do %>
-                   <span class="nav-icon">
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Employees">
   <i class="fa fa-snowflake-o"></i>
   </span>
-  <span class="nav-text">My Employees</span>
   </li>
                  <% end %>
                     
@@ -221,10 +201,9 @@
                    <% if current_user.utype == "Seller" %>
                   <li>
                   <%= link_to networks_path  do %>
-                   <span class="nav-icon">
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Network">
   <i class="fa fa-users"></i>
   </span>
-  <span class="nav-text">My Network</span>
   </li>
                  <% end %>
 
@@ -233,10 +212,9 @@
 <% if current_user.utype == "Seller" %>
  <li>
                   <%= link_to products_path  do %>
-                   <span class="nav-icon">
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Products">
   <i class="fa fa-snowflake-o"></i>
   </span>
-  <span class="nav-text">My Products</span>
   </li>
                  <% end %>
                     
@@ -247,10 +225,9 @@
 
                    <li>
                   <%= link_to services_path  do %>
-                   <span class="nav-icon">
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Services">
   <i class="fa fa-truck"></i>
   </span>
-  <span class="nav-text">My Services</span>
   </li>
                  <% end %>
 
@@ -260,10 +237,9 @@
 
                   <li>
                   <%= link_to sales_path  do %>
-                   <span class="nav-icon">
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Sales">
   <i class="fa fa-usd"></i>
   </span>
-  <span class="nav-text">My Sales</span>
   </li>
 <% end %>
                  
@@ -273,10 +249,9 @@
  <li>
 
                   <%= link_to claim_wastages_path  do %>
-                   <span class="nav-icon">
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Claim Wastage">
   <i class="fa fa-trash"></i>
   </span>
-  <span class="nav-text">Claim Wastage</span>
   </li>
                  <% end %>
                     
@@ -285,10 +260,9 @@
    <% if current_user.utype == "Seller" || if current_user.utype == "Buyer" %>
                   <li>
                   <%= link_to chats_path  do %>
-                   <span class="nav-icon">
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Chats">
   <i class="fa fa-commenting-o"></i>
   </span>
-  <span class="nav-text">My Chats</span>
   </li>
                  <% end %>
 <%end %>
@@ -303,19 +277,17 @@
                   <% if current_user.utype == "Seller" %>
                   <% seller = Seller.where(:uid => current_user.id).first %> 
                   <%= link_to edit_seller_path(seller)  do %>
-                   <span class="nav-icon">
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Profile">
   <i class="fa fa-cog"></i>
   </span>
-  <span class="nav-text">My Profile</span>
   </li>
                  <% end %>
                  <% else %>
                   <% customer  = Customer.where(:uid => current_user.id).first %> 
                   <%= link_to edit_customer_path(customer)  do %>
-                   <span class="nav-icon">
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Profile">
   <i class="fa fa-cog"></i>
   </span>
-  <span class="nav-text">My Profile</span>
   </li>
   <% end %>
   <% end %>
@@ -350,107 +322,26 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path d="M80 304h352v16H80zM80 248h352v16H80zM80 192h352v16H80z"/></svg>
           </a>
           <!-- Page title -->
-          <div class="navbar-text nav-title flex" id="pageTitle">Market Place</div>
-        
+          <div class="d-flex flex search-content" id="pageTitle">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" class="form-control market-place-search" placeholder="Find a seller, buyer or a produce">
+          </div>
           <ul class="nav flex-row order-lg-2">
             <!-- Notification -->
             <li class="nav-item dropdown">
               <a class="nav-link px-3" data-toggle="dropdown">
-                <i class="fa fa-bell text-muted"></i>
-                <span class="badge badge-pill up danger">13</span>
+                <i class="fa fa-shopping-cart text-muted" style="border: 1px solid;border-radius: 50%;font-size: 28px;padding: 5px 6px;"></i>
+                <span class="badge badge-pill up danger" style="top: -1.25rem;left: -.95rem;font-size: 80%;">5</span>
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link px-3" data-toggle="dropdown">
+                <i class="fa fa-user text-muted" style="border: 1px solid;border-radius: 50%;font-size: 28px;padding: 5px 10px;"></i>
               </a>
               <!-- dropdown -->
              
               <!-- / dropdown -->
             </li>
-   <li class="nav-item dropdown">
-       <% if (current_user.utype == "Seller") %>
-
-        <%= link_to sales_path, :class => "nav-link px-3"   do %>
-                  
-   <i class="fa fa-usd text-muted"></i>
-                <span class="badge badge-pill up danger"><% if (current_user.utype == "Buyer") %>
-                  <%= Order.where(:customer_id => Customer.where(:uid => current_user.id).first.id).where.not(o_status: "Closed").count %>
-                    <% elsif  (current_user.utype == "Seller")%>
-                    <%= Order.where(:seller_id => Seller.where(:uid => current_user.id).first.id).where.not(o_status: "Closed").count %>
-                    <% end %></span>
-    <% end %>
-             
-
-              <% end %>
-  </li>
-               
-              <!-- dropdown -->
-             
-            
-
-            <li class="nav-item dropdown">
-             
-
-        <%= link_to chats_path, :class => "nav-link px-3"   do %>
-                  
-   <i class="fa fa-commenting-o text-muted"></i>
-                <span class="badge badge-pill up danger"><% if (current_user.utype == "Buyer") %>
-                  <%= Chat.where(:customer_id => Customer.where(:uid => current_user.id).first.id).count %>
-                    <% elsif  (current_user.utype == "Seller")%>
-                    <%= Chat.where(:seller_id => Seller.where(:uid => current_user.id).first.id).count %>
-                    <% end %>
-                  </span>
-    <% end %>
-             
-
-             
-              
-              <!-- dropdown -->
-             
-              <!-- / dropdown -->
-            </li>
-
-
-             <li class="nav-item dropdown">
-               <% if current_user.utype == "Seller" %>
-                  <% seller = Seller.where(:uid => current_user.id).first %> 
-                  <%= link_to edit_seller_path(seller), :class => "nav-link px-3"   do %>
-                <i class="fa  fa-male text-muted"></i>
-                
-               <% end %>
-
-              <% elsif (current_user.utype == "Buyer")%>
-                <% customer  = Customer.where(:uid => current_user.id).first %> 
-                  <%= link_to edit_customer_path(customer), :class => "nav-link px-3"   do %>
-                    <i class="fa  fa-male text-muted"></i>
-                    <% end %>
-               <% end %>
-              <!-- dropdown -->
-             
-              <!-- / dropdown -->
-
-            </li>
-        <li class="nav-item dropdown">
-       <% if (current_user.utype == "Buyer") %>
-
-        <%= link_to cart_index_path, :class => "nav-link px-3"   do %>
-                  
-   <i class="fa fa-shopping-bag text-muted"></i>
-                <span class="badge badge-pill up danger"><%= Cart.where(:customer_id => Customer.where(:uid => current_user.id).first.id).count %></span>
-  
-  </li>
-                 <% end %>
-             
-
-              <% end %>
-              <!-- dropdown -->
-             
-              <!-- / dropdown -->
-              
-            </li>
-            </li>
-
-
-        
-            <!-- User dropdown menu -->
-         
-            <!-- Navarbar toggle btn -->
             
           </ul>
           <!-- Navbar collapse -->
@@ -461,11 +352,11 @@
 
               <% if user_signed_in? %>
  
-  <%= link_to('<i class="fa fa-sign-in text-muted"></i>'.html_safe, destroy_user_session_path, method: :delete) %>        
+  <%= link_to('<i class="fa fa-sign-in text-muted" style="font-size: 18px;"></i>'.html_safe, destroy_user_session_path, method: :delete) %>        
  
 <% else %>
  
-  <%= link_to('<i class="fa fa-sign-out text-muted"></i>'.html_safe, new_user_session_path)  %>  
+  <%= link_to('<i class="fa fa-sign-out text-muted" style="font-size: 18px;"></i>'.html_safe, new_user_session_path)  %>  
   
 <% end %>
           </form>
@@ -478,382 +369,75 @@
 
 <!-- ############ Main START-->
 
-
-<div class="padding">
-  <% if (current_user.utype == "Buyer") %>
- <div class="b-b b-primary nav-active-primary">
-
-          <ul class="nav nav-tabs">
-            <li class="nav-item">
-            <%= link_to "Public Offers", marketplaces_path(:ntype => "public"), :class => "nav-link" %>
-              
-            </li>
-            <li class="nav-item">
-              <%= link_to "Private Offers", marketplaces_path(:ntype => "private"), :class => "nav-link" %>
-            </li>
-             <li class="nav-item">
-              <%= link_to "B2B Requests", marketplaces_path(:ntype => "b2b"), :class => "nav-link" %>
-            </li>
-            
-          </ul>
-        </div>
-        <br>
-        <% end %>
-
-         <% if params[:ntype] == "private" %>
-         <div class="box">
-    
-    <div class="p-2">
-      <div class="row">
-        <div class="col-sm-5">
-        
-                 
-        </div>
-        <div class="col-sm-4">
-        </div>
-        <div class="col-sm-3">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <span class="input-group-btn">
-              <button class="btn white" type="button">Go!</button>
-            </span>
+      <div class="padding">
+          <div class="d-flex market-header">
+            <div class="d-flex" style="align-items:center;">
+              <h2 style="margin-right:40px;">Market Place</h2>
+              <ul class="visible-categories">
+                <li class="active">public</li>
+                <li>Private</li>
+              </ul>
+            </div>
+            <div class="d-flex category">
+              <ul class="kind-categories">
+                <li class="active">Fruits</li>
+                <li>Veg</li>
+                <li>Dry Fruits</li>
+                <li>Processed</li>
+                <li>Others</li>
+              </ul>
+              <ul class="type-categories">
+                <li class="active"><i class="fa fa-th-large" aria-hidden="true"></i> Cards</li>
+                <li><i class="fa fa-list" aria-hidden="true"></i> Table</li>
+              </ul>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="table-responsive">
-      <table class="table table-striped b-t">
-
-      
-        <thead>
-        
-
-            <th></th>
-             <th>Product</th>
-      <th>Seller</th>
-      <th>Description</th>
-      <th>Offered price</th>
-      <th>Quantity</th>
-      <th>Buying Format</th>
-      <th>Duration left</th>
-
-      
-      <th style="width:50px;"></th>
-          </tr>
-        </thead>
-        <tbody>
-
-
-
-        <!-- Modal -->
-<div class="modal fade" id="addPointDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-
-
-      <div class="modal-header">
-        
-        <h4 class="modal-title">Add to cart</h4>
-      </div>
-      <div class="modal-body">
-       <%=form_for @cart , url: add_to_cart_cart_index_path do |f| %>
-            <div id="cart-form"></div>
-            
-             
-              <%= f.hidden_field :customer_id %>
-              <%= f.hidden_field :offer_id %>
-              <%= f.hidden_field :seller_id %>
-              <%= f.hidden_field :otype %>
-               <%= f.label :quantity %><br>
-            <%= f.text_field :quantity, class: "form-control", placeholder: "10 pallet" %>
-            <br/>
-
-               <%= f.label :note_to_seller %><br>
-            <%= f.text_field :note_to_seller, class: "form-control", placeholder: "Leave a message to seller" %>
-
-
-
-
-
-          <br/>
-          <br/>
-          
-          <%= f.submit 'Submit', class: 'btn btn-success' %>
-           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-           
-         
-      </div>
-      </div>
-      <div class="modal-footer">
-    
-       
-         <%end%>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-         <% @privateoffers.each do |pri|  %>
-
-         <tr>
-            
-            <td><%= image_tag(pri.offer.stock.product.image, size: "32x32", alt: "Product Image") %></td>
-             <td><%= pri.offer.stock.product.name %></td>
-             <td><%= Seller.find(pri.seller_id).business_name%></td>
-             <td><%= pri.offer.stock.product.quality %> | Carton | <%= pri.offer.stock.product.net_weight %> | Size <%= pri.offer.stock.product.size %> | Order By <%= pri.offer.stock.product.order_by %></td>
-             <td>$<%= pri.offered_price %> per Carton</td>
-             <td><%= pri.quantity %></td>
-             <td><%= pri.offer.selling_price_type %></td>
-             <td> <%= distance_of_time_in_words pri.offer.start_at, pri.offer.ends_at %></td>
-         <td></td>
-        <td><%= link_to 'Show', pri.offer.stock.product %></td>
-
-            
-
-         
-  <td><a data-toggle="modal" data-otid="private" data-oid=<%=pri.offer.id%> data-cid=<%= Customer.where(:uid => current_user.id).first.id %> data-sid=<%=pri.offer.seller_id%>  class="open-AddPointDialog btn btn-success big" href="#addPointDialog"><i class="fa fa-plus-square hided-icon big"></i> Add Item </a>
-</td>
-
-
-
-       
- 
-        
-          </tr>
-
-    <% end %>
-          
-        </tbody>
-      </table>
-    </div>
-    <footer class="light lt p-2">
-      <div class="row">
-        <div class="col-sm-4 d-block-sm">
-          <select class="custom-select w-sm d-inline v-middle">
-            <option value="0">Bulk action</option>
-            <option value="1">Delete selected</option>
-            <option value="2">Bulk edit</option>
-            <option value="3">Export</option>
-          </select>
-          <button class="btn white">Apply</button>                  
-        </div>
-        <div class="col-sm-4">
-          <small class="text-muted py-2 d-block text-center">showing 20-30 of 50 items</small>
-        </div>
-        <div class="col-sm-4">                
-          <ul class="pagination justify-content-sm-end m-0">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-              </a>
-            </li>
-            <li class="page-item active">
-              <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-
-</div>
-         <% else %>
-
-  <div class="box">
-    
-    <div class="p-2">
-      <div class="row">
-        <div class="col-sm-5">
-        
-                 
-        </div>
-        <div class="col-sm-4">
-        </div>
-        <div class="col-sm-3">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search">
-            <span class="input-group-btn">
-              <button class="btn white" type="button">Go!</button>
-            </span>
+          <div class="row">
+            <div id="mixedSlider" style="width:100%">
+                <div class="MS-content">
+                  <% @offers.each do |offer|  %>
+                    <div class="item">
+                      <div class="row card" style="background-image:url(<%= offer.stock.product.image %>);">
+                        <div class="d-flex" style="justify-content: space-between; align-items: baseline;">
+                          <div>
+                            <h4>Fresh Cherries</h4>
+                            <span style="font-weight:600"><%= offer.selling_price %> per <%= offer.stock.order_quantity_unit %></span>
+                          </div>
+                          <div class="rate">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>  4.8
+                          </div>
+                        </div>
+                        <div class="d-flex" style="flex-direction:column;padding-bottom:70px">
+                          <span>Premium, Carton, 14kg</span>
+                          <span>Size 12, Order by pallet (pp'15)</span>
+                        </div>
+                        <div class="d-flex" style="flex-direction:column">
+                          <span><i class="fa fa-clock-o" aria-hidden="true"></i>  3hrs 15mins Left</span>
+                          <h6>Sam International Pvt Ltd.</h6>
+                        </div>
+                      </div>
+                      <div class="d-flex _bottom">
+                        <div class="icons">
+                          <i class="fa fa-comments-o" aria-hidden="true" style="font-size:18px;"></i>
+                          <i class="fa fa-heart-o" aria-hidden="true" style="margin: 0 10px;"></i>
+                          <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                          + Add to Cart
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+                
+                <div class="MS-controls">
+                    <button class="MS-left"><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+                    <button class="MS-right"><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+                </div>
+            </div>
           </div>
-        </div>
       </div>
-    </div>
-
-    <div class="table-responsive">
-      <table class="table table-striped b-t">
-
-      
-        <thead>
-        
-
-            <th></th>
-              <th>Product</th>
-                  <th>Description </th>
-              <th>Seller</th>
-          
-       <th>Buying Format</th>
-      <th>Price ($)</th>
-     <th>Quantity </th>
-      <th>Start at</th>
-      <th>Ends at</th>
-      <th>Ends in</th>
-      <th>Offer type</th>
-      <th style="width:50px;"></th>
-          </tr>
-        </thead>
-        <tbody>
-
-
-
-        <!-- Modal -->
-<div class="modal fade" id="addPointDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-
-
-      <div class="modal-header">
-        
-        <h4 class="modal-title">Add to cart</h4>
-      </div>
-      <div class="modal-body">
-       <%=form_for @cart , url: add_to_cart_cart_index_path do |f| %>
-            <div id="cart-form"></div>
-            
-             
-              <%= f.hidden_field :customer_id %>
-              <%= f.hidden_field :offer_id %>
-              <%= f.hidden_field :seller_id %>
-              <%= f.hidden_field :otype %>
-              
-               <%= f.label :quantity %><br>
-            <%= f.text_field :quantity, class: "form-control", placeholder: "10 pallet" %>
-            <br/>
-
-               <%= f.label :note_to_seller %><br>
-            <%= f.text_field :note_to_seller, class: "form-control", placeholder: "Leave a message to seller" %>
-
-
-
-
-
-          <br/>
-          <br/>
-          
-          <%= f.submit 'Submit', class: 'btn btn-success' %>
-           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-           
-         
-      </div>
-      </div>
-      <div class="modal-footer">
-    
-       
-         <%end%>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-         <% @offers.each do |offer|  %>
-
-         <tr>
-            
-           <td><label class="ui-check m-0"><input type="checkbox" name="post[]"><i class="dark-white"></i></label></td>
-            <td><%= image_tag(offer.stock.product.image, size: "32x32", alt: "Product Image") %></td>
-              <td><%= offer.stock.desc %></td>
-            <td><%= Seller.find(offer.seller_id).business_name%></td>
-  <td><%= offer.selling_price_type %></td>
-            
-
-             
-             <td><%= offer.selling_price %>/<%= offer.stock.order_quantity_unit %> </td>
-           <td><%= offer.total_quantity_on_offer %>&nbsp;<%= offer.stock.order_quantity_unit %></td>
-
-         <td><%=  offer.start_at.strftime("%d %h %y | %H:%M") %></td>
-        <td><%= offer.ends_at.strftime("%d %h %y | %H:%M") %></td>
-        <td> <%= distance_of_time_in_words offer.start_at, offer.ends_at %></td>
-       <td><%= offer.offer_type %></td>
-        <td><%= link_to 'Show', offer.stock.product %></td>
-
-            
-
-         <% if (current_user.utype == "Buyer") %>
-         <td><%= link_to 'Chat', new_chat_path(:seller_id => offer.seller_id,:offer_id => offer.id,:customer_id => Customer.where(:uid => current_user.id).first.id),  class: "btn btn-fw primary" %></td>
-         <% if (offer.selling_price_type == "Fixed") %>
-  <td><a data-toggle="modal" data-oid=<%=offer.id%> data-otid="public" data-cid=<%= Customer.where(:uid => current_user.id).first.id %> data-sid=<%=offer.seller_id%> data-qty=<%=offer.total_quantity_on_offer%> class="open-AddPointDialog btn btn-success big" href="#addPointDialog"><i class="fa fa-plus-square hided-icon big"></i> Add Item </a>
-</td>
-<% end %>
-
-
-<% end %>
-
-       
- 
-        
-          </tr>
-
-    <% end %>
-          
-        </tbody>
-      </table>
-    </div>
-    <footer class="light lt p-2">
-      <div class="row">
-        <div class="col-sm-4 d-block-sm">
-          <select class="custom-select w-sm d-inline v-middle">
-            <option value="0">Bulk action</option>
-            <option value="1">Delete selected</option>
-            <option value="2">Bulk edit</option>
-            <option value="3">Export</option>
-          </select>
-          <button class="btn white">Apply</button>                  
-        </div>
-        <div class="col-sm-4">
-          <small class="text-muted py-2 d-block text-center">showing 20-30 of 50 items</small>
-        </div>
-        <div class="col-sm-4">                
-          <ul class="pagination justify-content-sm-end m-0">
-            <li class="page-item disabled">
-              <a class="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
-              </a>
-            </li>
-            <li class="page-item active">
-              <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </footer>
-  </div>
-
-
-</div>
- <%end%>
-
 <!-- ############ Main END-->
 
       </div>
@@ -873,10 +457,24 @@
 
  
 <!-- Bootstrap -->
-  
-  
+<script src="js/multislider.js"></script>
 
 <script>
+$(function() {
+  $('#mixedSlider').multislider({
+    duration: 750,
+    interval: 6000,
+    continuous: false
+  });
+  
+  $('.tool_tip').tooltip()
+  $('ul.kind-categories li, ul.type-categories li, ul.visible-categories li').click(function() {
+    $(this).closest("ul").find("li").each(function() {
+      $(this).removeClass("active");
+    });
+    $(this).addClass("active");
+  })
+})
 $(document).on("click", ".open-AddPointDialog", function () {
 
      var oid = $(this).data('oid');

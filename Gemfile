@@ -47,7 +47,7 @@ gem 'mini_magick'
 
 gem "administrate"
 
-
+gem "popper_js"
 
 
 # Use ActiveModel has_secure_password

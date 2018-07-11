@@ -45,7 +45,12 @@
                    <span class="nav-icon">
   <i class="fa fa-cart-plus"></i>
   </span>
-  <span class="nav-text">Market Place</span>
+  <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-btn">
+              <button class="btn white" type="button">Go!</button>
+            </span>
+          </div>
 <% end %>
                   </li>
          
@@ -339,6 +344,7 @@
     </div>
   </div>
   <!-- ############ Aside END-->
+
   <!-- ############ Content START-->
   <div id="content" class="app-content box-shadow-0" role="main">
     <!-- Header -->
@@ -349,7 +355,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path d="M80 304h352v16H80zM80 248h352v16H80zM80 192h352v16H80z"/></svg>
           </a>
           <!-- Page title -->
-          <div class="navbar-text nav-title flex" id="pageTitle">My Sales</div>
+          <div class="navbar-text nav-title flex" id="pageTitle">Market Place</div>
         
           <ul class="nav flex-row order-lg-2">
             <!-- Notification -->
@@ -368,7 +374,11 @@
         <%= link_to sales_path, :class => "nav-link px-3"   do %>
                   
    <i class="fa fa-usd text-muted"></i>
-                <span class="badge badge-pill up danger"></span>
+                <span class="badge badge-pill up danger"><% if (current_user.utype == "Buyer") %>
+                  <%= Order.where(:customer_id => Customer.where(:uid => current_user.id).first.id).where.not(o_status: "Closed").count %>
+                    <% elsif  (current_user.utype == "Seller")%>
+                    <%= Order.where(:seller_id => Seller.where(:uid => current_user.id).first.id).where.not(o_status: "Closed").count %>
+                    <% end %></span>
     <% end %>
              
 
@@ -385,7 +395,12 @@
         <%= link_to chats_path, :class => "nav-link px-3"   do %>
                   
    <i class="fa fa-commenting-o text-muted"></i>
-                <span class="badge badge-pill up danger"></span>
+                <span class="badge badge-pill up danger"><% if (current_user.utype == "Buyer") %>
+                  <%= Chat.where(:customer_id => Customer.where(:uid => current_user.id).first.id).count %>
+                    <% elsif  (current_user.utype == "Seller")%>
+                    <%= Chat.where(:seller_id => Seller.where(:uid => current_user.id).first.id).count %>
+                    <% end %>
+                  </span>
     <% end %>
              
 
@@ -396,11 +411,21 @@
               <!-- / dropdown -->
             </li>
 
+
              <li class="nav-item dropdown">
-              <a class="nav-link px-3" data-toggle="dropdown">
+               <% if current_user.utype == "Seller" %>
+                  <% seller = Seller.where(:uid => current_user.id).first %> 
+                  <%= link_to edit_seller_path(seller), :class => "nav-link px-3"   do %>
                 <i class="fa  fa-male text-muted"></i>
                 
-              </a>
+               <% end %>
+
+              <% elsif (current_user.utype == "Buyer")%>
+                <% customer  = Customer.where(:uid => current_user.id).first %> 
+                  <%= link_to edit_customer_path(customer), :class => "nav-link px-3"   do %>
+                    <i class="fa  fa-male text-muted"></i>
+                    <% end %>
+               <% end %>
               <!-- dropdown -->
              
               <!-- / dropdown -->
@@ -457,10 +482,31 @@
     <div class="content-main " id="content-main">
 
 <!-- ############ Main START-->
-       
+
+
 <div class="padding">
-  
-  <div class="box">
+  <% if (current_user.utype == "Buyer") %>
+ <div class="b-b b-primary nav-active-primary">
+
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+            <%= link_to "Public Offers", marketplaces_path(:ntype => "public"), :class => "nav-link" %>
+              
+            </li>
+            <li class="nav-item">
+              <%= link_to "Private Offers", marketplaces_path(:ntype => "private"), :class => "nav-link" %>
+            </li>
+             <li class="nav-item">
+              <%= link_to "B2B Requests", marketplaces_path(:ntype => "b2b"), :class => "nav-link" %>
+            </li>
+            
+          </ul>
+        </div>
+        <br>
+        <% end %>
+
+         <% if params[:ntype] == "private" %>
+         <div class="box">
     
     <div class="p-2">
       <div class="row">
@@ -483,203 +529,85 @@
 
     <div class="table-responsive">
       <table class="table table-striped b-t">
-
-      
         <thead>
-        
-
-           <th>Progress</th>
-            <th>Order Number</th>
-            <th>Order Type</th>
-             <th>Buyer</th>
-      <th>Value</th>
-      <th>Payment Type </th>
-      <th>Shipping Type </th>
-      <th>Date</th>
-      <th>Status</th>
-      
-      
-      <th style="width:50px;"></th>
+          <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Seller</th>
+            <th>Description</th>
+            <th>Offered price</th>
+            <th>Quantity</th>
+            <th>Buying Format</th>
+            <th>Duration left</th>
+            <th style="width:50px;"></th>
           </tr>
         </thead>
         <tbody>
-
-<!-- .modal -->
-        <div id="m" class="modal" data-backdrop="true">
-          <div class="modal-dialog">
+        
+        <!-- Modal -->
+        <div class="modal fade" id="addPointDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
             <div class="modal-content">
+
+
               <div class="modal-header">
-                <h5 class="modal-title">Add to cart</h5>
+                
+                <h4 class="modal-title">Add to cart</h4>
               </div>
-              <div class="modal-body text-center p-lg">
-              
-                <p>Are you sure to execute this action?</p>
-                <label for="name"></label>
-                <input type="text" name="bookId" id="bookId" value=""/>
+              <div class="modal-body">
+              <%=form_for @cart , url: add_to_cart_cart_index_path do |f| %>
+                    <div id="cart-form"></div>
+                    
+                    
+                      <%= f.hidden_field :customer_id %>
+                      <%= f.hidden_field :offer_id %>
+                      <%= f.hidden_field :seller_id %>
+                      <%= f.hidden_field :otype %>
+                      <%= f.label :quantity %><br>
+                    <%= f.text_field :quantity, class: "form-control", placeholder: "10 pallet" %>
+                    <br/>
+
+                      <%= f.label :note_to_seller %><br>
+                    <%= f.text_field :note_to_seller, class: "form-control", placeholder: "Leave a message to seller" %>
+
+
+
+
+
+                  <br/>
+                  <br/>
+                  
+                  <%= f.submit 'Submit', class: 'btn btn-success' %>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                  
+                
+              </div>
               </div>
               <div class="modal-footer">
-                <button type="button" class="btn dark-white p-x-md" data-dismiss="modal">No</button>
-                <button type="button" class="btn danger p-x-md" data-dismiss="modal">Yes</button>
+            
+              
+                <%end%>
               </div>
             </div><!-- /.modal-content -->
-          </div>
-        </div>
-        <!-- / .modal -->
-        <% @oitems = @orders.group("customer_id").group("ordered_items.id") %>
-<% osum = @oitems.sum("value") %>
-<% keys = osum.keys %>
-<% @oitems.each_with_index do |oitem, index| %>
-         <tr>
-            
-            <td> <div class="progress mt-2" style="height:5px">
-                  <div class="progress-bar info" style="width: 45%"></div></td>
-            <td><%= oitem.order_id %></td>
-            <td><%= Order.find(oitem.order_id).otype %></td>
-             <td><%= oitem.customer.business_name %></td>
-            <td> <%= osum[keys[index]] %></td>
-            <td><%= Order.find(oitem.order_id).payment_type %></td>
-            <td><%= Order.find(oitem.order_id).shipping_type %></td>
-            <td> <%= oitem.created_at.strftime("%d %h %y | %H:%M") %></td>
-            <td> 
-              <% @orders = Order.find(oitem.order_id) %>
-             <% if @orders.shipping_type == "Market Drop-Off" %>
-
-        <% if @orders.payment_type == "Seller Credit" %>
-
-              <% if @orders.o_status == "Packing Under Process" %>
-                    Credit Approved 
-                     <% elsif @orders.o_status == "Forklift Assigned" %>
-                     Packed
-                       <% elsif @orders.o_status == "Order Delivered" %>
-                     Dropped-Off
-                 <% else %>
-                    <%= @orders.o_status %>
-             <% end %>
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
 
 
-             <% elsif @orders.payment_type == "Credit Co-OP" %>
-
-             <% if @orders.o_status == "Packing Under Process" %>
-                    Credit Approved 
-                     <% elsif @orders.o_status == "Forklift Assigned" %>
-                     Packed
-                       <% elsif @orders.o_status == "Order Delivered" %>
-                     Dropped-Off
-                 <% else %>
-                    <%= @orders.o_status %>
-             <% end %>
-
-             <% elsif @orders.payment_type == "Cash" %>
-
-              <% if @orders.o_status == "Packing Under Process" %>
-                    Paid
-                     <% elsif @orders.o_status == "Forklift Assigned" %>
-                     Packed
-                       <% elsif @orders.o_status == "Order Delivered" %>
-                     Dropped-Off
-                 <% else %>
-                    <%= @orders.o_status %>
-             <% end %>
-
-             <% else %>
-
-             <% end %>
-          
-<% elsif @orders.shipping_type == "Pick up at Stand" %>
-
-<% if @orders.payment_type == "Seller Credit" %>
-
-              <% if @orders.o_status == "Packing Under Process" %>
-                    Credit Approved 
-                
-                       <% elsif @orders.o_status == "Order Receieved" %>
-                     Picked-up
-                 <% else %>
-                    <%= @orders.o_status %>
-             <% end %>
-
-
-             <% elsif @orders.payment_type == "Credit Co-OP" %>
-
-             <% if @orders.o_status == "Packing Under Process" %>
-                    Credit Approved 
-                   
-                       <% elsif @orders.o_status == "Order Receieved" %>
-                     Picked-Up
-                 <% else %>
-                    <%= @orders.o_status %>
-             <% end %>
-
-             <% elsif @orders.payment_type == "Cash" %>
-
-              <% if @orders.o_status == "Packing Under Process" %>
-                    Paid
-                     
-                       <% elsif @orders.o_status == "Order Receieved" %>
-                     Picked-Up
-                 <% else %>
-                    <%= @orders.o_status %>
-             <% end %>
-
-             <% else %>
-
-             <% end %>
-
-<% else %>
-<% if @orders.payment_type == "Seller Credit" %>
-
-              <% if @orders.o_status == "Packing Under Process" %>
-                    Credit Approved 
-                
-                       <% elsif @orders.o_status == "Order Delivered" %>
-                     Picked-up
-                 <% else %>
-                    <%= @orders.o_status %>
-             <% end %>
-
-
-             <% elsif @orders.payment_type == "Credit Co-OP" %>
-
-             <% if @orders.o_status == "Packing Under Process" %>
-                    Credit Approved 
-                   
-                       <% elsif @orders.o_status == "Order Delivered" %>
-                     Picked-Up
-                 <% else %>
-                    <%= @orders.o_status %>
-             <% end %>
-
-             <% elsif @orders.payment_type == "Cash" %>
-
-              <% if @orders.o_status == "Packing Under Process" %>
-                    Paid
-                     
-                       <% elsif @orders.o_status == "Order Delivered" %>
-                     Picked-Up
-                 <% else %>
-                    <%= @orders.o_status %>
-             <% end %>
-
-             <% else %>
-
-             <% end %>
-
-<% end %>
-</td>
-         <td><%= link_to 'Track', order_histroy_index_path(:id => oitem.id) %></td>
-         <td><%= link_to 'Invoice', oitem %></td>
-
-
-        
-
-        
-
-            
-
-       
+        <% @privateoffers.each do |pri|  %>
+          <tr>
+            <td><%= image_tag(pri.offer.stock.product.image, size: "32x32", alt: "Product Image") %></td>
+            <td><%= pri.offer.stock.product.name %></td>
+            <td><%= Seller.find(pri.seller_id).business_name%></td>
+            <td><%= pri.offer.stock.product.quality %> | Carton | <%= pri.offer.stock.product.net_weight %> | Size <%= pri.offer.stock.product.size %> | Order By <%= pri.offer.stock.product.order_by %></td>
+            <td>$<%= pri.offered_price %> per Carton</td>
+            <td><%= pri.quantity %></td>
+            <td><%= pri.offer.selling_price_type %></td>
+            <td> <%= distance_of_time_in_words pri.offer.start_at, pri.offer.ends_at %></td>
+            <td></td>
+            <td><%= link_to 'Show', pri.offer.stock.product %></td>
+            <td><a data-toggle="modal" data-otid="private" data-oid=<%=pri.offer.id%> data-cid=<%= Customer.where(:uid => current_user.id).first.id %> data-sid=<%=pri.offer.seller_id%>  class="open-AddPointDialog btn btn-success big" href="#addPointDialog"><i class="fa fa-plus-square hided-icon big"></i> Add Item </a></td>
           </tr>
-<% end %>
-          
+        <% end %>
         </tbody>
       </table>
     </div>
@@ -726,7 +654,167 @@
 
 
 </div>
+         <% else %>
 
+  <div class="box">
+    
+    <div class="p-2">
+      <div class="row">
+        <div class="col-sm-5">
+        
+                 
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-3">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-btn">
+              <button class="btn white" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped b-t">
+        <thead>
+            <th></th>
+            <th>Product</th>
+            <th>Description </th>
+            <th>Seller</th>
+            <th>Buying Format</th>
+            <th>Price ($)</th>
+            <th>Quantity </th>
+            <th>Start at</th>
+            <th>Ends at</th>
+            <th>Ends in</th>
+            <th>Offer type</th>
+            <th style="width:50px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="addPointDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+
+              <div class="modal-header">
+                
+                <h4 class="modal-title">Add to cart</h4>
+              </div>
+              <div class="modal-body">
+              <%=form_for @cart , url: add_to_cart_cart_index_path do |f| %>
+                    <div id="cart-form"></div>
+                    
+                    
+                      <%= f.hidden_field :customer_id %>
+                      <%= f.hidden_field :offer_id %>
+                      <%= f.hidden_field :seller_id %>
+                      <%= f.hidden_field :otype %>
+                      
+                      <%= f.label :quantity %><br>
+                    <%= f.text_field :quantity, class: "form-control", placeholder: "10 pallet" %>
+                    <br/>
+
+                      <%= f.label :note_to_seller %><br>
+                    <%= f.text_field :note_to_seller, class: "form-control", placeholder: "Leave a message to seller" %>
+
+
+
+
+
+                  <br/>
+                  <br/>
+                  
+                  <%= f.submit 'Submit', class: 'btn btn-success' %>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                  
+                
+              </div>
+              </div>
+              <div class="modal-footer">
+            
+              
+                <%end%>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+          <% @offers.each do |offer|  %>
+            <tr>  
+              <td><label class="ui-check m-0"><input type="checkbox" name="post[]"><i class="dark-white"></i></label></td>
+              <td><%= image_tag(offer.stock.product.image, size: "32x32", alt: "Product Image") %></td>
+              <td><%= offer.stock.desc %></td>
+              <td><%= Seller.find(offer.seller_id).business_name%></td>
+              <td><%= offer.selling_price_type %></td>
+              <td><%= offer.selling_price %>/<%= offer.stock.order_quantity_unit %> </td>
+              <td><%= offer.total_quantity_on_offer %>&nbsp;<%= offer.stock.order_quantity_unit %></td>
+              <td><%=  offer.start_at.strftime("%d %h %y | %H:%M") %></td>
+              <td><%= offer.ends_at.strftime("%d %h %y | %H:%M") %></td>
+              <td> <%= distance_of_time_in_words offer.start_at, offer.ends_at %></td>
+              <td><%= offer.offer_type %></td>
+              <td><%= link_to 'Show', offer.stock.product %></td>        
+
+              <% if (current_user.utype == "Buyer") %>
+                <td><%= link_to 'Chat', new_chat_path(:seller_id => offer.seller_id,:offer_id => offer.id,:customer_id => Customer.where(:uid => current_user.id).first.id),  class: "btn btn-fw primary" %></td>
+              <% if (offer.selling_price_type == "Fixed") %>
+                <td><a data-toggle="modal" data-oid=<%=offer.id%> data-otid="public" data-cid=<%= Customer.where(:uid => current_user.id).first.id %> data-sid=<%=offer.seller_id%> data-qty=<%=offer.total_quantity_on_offer%> class="open-AddPointDialog btn btn-success big" href="#addPointDialog"><i class="fa fa-plus-square hided-icon big"></i> Add Item </a></td>
+              <% end %>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <footer class="light lt p-2">
+      <div class="row">
+        <div class="col-sm-4 d-block-sm">
+          <select class="custom-select w-sm d-inline v-middle">
+            <option value="0">Bulk action</option>
+            <option value="1">Delete selected</option>
+            <option value="2">Bulk edit</option>
+            <option value="3">Export</option>
+          </select>
+          <button class="btn white">Apply</button>                  
+        </div>
+        <div class="col-sm-4">
+          <small class="text-muted py-2 d-block text-center">showing 20-30 of 50 items</small>
+        </div>
+        <div class="col-sm-4">                
+          <ul class="pagination justify-content-sm-end m-0">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+</div>
+ <%end%>
 
 <!-- ############ Main END-->
 
@@ -745,25 +833,27 @@
 
 </div>
 
+ 
+<!-- Bootstrap -->
+  
+  
+
 <script>
-$('#m').on('show.bs.modal', function(e) {
+$(document).on("click", ".open-AddPointDialog", function () {
 
-    //get data-id attribute of the clicked element
-    var image = $(e.relatedTarget).data('image');
-    var seller_id = $(e.relatedTarget).data('seller-id');
-    var image = $(e.relatedTarget).data('image');
-    var description = $(e.relatedTarget).data('description');
+     var oid = $(this).data('oid');
+     var cid = $(this).data('cid');
+     var sid = $(this).data('sid');
+     var otid = $(this).data('otid');
+     var qty = $(this).data('qty');
 
-
-
-
-
-    //populate the textbox
-    $(e.currentTarget).find('lable[name="name"]').text(image);
+     $(".modal-body #cart_customer_id").val( cid );
+     $(".modal-body #cart_offer_id").val( oid );
+     $(".modal-body #cart_seller_id").val( sid );
+     $(".modal-body #cart_otype").val( otid );
+     $(".modal-body #cart_quantity").val(qty);
 });
 </script>
-
-
 
 
 
