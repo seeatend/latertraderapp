@@ -824,7 +824,8 @@ Navbar
 .navbar {
   min-height: 3.5rem;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex; 
+  justify-content: center;}
   .navbar .dropdown-menu-right {
     left: auto;
     right: 0; }
@@ -1659,7 +1660,7 @@ body {
     display: block !important; }
     .app-aside,
     .app-aside .scroll {
-      width: 13rem; }
+      width: 7rem; }
     .app-aside.folded {
       width: 5rem; }
       .app-aside.folded.md {
@@ -1885,9 +1886,7 @@ Nav
       margin-top: 0.25rem; }
 
 .nav-icon {
-  float: left;
-  margin-right: 0.5rem;
-  margin-left: -0.25rem;
+  margin: 0 auto;
   font-size: 1rem;
   top: 0;
   width: 2.25rem;

@@ -17,6 +17,7 @@
 //= require Chart.min
 //= require nav
 //= require jquery.min
+//= require popper
 
 $(document).ready(function() {
  
