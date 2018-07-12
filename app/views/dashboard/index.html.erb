@@ -1,3 +1,5 @@
+<script type='text/javascript' src='https://www.gstatic.com/charts/loader.js'></script>
+
 <div class="app" id="app">
 
 <!-- ############ LAYOUT START-->
@@ -8,13 +10,11 @@
       <!-- sidenav top -->
       <div class="navbar lt">
         <!-- brand -->
-        <a href="../index.html" class="navbar-brand">
+        <a href="../index.html" class="navbar-brand tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Traders App">
           <svg viewBox="0 0 24 24" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
               <path d="M0 0h24v24H0z" fill="none"/>
               <path d="M19.51 3.08L3.08 19.51c.09.34.27.65.51.9.25.24.56.42.9.51L20.93 4.49c-.19-.69-.73-1.23-1.42-1.41zM11.88 3L3 11.88v2.83L14.71 3h-2.83zM5 3c-1.1 0-2 .9-2 2v2l4-4H5zm14 18c.55 0 1.05-.22 1.41-.59.37-.36.59-.86.59-1.41v-2l-4 4h2zm-9.71 0h2.83L21 12.12V9.29L9.29 21z" fill="#53a6fa" class="fill-theme"/>
           </svg>
-         
-          <span class="hidden-folded d-inline">Traders App</span>
         </a>
         <!-- / brand -->
       </div>
@@ -28,87 +28,79 @@
                   <% if current_user.utype == "Seller" %>
                   <li>
                   <%= link_to dashboard_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-dashboard"></i>
-  </span>
-  <span class="nav-text">Dashboard</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Dashboard">
+                  <i class="fa fa-dashboard"></i>
+                  </span>
+                <% end %>
                   </li>
                   
 
                 <% end %>
 
- <li>
+                  <li>
                   <%= link_to marketplaces_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cart-plus"></i>
-  </span>
-  <span class="nav-text">Market Place</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Market Place">
+                  <i class="fa fa-cart-plus"></i>
+                  </span>
+                <% end %>
                   </li>
          
 
-          <% if current_user.utype == "Seller" %>
-         <li>
+                  <% if current_user.utype == "Seller" %>
+                <li>
                   <%= link_to walk_in_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-calculator"></i>
-  </span>
-  <span class="nav-text">Shop Sales</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Shop Sales">
+                    <i class="fa fa-calculator"></i>
+                    </span>
+                  <% end %>
                   </li>
                    <li>
                   <%= link_to b2b_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-ticket"></i>
-  </span>
-  <span class="nav-text">B2B Sales</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="B2B Sales">
+                    <i class="fa fa-ticket"></i>
+                    </span>
+                  <% end %>
                   </li>
          
 
-         <% end %>
-         <% if current_user.utype == "Employee" %>
+                <% end %>
+                <% if current_user.utype == "Employee" %>
 
-<% if @employee.position == "Manager" %>
-         <li>
+                  <% if @employee.position == "Manager" %>
+                  <li>
                   <%= link_to approval_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-check"></i>
-  </span>
-  <span class="nav-text">Stock Approval</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Stock Approval">
+                  <i class="fa fa-check"></i>
+                  </span>
+                <% end %>
 
                   </li>
 
                    <li>
                   <%= link_to credit_approval_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-check-circle"></i>
-  </span>
-  <span class="nav-text">Credit Approval</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Credit Approval">
+                  <i class="fa fa-check-circle"></i>
+                  </span>
+                <% end %>
 
                   </li>
 
                   <% elsif @employee.position == "Forklift" %>
                     <li>
                   <%= link_to forklifts_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-check"></i>
-  </span>
-  <span class="nav-text">Forklift Task</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Forklift Task">
+                    <i class="fa fa-check"></i>
+                    </span>
+                  <% end %>
 
                   </li>
                   <% else %>
- <li>
+                    <li>
                   <%= link_to packings_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-bus"></i>
-  </span>
-  <span class="nav-text">Packing</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Packing">
+                      <i class="fa fa-bus"></i>
+                      </span>
+                    <% end %>
 
                   </li>
                   <% end %>
@@ -117,23 +109,21 @@
                   <% if current_user.utype == "Buyer" %>
                   <li>
                   <%= link_to purchases_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-credit-card"></i>
-  </span>
-  <span class="nav-text">My Purchases</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Purchases">
+                  <i class="fa fa-credit-card"></i>
+                  </span>
+                <% end %>
               </li>   
-<% end %>
-<% if current_user.utype == "Seller" %>
+                <% end %>
+                <% if current_user.utype == "Seller" %>
 
-<li>
+                <li>
                   <%= link_to offers_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-leaf"></i>
-  </span>
-  <span class="nav-text">My Offers</span>
-  </li>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Offers">
+                  <i class="fa fa-leaf"></i>
+                  </span>
+                  </li>
+                <% end %>
 
                    
                   <% end %>
@@ -142,11 +132,10 @@
 
                    <li>
                   <%= link_to stocks_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cube"></i>
-  </span>
-  <span class="nav-text">My Stock</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Stock">
+                <i class="fa fa-cube"></i>
+                </span>
+                </li>
                  <% end %>
                   <% end %>
                   <% if current_user.utype == "Seller" %>
@@ -154,11 +143,10 @@
 
                    <li>
                   <%= link_to supplies_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-barcode"></i>
-  </span>
-  <span class="nav-text">My Supplies</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Supplies">
+                  <i class="fa fa-barcode"></i>
+                  </span>
+                  </li>
                  <% end %>
 
                   
@@ -166,30 +154,27 @@
                   
                   <% if current_user.utype == "Seller" %>
 
-<li>
+                  <li>
                   <%= link_to credits_path  do %>
-                   <span class="nav-icon">
-  <i class="fa  fa-credit-card"></i>
-  </span>
-  <span class="nav-text">My Credits</span>
-  </li>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Credits">
+                    <i class="fa  fa-credit-card"></i>
+                    </span>
+                    </li>
+                  <% end %>
 
                    
                   <% end %>
                   <% if current_user.utype == "Seller" %>
                   <li>
                   <%= link_to reports_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-line-chart"></i>
-  </span>
-
-  <span class="nav-text">My Reports</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Reports">
+                    <i class="fa fa-line-chart"></i>
+                    </span>
+                    </li>
                  <% end %>
                   
                   <% end %>
-<ul class="nav ">
+                  <ul class="nav ">
                 
                     <li class="nav-header hidden-folded mt-2">
                       <span class="text-xs">Other Stuff</span>
@@ -199,43 +184,39 @@
                         <span class="nav-caret">
                           <i class="fa fa-caret-down"></i>
                         </span>
-                        <span class="nav-icon no-fade">
+                        <span class="nav-icon tool_tip no-fade" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Settings">
                           <i class="fa fa-cog"></i>
                         </span>
-                        <span class="nav-text">Settings</span>
                       </a>
                       <ul class="nav-sub nav-mega nav-mega-3">
                       <% if current_user.utype == "Seller" %>
- <li>
-                  <%= link_to employees_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-snowflake-o"></i>
-  </span>
-  <span class="nav-text">My Employees</span>
-  </li>
-                 <% end %>
+                        <li>
+                          <%= link_to employees_path  do %>
+                          <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Employees">
+                        <i class="fa fa-snowflake-o"></i>
+                        </span>
+                        </li>
+                        <% end %>
                     
                   <% end %>
                    <% if current_user.utype == "Seller" %>
                   <li>
                   <%= link_to networks_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-users"></i>
-  </span>
-  <span class="nav-text">My Network</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Network">
+                      <i class="fa fa-users"></i>
+                      </span>
+                      </li>
                  <% end %>
 
                  
                   <% end %>
-<% if current_user.utype == "Seller" %>
- <li>
+                    <% if current_user.utype == "Seller" %>
+                    <li>
                   <%= link_to products_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-snowflake-o"></i>
-  </span>
-  <span class="nav-text">My Products</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Products">
+                    <i class="fa fa-snowflake-o"></i>
+                    </span>
+                    </li>
                  <% end %>
                     
                   <% end %>
@@ -245,11 +226,10 @@
 
                    <li>
                   <%= link_to services_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-truck"></i>
-  </span>
-  <span class="nav-text">My Services</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Services">
+                  <i class="fa fa-truck"></i>
+                  </span>
+                  </li>
                  <% end %>
 
                   
@@ -258,39 +238,36 @@
 
                   <li>
                   <%= link_to sales_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-usd"></i>
-  </span>
-  <span class="nav-text">My Sales</span>
-  </li>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Sales">
+                  <i class="fa fa-usd"></i>
+                  </span>
+                  </li>
+                <% end %>
                  
                   <% end %>
 
                   <% if current_user.utype == "Seller" %>
- <li>
+                  <li>
 
                   <%= link_to claim_wastages_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-trash"></i>
-  </span>
-  <span class="nav-text">Claim Wastage</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Claim Wastage">
+                    <i class="fa fa-trash"></i>
+                    </span>
+                    </li>
                  <% end %>
                     
                   <% end %>
                          
-   <% if current_user.utype == "Seller" || if current_user.utype == "Buyer" %>
+              <% if current_user.utype == "Seller" || if current_user.utype == "Buyer" %>
                   <li>
                   <%= link_to chats_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-commenting-o"></i>
-  </span>
-  <span class="nav-text">My Chats</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Chats">
+                  <i class="fa fa-commenting-o"></i>
+                  </span>
+                  </li>
                  <% end %>
-<%end %>
-<%end %>
+              <%end %>
+              <%end %>
                   
                  
                  
@@ -301,24 +278,22 @@
                   <% if current_user.utype == "Seller" %>
                   <% seller = Seller.where(:uid => current_user.id).first %> 
                   <%= link_to edit_seller_path(seller)  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cog"></i>
-  </span>
-  <span class="nav-text">My Profile</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Profile">
+                  <i class="fa fa-cog"></i>
+                  </span>
+                  </li>
                  <% end %>
                  <% else %>
                   <% customer  = Customer.where(:uid => current_user.id).first %> 
                   <%= link_to edit_customer_path(customer)  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cog"></i>
-  </span>
-  <span class="nav-text">My Profile</span>
-  </li>
-  <% end %>
-  <% end %>
-                 <% end %>
-                 <% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Profile">
+                    <i class="fa fa-cog"></i>
+                    </span>
+                    </li>
+                <% end %>
+                <% end %>
+            <% end %>
+            <% end %>
                  
 
                   
@@ -456,538 +431,153 @@
 
 <!-- ############ Main START-->
 <div class="padding">
-	<div class="px-lg-5">
-		<h3 class="text-md mb-4 _400">Daily Trends</h3>
-		<div class="row">
-	      
+    <div class="d-flex dashboard-header">
+      <div class="d-flex" style="align-items:center;">
+        <h2 style="margin-right:40px;">Dashboard</h2>
+        <button class="btn b-a b-primary text-xxs" style="color:#53a6fa;padding: .25rem 1rem"><i class="fa fa-download" aria-hidden="true"></i> Export</button>
+      </div>
+      <div class="d-flex category">
+        <ul class="type-categories">
+          <li class="active"><i class="fa fa-th-large" style="color:#53a6fa;" aria-hidden="true"></i> Cards</li>
+          <li><i class="fa fa-list" aria-hidden="true"></i> Table</li>
+        </ul>
+      </div>
+    </div>
 
-	      <div class="col-6 col-lg-3">
-	        <div class="box p-3 success">
-	          <div class="d-flex">
-	          	<span class="text-muted">Offer Made ($) </span>
-	          </div>
-	          <div class="py-3 text-center text-lg text-white">
-	           19
-	          </div>
-	          <div class="d-flex">
-	          	<span class="flex text-muted">New offers</span>
-	          	<span><i class="fa fa-caret-down"></i> 5%</span>
-	          </div>
-	        </div>
-	      </div>
 
-	      <div class="col-6 col-lg-3">
-	        <div class="box p-3 warning">
-	          <div class="d-flex">
-	          	<span class="text-muted">Purchases($)</span>
-	          </div>
-	          <div class="py-3 text-center text-lg text-white">
-	          	300
-	          </div>
-	          <div class="d-flex">
-	          	<span class="flex text-muted">Completed</span>
-	          	<span><i class="fa fa-caret-up"></i> 1%</span>
-	          </div>
-	        </div>
-	      </div>
-
-	      <div class="col-6 col-lg-3">
-	        <div class="box p-3 danger">
-	          <div class="d-flex">
-	          	<span class="text-muted">Credit Issued ($)</span>
-	          </div>
-	          <div class="py-3 text-center text-lg text-white">
-	          	17,320
-	          </div>
-	          <div class="d-flex">
-	          	<span class="flex text-muted">New Credits</span>
-	          	<span><i class="fa fa-caret-down"></i> 11%</span>
-	          </div>
-	        </div>
-	      </div>
-
-         <div class="col-6 col-lg-3">
-          <div class="box p-3 primary theme">
-            <div class="d-flex">
-              <span class="text-muted">Payment ($)</span>
+    <div class="row">
+      <div class="col-xs-12 col-sm-3">
+        <div class="b-a total-orders">
+          <div style="padding: 30px;">
+            <span class="text-md">Orders</span>
+            <div style="margin: 20px 0;">
+              <div class="d-flex" style="align-items: flex-end;color: black;"><h5>$</h5><h3>152,356</h3></div>
+              <div class="d-flex" style="padding: 0 15px"><span class="flex">Amount due</span><span>Not Paid: 10</span></div>
             </div>
-            <div class="py-3 text-center text-lg text-white">
-             1,37,000
-            </div>
-            <div class="d-flex">
-              <span class="flex text-muted">Income</span>
-              <span><i class="fa fa-caret-up text-white"></i> 12%</span>
-            </div>
+            <button class="d-flex blue dashboard-btn">
+              <span class="flex">View all orders</span>
+              <i class="fa fa-arrow-right float-right light-blue" aria-hidden="true" style="border-radius: 50%;padding: 8px;"></i>
+            </button>
           </div>
-        </div>
-		</div>
-    <br>
-    <h3 class="text-md mb-4 _400">Global Trends</h3>
-<div class="row">
-      <div class="col-sm-3">
-        <div class="box">
-          <div class="box-header">
-            <h3>Offers</h3>
-          </div>
-          <div class="list inset">
-                <div class="list-item " data-id="item-12">
-                 
-                  <div class="list-body">
-                        <a href="" class="item-title _500">Live ($)</a>
-                    
-                      
-            
-                    <div class="item-tag tag hide">
-                    </div>
-                  </div>
-                  <div>
-                      <span class="item-date text-xs text-muted">3000</span>
-                  </div>
+          <div class="d-flex b-t" style="margin: 0;padding: 20px 30px 10px;">
+              <div class="flex p-1" style="text-align: center;padding-right: 20px !important;">
+                <h4>12</h4>
+                <div class="progress my-1" style="height:6px;">
+                    <div class="progress-bar primary" style="width: 50%"></div>
                 </div>
-                <div class="list-item " data-id="item-3">
-                  
-                  <div class="list-body">
-                        <a href="" class="item-title _500">On-Hold ($)</a>
-                    
-                    
-            
-                    <div class="item-tag tag hide">
-                    </div>
-                  </div>
-                  <div>
-                      <span class="item-date text-xs text-muted">2000</span>
-                  </div>
+                <span>Not approved</span>
+              </div>
+              <div class="flex p-1" style="text-align: center;padding-left: 20px !important;">
+                <h4>6</h4>
+                <div class="progress my-1" style="height:6px;">
+                    <div class="progress-bar warning" style="width: 50%"></div>
                 </div>
-                <div class="list-item " data-id="item-5">
-                  
-                  <div class="list-body">
-                        <a href="" class="item-title _500">Under processing ($)</a>
-                    
-                   
-            
-                    <div class="item-tag tag hide">
-                    </div>
-                  </div>
-                  <div>
-                      <span class="item-date text-xs text-muted">4000</span>
-                  </div>
-                </div>
-               
-              
+                <span>Not shipped</span>
+              </div>
           </div>
         </div>
       </div>
-     
-     <div class="col-sm-3">
-        <div class="box">
-          <div class="box-header">
-            <h3>Credits</h3>
+      <div class="col-xs-12 col-sm-9 d-flex b-a" style=";padding: 0;max-width: 1250px;">
+        <div style="width: 70%;background-color: #fff;padding: 40px 30px 10px;">
+          <div id="container" style="min-width: 310px; height: 286px; margin: 0 auto"></div>
+        </div>
+        <div class="b-l" style="width: 30%;background-color: #fff;">
+          <div class="d-flex b-b" style="height: 200px;flex-direction: column;align-items: center;justify-content: center;">
+            <span class="text-md">Offers</span>
+            <div class="p-2-3" style="border-radius:50%;border: 4px dashed #ddd;margin:10px 0;">
+              <div class="d-flex text-md offers-cnt">5</div>
+            </div>
+            <div class="d-flex" style="align-items: flex-end;"><h2 style="margin:0">28,000</h2><span class="text" style="margin:4px 8px;">Live</span></div>
           </div>
-          <div class="list inset">
-                <div class="list-item " data-id="item-12">
-                 
-                  <div class="list-body">
-                        <a href="" class="item-title _500">Approved ($)</a>
-                    
-                     
-            
-                    <div class="item-tag tag hide">
-                    </div>
-                  </div>
-                  <div>
-                      <span class="item-date text-xs text-muted">20,000</span>
-                  </div>
-                </div>
-                <div class="list-item " data-id="item-3">
-                  
-                  <div class="list-body">
-                        <a href="" class="item-title _500">Given ($)</a>
-                    
-                   
-                    <div class="item-tag tag hide">
-                    </div>
-                  </div>
-                  <div>
-                      <span class="item-date text-xs text-muted">20,000</span>
-                  </div>
-                </div>
-                <div class="list-item " data-id="item-5">
-                  
-                  <div class="list-body">
-                        <a href="" class="item-title _500">Due ($)</a>
-                    
-                   
-                    <div class="item-tag tag hide">
-                    </div>
-                  </div>
-                  <div>
-                      <span class="item-date text-xs text-muted">7000</span>
-                  </div>
-                </div>
-               
-              
+          <div class="d-flex b-b" style="height: 68px;justify-content: center;align-items: center;">
+            <div class="flex text-md b-r" style="height: 100%;text-align: center;padding: 15px 0">1,260</div>
+            <div class="flex text-md" style="height: 100%;text-align: center;padding: 15px 0">12,540</div>
+          </div>
+          <div class="d-flex b-b" style="height: 68px; justify-content: center;align-items: center;">
+            <button class="d-flex blue dashboard-btn" style="width: 60%;">
+              <span class="flex">View Offers</span>
+              <i class="fa fa-arrow-right float-right light-blue" aria-hidden="true" style="border-radius: 50%;padding: 8px;"></i>
+            </button>
           </div>
         </div>
       </div>
-      <div class="col-sm-3">
-        <div class="box">
-          <div class="box-header">
-            <h3>Stock</h3>
+
+      <div class="col-xs-12 col-sm-3">
+        
+      </div>
+      <div class="col-xs-12 col-sm-9 d-flex b-a" style=";padding: 0;max-width: 1250px;margin-top: 20px;">
+        <div class="d-flex" style="width: 70%;background-color: #fff;padding: 40px 30px 10px;">
+          <div style="width: 70%;">
+            <div id="chart_div" style="width: 100%; height: 336px;"></div>
           </div>
-          <div class="list inset">
-                <div class="list-item " data-id="item-12">
-                 
-                  <div class="list-body">
-                        <a href="" class="item-title _500">Instock ($)</a>
-                    
-                   
-            
-                    <div class="item-tag tag hide">
-                    </div>
-                  </div>
-                  <div>
-                      <span class="item-date text-xs text-muted">700</span>
-                  </div>
+          <div class="d-flex" style="width: 30%;flex-direction: column;padding-left: 35px;">
+            <span class="_600" style="text-align: right;margin-bottom: 10px;">Show list</span>
+            <div class="p-1" style="width: 100%;">
+              <span>Queensland</span>
+              <div class="d-flex dsh-line">
+                <div class="progress my-1" style="height:6px;width:70%;">
+                    <div class="progress-bar Primary" style="width: 45%"></div>
                 </div>
-                <div class="list-item " data-id="item-3">
-                  
-                  <div class="list-body">
-                        <a href="" class="item-title _500">On-Hold ($)</a>
-                    
-                      
-            
-                    <div class="item-tag tag hide">
-                    </div>
-                  </div>
-                  <div>
-                      <span class="item-date text-xs text-muted">400</span>
-                  </div>
+                <span style="">45%</span>
+              </div>
+            </div>
+            <div class="p-1" style="width: 100%;">
+              <span>Western Australia</span>
+              <div class="d-flex dsh-line">
+                <div class="progress my-1" style="height:6px;width:70%;">
+                    <div class="progress-bar light-green" style="width: 35%"></div>
                 </div>
-                <div class="list-item " data-id="item-5">
-                  
-                  <div class="list-body">
-                        <a href="" class="item-title _500">Not Approved ($)</a>
-                    
-                      
-            
-                    <div class="item-tag tag hide">
-                    </div>
-                  </div>
-                  <div>
-                      <span class="item-date text-xs text-muted">650</span>
-                  </div>
+                <span>35%</span>
+              </div>
+            </div>
+            <div class="p-1" style="width: 100%;">
+              <span>New South Wales</span>
+              <div class="d-flex dsh-line">
+                <div class="progress my-1" style="height:6px;width:70%;">
+                    <div class="progress-bar warning" style="width: 10%"></div>
                 </div>
-               
-              
+                <span>10%</span>
+              </div>
+            </div>
+            <div class="p-1" style="width: 100%;">
+              <span>Others</span>
+              <div class="d-flex dsh-line">
+                <div class="progress my-1" style="height:6px;width:70%;">
+                    <div class="progress-bar blue-grey" style="width: 10%"></div>
+                </div>
+                <span>10%</span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-       <div class="col-sm-3">
-        <div class="box">
-          <div class="box-header">
-            <h3>Cheps</h3>
+        <div class="b-l" style="width: 30%;background-color: #fff;">
+          <div class="d-flex b-b" style="height: 100px;flex-direction: column;align-items: center;justify-content: center;">
+            <div class="text">Stocks <i class="fa fa-external-link" aria-hidden="true"></i></div>
+            <h4>21,2430</h4>
           </div>
-          <div class="list inset">
-                <div class="list-item " data-id="item-12">
-                 
-                  <div class="list-body">
-                        <a href="" class="item-title _500">In Stock </a>
-                    
-                     
-            
-                    <div class="item-tag tag hide">
-                    </div>
-                  </div>
-                  <div>
-                      <span class="item-date text-xs text-muted">100</span>
-                  </div>
-                </div>
-                <div class="list-item " data-id="item-3">
-                  
-                  <div class="list-body">
-                        <a href="" class="item-title _500">In Market </a>
-                    
-                    
-            
-                    <div class="item-tag tag hide">
-                    </div>
-                  </div>
-                  <div>
-                      <span class="item-date text-xs text-muted">80</span>
-                  </div>
-                </div>
-                <div class="list-item " data-id="item-5">
-                  
-                  <div class="list-body">
-                        <a href="" class="item-title _500">Threshold</a>
-                    
-                     
-            
-                    <div class="item-tag tag hide">
-                    </div>
-                  </div>
-                  <div>
-                      <span class="item-date text-xs text-muted">50</span>
-                  </div>
-                </div>
-               
-              
+          <div class="d-flex" style="height: 118px;justify-content: center;align-items: center;">
+            <div class="flex b-r" style="text-align: center;padding: 5px 0">
+              <span>In Stock</span><br/>
+              <span class="text-md">18</span>
+            </div>
+            <div class="flex" style="text-align: center;padding: 5px 0">
+              <span>On Hood</span><br/>
+              <span class="text-md">4</span>
+            </div>
+          </div>
+          <div class="d-flex" style="height: 118px;justify-content: center;align-items: center;">
+            <div class="flex b-r" style="text-align: center;padding: 5px 0">
+              <span>Out Of Stock</span><br/>
+              <span class="text-md">24</span>
+            </div>
+            <div class="flex" style="text-align: center;padding: 5px 0">
+              <span>No Of Products</span><br/>
+              <span class="text-md">24</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
-<br>
- <h3 class="text-md mb-4 _400">Today Order Status</h3>
-    <div class="row">
-      <div class="col-sm-6 col-lg-3">
-        <div class="box list-item">
-          <span class="avatar w-40 text-center circle success">
-            <span class="fa fa-dollar"></span>
-          </span>
-          <div class="list-body">
-            <h4 class="m-0 text-md"><a href="#">300 <span class="text-sm">Not Approved</span></a></h4>
-            <small class="text-muted">6 waiting payment.</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-lg-3">
-        <div class="box list-item">
-          <span class="avatar w-40 text-center circle theme">
-            <span class="fa fa-female"></span>
-          </span>
-          <div class="list-body">
-            <h4 class="m-0 text-md"><a href="#">100 <span class="text-sm">Not Paid</span></a></h4>
-            <small class="text-muted">38 Shipped.</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-lg-3">
-        <div class="box list-item">
-          <span class="avatar w-40 text-center circle cyan">
-            <span class="fa fa-bookmark"></span>
-          </span>
-          <div class="list-body">
-            <h4 class="m-0 text-md"><a href="#">60 <span class="text-sm">Not Packed</span></a></h4>
-            <small class="text-muted">632 VIP.</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-lg-3">
-        <div class="box list-item">
-          <span class="avatar w-40 text-center circle warning">
-            <span class="fa fa-comment"></span>
-          </span>
-          <div class="list-body">
-            <h4 class="m-0 text-md"><a href="#">71 <span class="text-sm">Not Dropped Off</span></a></h4>
-            <small class="text-muted">5 approved.</small>
-          </div>
-        </div>
-      </div>
-  </div>
-   <div class="row">
-      <div class="col-sm-6 col-lg-3">
-        <div class="box list-item">
-          <span class="avatar w-40 text-center circle success">
-            <span class="fa fa-dollar"></span>
-          </span>
-          <div class="list-body">
-            <h4 class="m-0 text-md"><a href="#">11 <span class="text-sm">Not Received</span></a></h4>
-            <small class="text-muted">6 waiting payment.</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-lg-3">
-        <div class="box list-item">
-          <span class="avatar w-40 text-center circle theme">
-            <span class="fa fa-female"></span>
-          </span>
-          <div class="list-body">
-            <h4 class="m-0 text-md"><a href="#">16,000 ($) <span class="text-sm">Credit Due</span></a></h4>
-            
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-lg-3">
-        <div class="box list-item">
-          <span class="avatar w-40 text-center circle cyan">
-            <span class="fa fa-bookmark"></span>
-          </span>
-          <div class="list-body">
-            <h4 class="m-0 text-md"><a href="#">1000($) <span class="text-sm">Not Closed</span></a></h4>
-            <small class="text-muted">632 VIP.</small>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6 col-lg-3">
-        <div class="box list-item">
-          <span class="avatar w-40 text-center circle warning">
-            <span class="fa fa-comment"></span>
-          </span>
-          <div class="list-body">
-            <h4 class="m-0 text-md"><a href="#">1000($) <span class="text-sm">Cancelled</span></a></h4>
-            <small class="text-muted">5 approved.</small>
-          </div>
-        </div>
-      </div>
-  </div>
-  
-	
-
-		<div class="row">
-	        <div class="col-md-6">
-		        <div class="box">
-		            <div class="box-header">
-						<a href="#" class="float-right text-muted text-sm">See detail</a>
-		            	<h3>Country Wide Sales</h3>
-		            </div>
-					<div class="box-body">
-						<div>
-							<div id="jqvmap-world" data-plugin="vectorMap" style="height:180px"></div>
-						</div>
-						<div class="p-1">
-							<small>
-								<span class="float-right text-muted">45%</span>
-								Sydney
-							</small>
-							<div class="progress my-1" style="height:6px;">
-						        <div class="progress-bar progress-bar-striped progress-bar-animated primary" style="width: 45%"></div>
-						    </div>
-						</div>
-						<div class="p-1">
-							<small>
-								<span class="float-right text-muted">25%</span>
-								Melbourne
-							</small>
-							<div class="progress my-1" style="height:6px;">
-						        <div class="progress-bar warning" style="width: 25%"></div>
-						    </div>
-						</div>
-						<div class="p-1">
-							<small>
-								<span class="float-right text-muted">15%</span>
-								Perth
-							</small>
-							<div class="progress my-1" style="height:6px;">
-						        <div class="progress-bar danger" style="width: 15%"></div>
-						    </div>
-						</div>
-						<div class="p-1">
-							<small>
-								<span class="float-right text-muted">5%</span>
-								Others
-							</small>
-							<div class="progress my-1" style="height:6px;">
-						        <div class="progress-bar grey lt" style="width: 5%"></div>
-						    </div>
-						</div>
-					</div>
-					<div class="box-footer pt-1">
-						<small class="text-muted">Tip: All data caculated in real time</small>
-					</div>
-		        </div>
-	        </div>
-			<div class="col-md-6">
-				<div class="box">
-					<div class="box-header">
-						<a href="#" class="float-right text-muted text-sm">See detail</a>
-						<h3>Sales</h3>
-					</div>
-					
-		            <div class="list">
-		              	<div class="list-item">
-			              	<div>
-			              		<i class="badge badge-xs badge-o b-success"></i>
-			              		<span class="mx-2">2,000$</span>
-			              	</div>
-			              	<div class="list-body">
-			              		<span class="text-muted">Today</span>
-			              	</div>
-			              	<span><i class="fa fa-caret-up text-success"></i></span>
-		              	</div>
-		              	<div class="list-item">
-			              	<div>
-			              		<i class="badge badge-xs badge-o b-warning"></i>
-			              		<span class="mx-2">1700$</span>
-			              	</div>
-			              	<div class="list-body">
-			              		<span class="text-muted">Yesterday</span>
-			              	</div>
-			              	<span><i class="fa fa-caret-up text-warning"></i></span>
-		              	</div>
-		              	<div class="list-item">
-			              	<div>
-			              		<i class="badge badge-xs badge-o b-danger"></i>
-			              		<span class="mx-2">35,000$</span>
-			              	</div>
-			              	<div class="list-body">
-			              		<span class="text-muted">This Week</span>
-			              	</div>
-			              	<span><i class="fa fa-caret-down text-danger"></i></span>
-		              	</div>
-		              	<div class="list-item">
-			              	<div>
-			              		<i class="badge badge-xs badge-o b-dark"></i>
-			              		<span class="mx-2">42,000$</span>
-			              	</div>
-			              	<div class="list-body">
-			              		<span class="text-muted">Last Week</span>
-			              	</div>
-		              	</div>
-                      <div class="list-item">
-                      <div>
-                        <i class="badge badge-xs badge-o b-dark"></i>
-                        <span class="mx-2">1,78,000$</span>
-                      </div>
-                      <div class="list-body">
-                        <span class="text-muted">This Month</span>
-                      </div>
-                    </div>
-                      <div class="list-item">
-                      <div>
-                        <i class="badge badge-xs badge-o b-dark"></i>
-                        <span class="mx-2">1,42,000$</span>
-                      </div>
-                      <div class="list-body">
-                        <span class="text-muted">Last Month</span>
-                      </div>
-                    </div>
-                      <div class="list-item">
-                      <div>
-                        <i class="badge badge-xs badge-o b-dark"></i>
-                        <span class="mx-2">54,20,110$</span>
-                      </div>
-                      <div class="list-body">
-                        <span class="text-muted">This Year</span>
-                      </div>
-                    </div>
-                      <div class="list-item">
-                      <div>
-                        <i class="badge badge-xs badge-o b-dark"></i>
-                        <span class="mx-2">70,42,000$</span>
-                      </div>
-                      <div class="list-body">
-                        <span class="text-muted">Last Year</span>
-                      </div>
-                    </div>
-		          	</div>
-
-					<div class="box-footer">
-						<small class="text-muted">Tip: All data caculated in real time</small>
-					</div>
-				</div>
-	        </div>
-	    </div>
-
-	  
-
-		
-	</div>
 </div>
 
 
@@ -1007,6 +597,158 @@
 <!-- ############ LAYOUT END-->
 
 </div>
+
+<style>
+  .dashboard-header {
+    align-items: end;
+    justify-content: space-between;
+  }
+  .dashboard-header .category {
+    flex-direction: column; 
+    align-items: flex-end;
+  }
+  .dashboard-header .category ul {
+    list-style: none;
+    display: flex;
+    padding: 5px;
+    background-color: rgb(239,244,246)
+  }
+  .dashboard-header .category ul li {
+    padding: 7px 15px;
+    cursor: pointer;
+  }
+  .dashboard-header .category ul li:hover {
+    background: #f4f6f9;
+  }
+  .dashboard-header .category ul li.active {
+    background: #fff;
+    border-radius: 4px;
+  }
+  .offers-cnt {
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background-color:#fff4cc;
+    align-items:center;
+    justify-content:center;
+    color:#ffca0e;
+  }
+  .total-orders {
+    background-color: #fff;
+    max-width: 310px;
+    margin: 0 auto;
+  }
+  .dashboard-btn {
+    width: 100%;
+    align-items: center;
+    padding:5px 5px 5px 10px;
+    border-radius: 25px;
+  }
+  .dsh-line {
+    align-items: center;
+    justify-content: space-between;
+  }
+</style>
+
+<script src="js/highcharts.js"></script>
+
+<script>
+  $('ul.type-categories li').click(function() {
+    $(this).closest("ul").find("li").each(function() {
+      $(this).removeClass("active");
+    });
+    $(this).addClass("active");
+  })
+
+  $('.tool_tip').tooltip();
+
+  Highcharts.chart('container', {
+    chart: {
+        type: 'areaspline'
+    },
+    title: {
+        text: ''
+    },
+     xAxis: {
+          type: 'Number'
+        },
+    yAxis: {
+        title: {
+            text: ''
+        },
+        opposite: true
+    },
+    tooltip: {
+        shared: true,
+        valueSuffix: ' $'
+    },
+    credits: {
+        enabled: false
+    },
+    plotOptions: {
+        areaspline: {
+            fillColor: {
+                linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                },
+                stops: [
+                    [0, Highcharts.getOptions().colors[0]],
+                    [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                ]
+            },
+            marker: {
+                radius: 2
+            },
+            lineWidth: 1,
+            states: {
+                hover: {
+                    lineWidth: 1
+                }
+            },
+            threshold: null
+        }
+    },
+    series: [{
+        name: 'Sales',
+        data: [[2012, 3000], [2013, 4000], [2014, 3000], [2015, 5000], [2016, 4000], [2017, 10000], [2018, 12000]]
+    },{
+        name: 'Invoices',
+        data: [[2012, 1000], [2013, 3000], [2014, 4000], [2015, 3000], [2016, 3000], [2017, 5000], [2018, 4000]]
+    },{
+        name: 'Profit',
+        data: [[2012, 1500], [2013, 1200], [2014, 1100], [2015, 1800], [2016, 1000], [2017, 1400], [2018, 1300]]
+    }]
+  });
+
+    google.charts.load('current', {
+      'packages': ['geochart'],
+      'mapsApiKey': 'AIzaSyCFfLsebWrh0lXVk7kYM66pbPaQrYiMQEg'
+    });
+    google.charts.setOnLoadCallback(drawMarkersMap);
+
+    function drawMarkersMap() {
+    var data = google.visualization.arrayToDataTable([
+      ['country', 'Percentage(%)'],
+      ['Queensland', 45],
+      ['Western Australia', 35],
+      ['Wales', 10],
+      ['Others', 10]
+    ]);
+
+    var options = {
+      sizeAxis: { minValue: 0, maxValue: 100 },
+      //region: '142', // Western Europe
+      displayMode: 'markers',
+      colorAxis: {colors: ['#0173d9', '#8bc449', '#fdab29', '#5f7c8a']} 
+    };
+
+    var chart = new google.visualization.GeoChart(document.getElementById('chart_div'));
+    chart.draw(data, options);
+  };
+</script>
 
 
 
