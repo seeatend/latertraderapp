@@ -8,13 +8,8 @@
       <!-- sidenav top -->
       <div class="navbar lt">
         <!-- brand -->
-        <a href="../index.html" class="navbar-brand">
-          <svg viewBox="0 0 24 24" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M19.51 3.08L3.08 19.51c.09.34.27.65.51.9.25.24.56.42.9.51L20.93 4.49c-.19-.69-.73-1.23-1.42-1.41zM11.88 3L3 11.88v2.83L14.71 3h-2.83zM5 3c-1.1 0-2 .9-2 2v2l4-4H5zm14 18c.55 0 1.05-.22 1.41-.59.37-.36.59-.86.59-1.41v-2l-4 4h2zm-9.71 0h2.83L21 12.12V9.29L9.29 21z" fill="#53a6fa" class="fill-theme"/>
-          </svg>
-         
-          <span class="hidden-folded d-inline">Traders App</span>
+        <a href="../index.html" class="navbar-brand tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Traders App">
+          <img src="/img/logo_.png">
         </a>
         <!-- / brand -->
       </div>
@@ -28,192 +23,279 @@
                   <% if current_user.utype == "Seller" %>
                   <li>
                   <%= link_to dashboard_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-dashboard"></i>
-  </span>
-  <span class="nav-text">Dashboard</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Dashboard">
+                  <i class="fa fa-dashboard"></i>
+                  </span>
+                <% end %>
                   </li>
                   
 
                 <% end %>
 
- <li>
+                  <li>
                   <%= link_to marketplaces_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cart-plus"></i>
-  </span>
-  <span class="nav-text">Market Place</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Market Place">
+                  <i class="fa fa-cart-plus"></i>
+                  </span>
+                <% end %>
                   </li>
          
-         <% if current_user.utype == "Employee" %>
-         <li>
-                  <%= link_to approval_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-check"></i>
-  </span>
-  <span class="nav-text">Approval</span>
-<% end %>
-<% end %>
+
+                  <% if current_user.utype == "Seller" %>
+                <li>
+                  <%= link_to walk_in_index_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Shop Sales">
+                    <i class="fa fa-calculator"></i>
+                    </span>
+                  <% end %>
                   </li>
+                   <li>
+                  <%= link_to b2b_index_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="B2B Sales">
+                    <i class="fa fa-ticket"></i>
+                    </span>
+                  <% end %>
+                  </li>
+         
+
+                <% end %>
+                <% if current_user.utype == "Employee" %>
+
+                  <% if @employee.position == "Manager" %>
+                  <li>
+                  <%= link_to approval_index_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Stock Approval">
+                  <i class="fa fa-check"></i>
+                  </span>
+                <% end %>
+
+                  </li>
+
+                   <li>
+                  <%= link_to credit_approval_index_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Credit Approval">
+                  <i class="fa fa-check-circle"></i>
+                  </span>
+                <% end %>
+
+                  </li>
+
+                  <% elsif @employee.position == "Forklift" %>
+                    <li>
+                  <%= link_to forklifts_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Forklift Task">
+                    <i class="fa fa-check"></i>
+                    </span>
+                  <% end %>
+
+                  </li>
+                  <% else %>
+                    <li>
+                  <%= link_to packings_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Packing">
+                      <i class="fa fa-bus"></i>
+                      </span>
+                    <% end %>
+
+                  </li>
+                  <% end %>
+                  <% end %>
                   
                   <% if current_user.utype == "Buyer" %>
                   <li>
                   <%= link_to purchases_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-credit-card"></i>
-  </span>
-  <span class="nav-text">My Purchases</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Purchases">
+                  <i class="fa fa-credit-card"></i>
+                  </span>
+                <% end %>
               </li>   
-<% end %>
-<% if current_user.utype == "Seller" %>
+                <% end %>
+                <% if current_user.utype == "Seller" %>
 
-<li>
+                <li>
                   <%= link_to offers_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-leaf"></i>
-  </span>
-  <span class="nav-text">My Offers</span>
-  </li>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Offers">
+                  <i class="fa fa-leaf"></i>
+                  </span>
+                  </li>
+                <% end %>
 
                    
                   <% end %>
-                  <% if current_user.utype == "Seller" %>
-
-                  <li>
-                  <%= link_to sales_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-usd"></i>
-  </span>
-  <span class="nav-text">My Sales</span>
-  </li>
-<% end %>
                  
-                  <% end %>
                   <% if current_user.utype == "Seller" %>
 
                    <li>
                   <%= link_to stocks_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cube"></i>
-  </span>
-  <span class="nav-text">My Stock</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Stock">
+                <i class="fa fa-cube"></i>
+                </span>
+                </li>
                  <% end %>
                   <% end %>
+                  <% if current_user.utype == "Seller" %>
+
+
+                   <li>
+                  <%= link_to supplies_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Supplies">
+                  <i class="fa fa-barcode"></i>
+                  </span>
+                  </li>
+                 <% end %>
+
+                  
+                  <% end %>
+                  
+                  <% if current_user.utype == "Seller" %>
+
+                  <li>
+                  <%= link_to credits_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Credits">
+                    <i class="fa  fa-credit-card"></i>
+                    </span>
+                    </li>
+                  <% end %>
+
+                   
+                  <% end %>
+                  <% if current_user.utype == "Seller" %>
+                  <li>
+                  <%= link_to reports_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Reports">
+                    <i class="fa fa-line-chart"></i>
+                    </span>
+                    </li>
+                 <% end %>
+                  
+                  <% end %>
+                  <ul class="nav ">
+                
+                    <li class="nav-header hidden-folded mt-2">
+                      <span class="text-xs">Other Stuff</span>
+                    </li>
+                    <li>
+                      <a>
+                        <span class="nav-caret">
+                          <i class="fa fa-caret-down"></i>
+                        </span>
+                        <span class="nav-icon tool_tip no-fade" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Settings">
+                          <i class="fa fa-cog"></i>
+                        </span>
+                      </a>
+                      <ul class="nav-sub nav-mega nav-mega-3">
+                      <% if current_user.utype == "Seller" %>
+                        <li>
+                          <%= link_to employees_path  do %>
+                          <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Employees">
+                        <i class="fa fa-snowflake-o"></i>
+                        </span>
+                        </li>
+                        <% end %>
+                    
+                  <% end %>
+                   <% if current_user.utype == "Seller" %>
+                  <li>
+                  <%= link_to networks_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Network">
+                      <i class="fa fa-users"></i>
+                      </span>
+                      </li>
+                 <% end %>
+
+                 
+                  <% end %>
+                    <% if current_user.utype == "Seller" %>
+                    <li>
+                  <%= link_to products_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Products">
+                    <i class="fa fa-snowflake-o"></i>
+                    </span>
+                    </li>
+                 <% end %>
+                    
+                  <% end %>
+                  
                   <% if current_user.utype == "Seller" %>
 
 
                    <li>
                   <%= link_to services_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-truck"></i>
-  </span>
-  <span class="nav-text">My Services</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Services">
+                  <i class="fa fa-truck"></i>
+                  </span>
+                  </li>
                  <% end %>
 
                   
                   <% end %>
-   <% if current_user.utype == "Seller" || if current_user.utype == "Buyer" %>
-                  <li>
-                  <%= link_to chats_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-commenting-o"></i>
-  </span>
-  <span class="nav-text">My Chats</span>
-  </li>
-                 <% end %>
-<%end %>
-<%end %>
-                  
-                  <% if current_user.utype == "Seller" %>
-                  <li>
-                  <%= link_to networks_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-users"></i>
-  </span>
-  <span class="nav-text">My Network</span>
-  </li>
-                 <% end %>
+                       <% if current_user.utype == "Seller" %>
 
+                  <li>
+                  <%= link_to sales_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Sales">
+                  <i class="fa fa-usd"></i>
+                  </span>
+                  </li>
+                <% end %>
                  
                   <% end %>
+
                   <% if current_user.utype == "Seller" %>
                   <li>
-                  <%= link_to reports_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-line-chart"></i>
-  </span>
-  <span class="nav-text">My Reports</span>
-  </li>
-                 <% end %>
-                  
-                  <% end %>
-<% if current_user.utype == "Seller" %>
- <li>
-                  <%= link_to products_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-snowflake-o"></i>
-  </span>
-  <span class="nav-text">My Products</span>
-  </li>
+
+                  <%= link_to claim_wastages_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Claim Wastage">
+                    <i class="fa fa-trash"></i>
+                    </span>
+                    </li>
                  <% end %>
                     
                   <% end %>
+                         
+              <% if current_user.utype == "Seller" || if current_user.utype == "Buyer" %>
+                  <li>
+                  <%= link_to chats_path  do %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Chats">
+                  <i class="fa fa-commenting-o"></i>
+                  </span>
+                  </li>
+                 <% end %>
+              <%end %>
+              <%end %>
+                  
+                 
+                 
+
                   <% if current_user.utype == "Seller" || if current_user.utype == "Buyer" %>
                   <li>
                   
                   <% if current_user.utype == "Seller" %>
                   <% seller = Seller.where(:uid => current_user.id).first %> 
                   <%= link_to edit_seller_path(seller)  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cog"></i>
-  </span>
-  <span class="nav-text">My Profile</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Profile">
+                  <i class="fa fa-cog"></i>
+                  </span>
+                  </li>
                  <% end %>
                  <% else %>
                   <% customer  = Customer.where(:uid => current_user.id).first %> 
                   <%= link_to edit_customer_path(customer)  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cog"></i>
-  </span>
-  <span class="nav-text">My Profile</span>
-  </li>
-  <% end %>
-  <% end %>
-                 <% end %>
-                 <% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Profile">
+                    <i class="fa fa-cog"></i>
+                    </span>
+                    </li>
+                <% end %>
+                <% end %>
+            <% end %>
+            <% end %>
                  
-                  <% if current_user.utype == "Seller" %>
- <li>
 
-                  <%= link_to claim_wastages_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-trash"></i>
-  </span>
-  <span class="nav-text">Claim Wastage</span>
-  </li>
-                 <% end %>
-                    
-                  <% end %>
+                  
+                      </ul>
+                    </li>
 
 
-<% if current_user.utype == "Seller" %>
- <li>
-                  <%= link_to employees_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-snowflake-o"></i>
-  </span>
-  <span class="nav-text">My Employees</span>
-  </li>
-                 <% end %>
-                    
-                  <% end %>
                   
               </ul>
             </div>
@@ -222,7 +304,6 @@
       
       
       <!-- sidenav bottom -->
-      
     </div>
   </div>
   <!-- ############ Aside END-->
@@ -295,3 +376,6 @@
 
 </div>
 
+<script>
+  $(".tool_tip").tooltip();
+</script>
