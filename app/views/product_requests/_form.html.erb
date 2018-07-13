@@ -1,3 +1,4 @@
+
 <%= form_for(@product_request) do |f| %>
   <% if @product_request.errors.any? %>
     <div id="error_explanation">
@@ -42,7 +43,8 @@
 
         <div class="form-group col-md-6">
            <%= f.label :required_date %><br>
-            <%= f.datetime_select :required_date,{}, { :class => 'btn white dropdown-toggle' } %>
+            <%#= f.datetime_select :required_date,{}, { :class => 'btn white dropdown-toggle' } %>
+            <input type="text" class="btn white dropdown-toggle datetimepicker" style="width: 100%;">
         </div>
         <div class="form-group col-md-6">
            <%= f.label :note %><br>
@@ -57,3 +59,9 @@
          <br>
   
 <% end %>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-datetimepicker.css">
+<script src="/js/bootstrap-datepicker.min.js"></script>
+
+<script>
+$(".datetimepicker").datetimepicker(); 
+</script>

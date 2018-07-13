@@ -18,6 +18,7 @@
 //= require nav
 //= require jquery.min
 //= require popper
+//= require moment
 
 $(document).ready(function() {
  

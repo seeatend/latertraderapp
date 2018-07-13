@@ -1,3 +1,4 @@
+
 <div class="app" id="app">
 
 <!-- ############ LAYOUT START-->
@@ -431,8 +432,6 @@
   
   <div class="box multiform">
     <div class="box-body">
-    <br/>
-    <br/>
     <div class="mb-3">
       <form>
        <div class="box-header">
@@ -444,13 +443,13 @@
         <br/>
          <div class="form-row">
            <div class="form-group col-md-6">
-            <%= f.label :start_at %><br>
-    <%= f.datetime_select :start_at,{}, { :class => 'btn white dropdown-toggle' } %>
+              <%= f.label :start_at %><br>
+              <input type="text" class="btn white dropdown-toggle datetimepicker" style="width: 100%;">
           </div>
 
- <div class="form-group col-md-6">
+          <div class="form-group col-md-6">
            <%= f.label :ends_at %><br>
-    <%= f.datetime_select :ends_at,{}, { :class => 'btn white dropdown-toggle' } %>
+            <input type="text" class="btn white dropdown-toggle datetimepicker" style="width: 100%;">
           </div>
           
           
@@ -514,9 +513,12 @@
   </div>
 
 </div>
-
+<link rel="stylesheet" type="text/css" href="/css/bootstrap-datetimepicker.css">
+<script src="/js/bootstrap-datepicker.min.js"></script>
 <script>
   $(".tool_tip").tooltip();
+
+  $(".datetimepicker").datetimepicker();
 </script>
 
 
