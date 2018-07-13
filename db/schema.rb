@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180705111643) do
+ActiveRecord::Schema.define(version: 20180713185704) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string   "name",        null: false
@@ -665,6 +665,7 @@ ActiveRecord::Schema.define(version: 20180705111643) do
     t.string   "in_chep_network_of"
     t.string   "hometown"
     t.string   "pincode"
+    t.string   "BSB"
   end
 
   add_index "sellers", ["authy_id"], name: "index_sellers_on_authy_id"

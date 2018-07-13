@@ -442,7 +442,7 @@
               </span>
             </a>
             <div class="media-body mx-3 mb-2">
-              <h4> <%= @product.name %></h4>
+              <h4> <%= @product.name + ' | ' + @product.variety + ' | ' + @product.code %></h4>
              
               
 
@@ -469,10 +469,32 @@
       <div class="padding box">
               <h6>Details</h6>
               <div class="list inset">
+                  <div class="list-item " data-id="item-7">
+                     
+                      <div class="list-body">
+                            <a href="" class="item-title _500"> <strong>Variety: </strong> <%= @product.variety %></a>
+                        
+                
+                        <div class="item-tag tag hide">
+                        </div>
+                      </div>
+                      
+                    </div>
                     <div class="list-item " data-id="item-9">
                       
                       <div class="list-body">
                             <a href="" class="item-title _500"> <strong>Product Code:</strong> <%= @product.code %></a>
+                        
+                
+                        <div class="item-tag tag hide">
+                        </div>
+                      </div>
+                     
+                    </div>
+                      <div class="list-item " data-id="item-12">
+                      
+                      <div class="list-body">
+                            <a href="" class="item-title _500"><strong> Category: </strong><%= @product.category %></a>
                         
                 
                         <div class="item-tag tag hide">
@@ -491,28 +513,8 @@
                       </div>
                      
                     </div>
-                    <div class="list-item " data-id="item-12">
-                      
-                      <div class="list-body">
-                            <a href="" class="item-title _500"><strong> Category: </strong><%= @product.category %></a>
-                        
-                
-                        <div class="item-tag tag hide">
-                        </div>
-                      </div>
-                     
-                    </div>
-                    <div class="list-item " data-id="item-7">
-                     
-                      <div class="list-body">
-                            <a href="" class="item-title _500"> <strong>Product Sku:</strong> <%= @product.sku %></a>
-                        
-                
-                        <div class="item-tag tag hide">
-                        </div>
-                      </div>
-                      
-                    </div>
+                  
+                  
                     <div class="list-item " data-id="item-5">
                       
                       <div class="list-body">
