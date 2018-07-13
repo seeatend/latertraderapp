@@ -4758,3 +4758,24 @@ textarea.md-input {
     border-right: 6px solid transparent;
     pointer-events: none;
   }
+
+  /* the footer of multiform for the form status */
+  .nav-active-success.new-design {
+    width: calc(100% - 200px);
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .nav-active-success.new-design ul {
+    justify-content: center;
+    align-items: center;
+  }
+  .nav-active-success.new-design ul li a {
+    background-color: #fff;
+    border: 1px solid #efefef;
+    border-radius: 0;
+  }
+  .nav-active-success.new-design ul li.active a {
+    background-color: #874aff !important;
+    border: 5px solid #874aff;
+    border-radius: 5px;
+  }

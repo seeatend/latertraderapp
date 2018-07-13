@@ -1,3 +1,51 @@
+@font-face {
+  font-family: 'Palanquin-Bold';
+  src: url('../fonts/palanquin-bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Palanquin-Dark-Bold';
+  src: url('../fonts/palanquindark-bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Palanquin-Dark-Medium';
+  src: url('../fonts/palanquindark-medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Palanquin-Dark-Regular';
+  src: url('../fonts/palanquindark-regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Palanquin-Dark-Semibold';
+  src: url('../fonts/palanquindark-semibold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Palanquin-Extralight';
+  src: url('../fonts/palanquin-extralight.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Palanquin-Light';
+  src: url('../fonts/palanquin-light.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Palanquin-Medium';
+  src: url('../fonts/palanquin-medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Palanquin-Regular';
+  src: url('../fonts/palanquin-regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Palanquin-Semibold';
+  src: url('../fonts/palanquin-semibold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Palanquin-Thin';
+  src: url('../fonts/palanquin-thin.ttf') format('truetype');
+}
+
+section.main button, section.main input, section.main label, section.main a {
+  font-family: 'Palanquin-Medium';
+}
 
 section.main {
   position: relative;
@@ -34,6 +82,7 @@ nav ul li a {
   font-weight: 600;
   font-size: 14px;
   text-decoration: none;
+  font-family: 'Palanquin-Regular';
 }
 nav ul li a:hover {
   text-decoration: none;
@@ -55,17 +104,18 @@ nav ul li a.active {
   box-shadow: inset -7px 0 50px -9px #dadada;
 }
 .find-content .index-part h1 {
-  font-size: 42px;
+  font-family: 'Palanquin-Regular';
+  font-size: 43px;
   width: 100%;
   padding: 0 15%;
-  font-family: -webkit-body;
+  letter-spacing: 2px;
 }
 .login-part {
   display: none;
 }
 .login-part h2 {
   font-size: 30px;
-  font-family: -webkit-body;
+  font-family: 'Palanquin-Medium';
   padding: 0 15%;
   margin-bottom: 70px;
 }
@@ -96,7 +146,7 @@ nav ul li a.active {
 }
 .signup-part h2{
   font-size: 30px;
-  font-family: -webkit-body;
+  font-family: 'Palanquin-Medium';
   padding: 0 15px;
   margin-bottom: 70px;
 }
@@ -130,6 +180,10 @@ nav ul li a.active {
 .slider-content {
   width: 50%;
   overflow: hidden;
+  background-image: url('../img/pexels-photo-208526.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .slider-content .slider {
   margin: 0;
@@ -208,6 +262,7 @@ footer nav ul li a {
   font-size: 16px;
   font-weight: 500;
   color: #ccc;
+  font-family: 'Palanquin-Medium'
 }
 footer nav ul li a i {
   margin-right: 10px;
