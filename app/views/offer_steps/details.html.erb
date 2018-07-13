@@ -434,6 +434,7 @@
     <br/>
     <br/>
     <div class="mb-3">
+    <% if false %>
         <div class="mb-3 nav-active-success">
           <ul class="nav nav-pills" data-nav>
             <li class="nav-item">
@@ -457,7 +458,7 @@
             
           </ul>
         </div>
-
+    <% end %>
     <br/>
       <form>
        <div class="box-header">
@@ -491,12 +492,6 @@
         </div>
        
         <div class="form-row">
-        
-       
-        
-
-
-       
        
         <div class="form-group col-md-4">
             <%= f.label :selling_price_type %><br>
@@ -507,7 +502,14 @@
         <%= f.hidden_field :desc, value: @offer.stock.desc %>
 
         
-         <%= f.submit 'Continue', :class => 'btn btn-fw success' %>
+         <%#= f.submit 'Continue', :class => 'btn btn-fw success' %>
+
+         <div class="multiform-btns">
+              <div class="btns-content">
+                  <button class="btn left"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                  <button type="submit" class="btn right"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+              </div>
+          </div>
       </form>
     </div>
   </div>

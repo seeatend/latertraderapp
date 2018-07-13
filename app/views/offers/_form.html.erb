@@ -14,66 +14,77 @@
       </ul>
     </div>
   <% end %>
-<div class="box">
+  <div class="box">
     <div class="box-body">
-       <br/>
-    <div class="mb-3">
-        <div class="mb-3 nav-active-success">
-          <ul class="nav nav-pills" data-nav>
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
+        <br/>
+        <div class="mb-3">
+          <% if false %>
+            <div class="mb-3 nav-active-success">
+                <ul class="nav nav-pills" data-nav>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">
                 Select Stock
               </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link"  href="#">Offer Details</a>
-            </li>
-            <li class="nav-item">
-              <a href="#" class="nav-link">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Offer Details</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
                 Set Prices
               </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
                Public/Private Offers
               </a>
-            </li>
-           
-          </ul>
-        </div>
+                    </li>
 
-    <br/>
-      <form>
-       <div class="box-header">
-          <h3>Select Stock</h3>
-        
-        </div>
-        <div class="box-body">
-        <div class="box-divider m-0"></div>
-        <br/>
-        <div class="form-row">
-          <div class="form-group col-md-6">
-            <%= f.label :stock %><br/>
-              <%= f.collection_select :stock_id, Stock.where(:seller_id => Seller.where(:uid => current_user.id).first.id).where(:status => "Approved").where("in_stock_quantity > ?", 0).order(:product_name),:id,:desc,{}, { :class => 'btn white dropdown-toggle' } %>
-            
-          </div>
-          <div class="form-group col-md-3">
-            <%= f.label :sales_man,'Offer Made By' %> <br/>
-             <%= f.collection_select :sales_man, Employee.where(:seller_id => Seller.where(:uid => current_user.id).first.id).where(:position => 'Sales').order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
-          </div>
-          <div class="form-group col-md-3">
-            <%= f.label :allocated_by %> <br/>
-             <%= f.collection_select :allocated_by, Employee.where(:position => 'Manager').order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
-          </div>
-        </div>
+                </ul>
+            </div>
+          <% end %>
+            <br/>
+            <form>
+                <div class="box-header">
+                    <h3>Select Stock</h3>
 
-       <br/>       <%= f.hidden_field :seller_id, value: Seller.where(:uid => current_user.id).first.id %>
-       
-         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
-      </form>
-    </div>
-  </div>
+                </div>
+                <div class="box-body">
+                    <div class="box-divider m-0"></div>
+                    <br/>
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <%=f .label :stock %>
+                                <br/>
+                                <%=f .collection_select :stock_id, Stock.where(:seller_id=> Seller.where(:uid => current_user.id).first.id).where(:status => "Approved").where("in_stock_quantity > ?", 0).order(:product_name),:id,:desc,{}, { :class => 'btn white dropdown-toggle' } %>
 
+                        </div>
+                        <div class="form-group col-md-3">
+                            <%=f .label :sales_man, 'Offer Made By' %>
+                                <br/>
+                                <%=f .collection_select :sales_man, Employee.where(:seller_id=> Seller.where(:uid => current_user.id).first.id).where(:position => 'Sales').order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+                        </div>
+                        <div class="form-group col-md-3">
+                            <%=f .label :allocated_by %>
+                                <br/>
+                                <%=f .collection_select :allocated_by, Employee.where(:position=> 'Manager').order(:name),:name,:name,{}, { :class => 'btn white dropdown-toggle' } %>
+                        </div>
+                    </div>
+
+                    <br/>
+                    <%=f .hidden_field :seller_id, value: Seller.where(:uid=> current_user.id).first.id %>
+
+                        <%#=f .submit 'Submit', :class=> 'btn btn-fw success' %>
+
+                      <div class="multiform-btns">
+                          <div class="btns-content">
+                              <button class="btn left"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                              <button type="submit" class="btn right"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+                          </div>
+                      </div>
+            </form>
+            </div>
+        </div>
 
 
   

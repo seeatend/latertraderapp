@@ -1323,6 +1323,7 @@ Box
 */
 .box {
   max-width: 1100px;
+  width: calc(100% - 200px);
   margin: 0 auto;
 }
 .box,
@@ -1460,7 +1461,33 @@ Box
 
 .box-radius-5 .box-footer {
   border-radius: 0 0 5px 5px; }
-
+  .multiform-btns {
+    width: calc(100% + 100px);
+    position: absolute;
+    top: 45%;
+    left: -50px;
+  }
+  .multiform-btns .btns-content {
+    width: 100%;
+  }
+  .multiform-btns .btns-content .btn {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    background-color: #52d093;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  .multiform-btns .btns-content .btn.left {
+    float: left;
+  }
+  .multiform-btns .btns-content .btn.right {
+    float: right;
+  }
+  .multiform-btns .btns-content .btn i {
+    color: #fff;
+  }
 /*
 chat
 */

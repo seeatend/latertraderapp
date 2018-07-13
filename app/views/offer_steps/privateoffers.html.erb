@@ -434,6 +434,7 @@
     <br/>
     <br/>
     <div class="mb-3">
+    <% if false %>
         <div class="mb-3 nav-active-success">
           <ul class="nav nav-pills" data-nav>
             <li class="nav-item">
@@ -457,7 +458,7 @@
             
           </ul>
         </div>
-
+    <% end %>
     <br/>
       <form>
        <div class="box-header">
@@ -492,19 +493,19 @@
 
            <%= f.collection_select(:private_offers, Customer.order(:business_name), :id, :business_name, {:prompt => "Please multiple buyers for private offers"}, {:multiple => true,:class => 'btn white dropdown-toggle' }) %>
 
-      
+          </div>
+        </div>
+        </div>
+        
+         <%#= f.submit 'Submit', :class => 'btn btn-fw success' %>
+
+         <div class="multiform-btns">
+              <div class="btns-content">
+                  <button class="btn left"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+                  <button type="submit" class="btn right"><i class="fa fa-chevron-right" aria-hidden="true"></i></button>
+              </div>
           </div>
           
-          
-        </div>
-        </div>
-       
-       
-
-       
-
-        
-         <%= f.submit 'Submit', :class => 'btn btn-fw success' %>
       </form>
     </div>
   </div>
