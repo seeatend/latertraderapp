@@ -442,11 +442,11 @@
               </span>
             </a>
             <div class="media-body mx-3 mb-2">
-              <h4> <%= @stock.product.name %></h4>
+              <h4> <%= @stock.product.desc + ' | SKU : ' + @stock.sku %></h4>
              
               
 
-              <%= link_to 'Back', stocks_path, class: "btn btn-fw dark" %>
+              
 
               
             </div>
@@ -472,7 +472,7 @@
                     <div class="list-item " data-id="item-9">
                       
                       <div class="list-body">
-                            <a href="" class="item-title _500"> <strong>Grower:</strong><%= @stock.grower.name %></a>
+                            <a href="" class="item-title _500"> <strong>Grower: </strong><%= @stock.grower.name %></a>
                         
                 
                         <div class="item-tag tag hide">
@@ -480,10 +480,10 @@
                       </div>
                      
                     </div>
-                    <div class="list-item " data-id="item-9">
+                     <div class="list-item " data-id="item-9">
                       
                       <div class="list-body">
-                            <a href="" class="item-title _500"> <strong>Status:</strong><%= @stock.status %></a>
+                            <a href="" class="item-title _500"> <strong>Consignment Number: </strong><%= Supply.find(@stock.supply_id).consignment_number%></a>
                         
                 
                         <div class="item-tag tag hide">
@@ -491,11 +491,11 @@
                       </div>
                      
                     </div>
-                    <div class="list-item " data-id="item-12">
+                       <div class="list-item " data-id="item-12">
                       
                       <div class="list-body">
-                            <a href="" class="item-title _500"><strong>Buying price:</strong>
-  <%= @stock.buying_price %> per <%= @stock.order_quantity_unit %> </a>
+                            <a href="" class="item-title _500"><strong>Buying Unit:</strong>
+  <%= @stock.order_quantity_unit %> </a>
                         
                 
                         <div class="item-tag tag hide">
@@ -503,6 +503,7 @@
                       </div>
                      
                     </div>
+
                     <div class="list-item " data-id="item-7">
                      
                       <div class="list-body">
@@ -515,11 +516,11 @@
                       </div>
                       
                     </div>
-                    <div class="list-item " data-id="item-5">
+                       <div class="list-item " data-id="item-12">
                       
                       <div class="list-body">
-                            <a href="" class="item-title _500"> <strong>In stock quantity:</strong>
-  <%= @stock.in_stock_quantity %>  <%= @stock.order_quantity_unit %> </a>
+                            <a href="" class="item-title _500"><strong>Buying price:</strong>
+  <%= @stock.buying_price %> per <%= @stock.order_quantity_unit %> </a>
                         
                 
                         <div class="item-tag tag hide">
@@ -527,18 +528,105 @@
                       </div>
                      
                     </div>
-                    <div class="list-item " data-id="item-8">
+                    
+                    <div class="list-item " data-id="item-9">
                       
                       <div class="list-body">
-                            <a href="" class="item-title _500">  <strong>Physical stock quantity:</strong>
-  <%= @stock.physical_stock_quantity %>  <%= @stock.order_quantity_unit %> </a>
+                            <a href="" class="item-title _500"> <strong>Purchased Stock Quantity: </strong><%= @stock.purchased_stock_quantity %> <%= @stock.order_quantity_unit %> </a>
                         
                 
                         <div class="item-tag tag hide">
                         </div>
                       </div>
-                   
+                     
                     </div>
+                 
+                    <div class="list-item " data-id="item-5">
+                      
+                      <div class="list-body">
+                            <a href="" class="item-title _500"> <strong>Total Stock Value :</strong>
+  <%= @stock.stockvalue %> </a>
+                        
+                
+                        <div class="item-tag tag hide">
+                        </div>
+                      </div>
+                     
+                    </div>
+
+                    <div class="list-item " data-id="item-5">
+                      
+                      <div class="list-body">
+                            <a href="" class="item-title _500"> <strong>Total Approved Stock :</strong>
+  <%= @stock.total_approved_stocks %>  <%= @stock.order_quantity_unit %></a>
+                        
+                
+                        <div class="item-tag tag hide">
+                        </div>
+                      </div>
+                     
+                    </div>
+                     <div class="list-item " data-id="item-5">
+                      
+                      <div class="list-body">
+                            <a href="" class="item-title _500"> <strong>On hold Stock Quantity :</strong>
+  <%= @stock.onhold %>  <%= @stock.order_quantity_unit %></a>
+                        
+                
+                        <div class="item-tag tag hide">
+                        </div>
+                      </div>
+                     
+                    </div>
+                       <div class="list-item " data-id="item-5">
+                      
+                      <div class="list-body">
+                            <a href="" class="item-title _500"> <strong>Sold Quantity :</strong>
+<%= @stock.sold %>  <%= @stock.order_quantity_unit %> </a>
+                        
+                
+                        <div class="item-tag tag hide">
+                        </div>
+                      </div>
+                     
+                    </div>
+                       <div class="list-item " data-id="item-5">
+                      
+                      <div class="list-body">
+                            <a href="" class="item-title _500"> <strong>Sold Quantity Value :</strong>
+   $<%= @stock.sold *  @stock.buying_price%></a>
+                        
+                
+                        <div class="item-tag tag hide">
+                        </div>
+                      </div>
+                     
+                    </div>
+                    <div class="list-item " data-id="item-5">
+                      
+                      <div class="list-body">
+                            <a href="" class="item-title _500"> <strong>InStock Quantity :</strong>
+<%= @stock.offered %>  <%= @stock.order_quantity_unit %> </a>
+                        
+                
+                        <div class="item-tag tag hide">
+                        </div>
+                      </div>
+                     
+                    </div>
+                       <div class="list-item " data-id="item-5">
+                      
+                      <div class="list-body">
+                            <a href="" class="item-title _500"> <strong>InStock Quantity  Value :</strong>
+   $<%= @stock.offered *  @stock.buying_price%></a>
+                        
+                
+                        <div class="item-tag tag hide">
+                        </div>
+                      </div>
+                     
+                    </div>
+                  
                     <div class="list-item " data-id="item-2">
                       
                       <div class="list-body">
@@ -564,20 +652,7 @@
                      
                     </div>
 
-                    <div class="list-item " data-id="item-2">
-                      
-                      <div class="list-body">
-                            <a href="" class="item-title _500"> <strong>Physical stock quantity:</strong>
-  <%= @stock.physical_stock_quantity %></a>
-                        
-                
-                        <div class="item-tag tag hide">
-                        </div>
-                      </div>
-                     
-
-
-                    </div>
+                    
                   
               </div>
           </div>
