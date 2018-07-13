@@ -8,13 +8,8 @@
       <!-- sidenav top -->
       <div class="navbar lt">
         <!-- brand -->
-        <a href="../index.html" class="navbar-brand">
-          <svg viewBox="0 0 24 24" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
-              <path d="M0 0h24v24H0z" fill="none"/>
-              <path d="M19.51 3.08L3.08 19.51c.09.34.27.65.51.9.25.24.56.42.9.51L20.93 4.49c-.19-.69-.73-1.23-1.42-1.41zM11.88 3L3 11.88v2.83L14.71 3h-2.83zM5 3c-1.1 0-2 .9-2 2v2l4-4H5zm14 18c.55 0 1.05-.22 1.41-.59.37-.36.59-.86.59-1.41v-2l-4 4h2zm-9.71 0h2.83L21 12.12V9.29L9.29 21z" fill="#53a6fa" class="fill-theme"/>
-          </svg>
-         
-          <span class="hidden-folded d-inline">Traders App</span>
+        <a href="../index.html" class="navbar-brand tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Traders App">
+          <img src="/img/logo_.png">
         </a>
         <!-- / brand -->
       </div>
@@ -28,87 +23,79 @@
                   <% if current_user.utype == "Seller" %>
                   <li>
                   <%= link_to dashboard_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-dashboard"></i>
-  </span>
-  <span class="nav-text">Dashboard</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Dashboard">
+                  <i class="fa fa-dashboard"></i>
+                  </span>
+                <% end %>
                   </li>
                   
 
                 <% end %>
 
- <li>
+                  <li>
                   <%= link_to marketplaces_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cart-plus"></i>
-  </span>
-  <span class="nav-text">Market Place</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Market Place">
+                  <i class="fa fa-cart-plus"></i>
+                  </span>
+                <% end %>
                   </li>
          
 
-          <% if current_user.utype == "Seller" %>
-         <li>
+                  <% if current_user.utype == "Seller" %>
+                <li>
                   <%= link_to walk_in_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-calculator"></i>
-  </span>
-  <span class="nav-text">Shop Sales</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Shop Sales">
+                    <i class="fa fa-calculator"></i>
+                    </span>
+                  <% end %>
                   </li>
                    <li>
                   <%= link_to b2b_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-ticket"></i>
-  </span>
-  <span class="nav-text">B2B Sales</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="B2B Sales">
+                    <i class="fa fa-ticket"></i>
+                    </span>
+                  <% end %>
                   </li>
          
 
-         <% end %>
-         <% if current_user.utype == "Employee" %>
+                <% end %>
+                <% if current_user.utype == "Employee" %>
 
-<% if @employee.position == "Manager" %>
-         <li>
+                  <% if @employee.position == "Manager" %>
+                  <li>
                   <%= link_to approval_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-check"></i>
-  </span>
-  <span class="nav-text">Stock Approval</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Stock Approval">
+                  <i class="fa fa-check"></i>
+                  </span>
+                <% end %>
 
                   </li>
 
                    <li>
                   <%= link_to credit_approval_index_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-check-circle"></i>
-  </span>
-  <span class="nav-text">Credit Approval</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Credit Approval">
+                  <i class="fa fa-check-circle"></i>
+                  </span>
+                <% end %>
 
                   </li>
 
                   <% elsif @employee.position == "Forklift" %>
                     <li>
                   <%= link_to forklifts_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-check"></i>
-  </span>
-  <span class="nav-text">Forklift Task</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Forklift Task">
+                    <i class="fa fa-check"></i>
+                    </span>
+                  <% end %>
 
                   </li>
                   <% else %>
- <li>
+                    <li>
                   <%= link_to packings_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-bus"></i>
-  </span>
-  <span class="nav-text">Packing</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Packing">
+                      <i class="fa fa-bus"></i>
+                      </span>
+                    <% end %>
 
                   </li>
                   <% end %>
@@ -117,23 +104,21 @@
                   <% if current_user.utype == "Buyer" %>
                   <li>
                   <%= link_to purchases_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-credit-card"></i>
-  </span>
-  <span class="nav-text">My Purchases</span>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Purchases">
+                  <i class="fa fa-credit-card"></i>
+                  </span>
+                <% end %>
               </li>   
-<% end %>
-<% if current_user.utype == "Seller" %>
+                <% end %>
+                <% if current_user.utype == "Seller" %>
 
-<li>
+                <li>
                   <%= link_to offers_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-leaf"></i>
-  </span>
-  <span class="nav-text">My Offers</span>
-  </li>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Offers">
+                  <i class="fa fa-leaf"></i>
+                  </span>
+                  </li>
+                <% end %>
 
                    
                   <% end %>
@@ -142,11 +127,10 @@
 
                    <li>
                   <%= link_to stocks_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cube"></i>
-  </span>
-  <span class="nav-text">My Stock</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Stock">
+                <i class="fa fa-cube"></i>
+                </span>
+                </li>
                  <% end %>
                   <% end %>
                   <% if current_user.utype == "Seller" %>
@@ -154,11 +138,10 @@
 
                    <li>
                   <%= link_to supplies_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-barcode"></i>
-  </span>
-  <span class="nav-text">My Supplies</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Supplies">
+                  <i class="fa fa-barcode"></i>
+                  </span>
+                  </li>
                  <% end %>
 
                   
@@ -166,30 +149,27 @@
                   
                   <% if current_user.utype == "Seller" %>
 
-<li>
+                  <li>
                   <%= link_to credits_path  do %>
-                   <span class="nav-icon">
-  <i class="fa  fa-credit-card"></i>
-  </span>
-  <span class="nav-text">My Credits</span>
-  </li>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Credits">
+                    <i class="fa  fa-credit-card"></i>
+                    </span>
+                    </li>
+                  <% end %>
 
                    
                   <% end %>
                   <% if current_user.utype == "Seller" %>
                   <li>
                   <%= link_to reports_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-line-chart"></i>
-  </span>
-
-  <span class="nav-text">My Reports</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Reports">
+                    <i class="fa fa-line-chart"></i>
+                    </span>
+                    </li>
                  <% end %>
                   
                   <% end %>
-<ul class="nav ">
+                  <ul class="nav ">
                 
                     <li class="nav-header hidden-folded mt-2">
                       <span class="text-xs">Other Stuff</span>
@@ -199,43 +179,39 @@
                         <span class="nav-caret">
                           <i class="fa fa-caret-down"></i>
                         </span>
-                        <span class="nav-icon no-fade">
+                        <span class="nav-icon tool_tip no-fade" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Settings">
                           <i class="fa fa-cog"></i>
                         </span>
-                        <span class="nav-text">Settings</span>
                       </a>
                       <ul class="nav-sub nav-mega nav-mega-3">
                       <% if current_user.utype == "Seller" %>
- <li>
-                  <%= link_to employees_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-snowflake-o"></i>
-  </span>
-  <span class="nav-text">My Employees</span>
-  </li>
-                 <% end %>
+                        <li>
+                          <%= link_to employees_path  do %>
+                          <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Employees">
+                        <i class="fa fa-snowflake-o"></i>
+                        </span>
+                        </li>
+                        <% end %>
                     
                   <% end %>
                    <% if current_user.utype == "Seller" %>
                   <li>
                   <%= link_to networks_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-users"></i>
-  </span>
-  <span class="nav-text">My Network</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Network">
+                      <i class="fa fa-users"></i>
+                      </span>
+                      </li>
                  <% end %>
 
                  
                   <% end %>
-<% if current_user.utype == "Seller" %>
- <li>
+                    <% if current_user.utype == "Seller" %>
+                    <li>
                   <%= link_to products_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-snowflake-o"></i>
-  </span>
-  <span class="nav-text">My Products</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Products">
+                    <i class="fa fa-snowflake-o"></i>
+                    </span>
+                    </li>
                  <% end %>
                     
                   <% end %>
@@ -245,11 +221,10 @@
 
                    <li>
                   <%= link_to services_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-truck"></i>
-  </span>
-  <span class="nav-text">My Services</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Services">
+                  <i class="fa fa-truck"></i>
+                  </span>
+                  </li>
                  <% end %>
 
                   
@@ -258,39 +233,36 @@
 
                   <li>
                   <%= link_to sales_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-usd"></i>
-  </span>
-  <span class="nav-text">My Sales</span>
-  </li>
-<% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Sales">
+                  <i class="fa fa-usd"></i>
+                  </span>
+                  </li>
+                <% end %>
                  
                   <% end %>
 
                   <% if current_user.utype == "Seller" %>
- <li>
+                  <li>
 
                   <%= link_to claim_wastages_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-trash"></i>
-  </span>
-  <span class="nav-text">Claim Wastage</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="Claim Wastage">
+                    <i class="fa fa-trash"></i>
+                    </span>
+                    </li>
                  <% end %>
                     
                   <% end %>
                          
-   <% if current_user.utype == "Seller" || if current_user.utype == "Buyer" %>
+              <% if current_user.utype == "Seller" || if current_user.utype == "Buyer" %>
                   <li>
                   <%= link_to chats_path  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-commenting-o"></i>
-  </span>
-  <span class="nav-text">My Chats</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Chats">
+                  <i class="fa fa-commenting-o"></i>
+                  </span>
+                  </li>
                  <% end %>
-<%end %>
-<%end %>
+              <%end %>
+              <%end %>
                   
                  
                  
@@ -301,24 +273,22 @@
                   <% if current_user.utype == "Seller" %>
                   <% seller = Seller.where(:uid => current_user.id).first %> 
                   <%= link_to edit_seller_path(seller)  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cog"></i>
-  </span>
-  <span class="nav-text">My Profile</span>
-  </li>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Profile">
+                  <i class="fa fa-cog"></i>
+                  </span>
+                  </li>
                  <% end %>
                  <% else %>
                   <% customer  = Customer.where(:uid => current_user.id).first %> 
                   <%= link_to edit_customer_path(customer)  do %>
-                   <span class="nav-icon">
-  <i class="fa fa-cog"></i>
-  </span>
-  <span class="nav-text">My Profile</span>
-  </li>
-  <% end %>
-  <% end %>
-                 <% end %>
-                 <% end %>
+                   <span class="nav-icon tool_tip" tabindex="0" data-toggle="tooltip" data-placement="bottom" title="My Profile">
+                    <i class="fa fa-cog"></i>
+                    </span>
+                    </li>
+                <% end %>
+                <% end %>
+            <% end %>
+            <% end %>
                  
 
                   
@@ -453,8 +423,175 @@
         </div>
       </div>
       <!-- Main -->
-    <div class="content-main " id="content-main">
-
+    <div class="content-main row" id="content-main" style="margin:0;">
+      <div class="col-md-4 section">
+        <div class="chat2">
+            <div class="col-md-2 user_block">
+              <div class="user1"></div>
+            </div>
+            <div class="col-md-6">
+              <p>Nur Fariha Omar</p>
+            </div>
+            <div class="col-md-4">
+              <div class="blue blue1  pull-left">
+              </div>
+              <span>Yesterday</span>
+            </div>
+            <div class="chat3">
+              <div class="row">
+                  <div class="col-md-2">	
+                    <i class="far fa-square square"></i> 	<i class="fas fa-heart heart"></i>					
+                  </div>
+                  <div class="col-md-10">
+                    <p> Hey dude Hop you are fine </p>
+                    <p> Hey dude Hop you are fine 	Lorem </p>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="green">
+            <div class="user1 pull-left"></div>
+            <p class="pull-left">Lorem ipsum dolor sit ...</p>
+            <div class="blue pull-left"></div>
+            <span>10:25pm</span>
+            <div class="chatt">
+              <p>  <i class="far fa-square square"></i> Hey dude Hop you are fine ..</p>
+              <p> <i class="far fa-heart"></i>Hey dude Hop you are fine Lorem  </p>
+            </div>
+        </div>
+        <div class="chat2">
+            <div class="col-md-2 user_block">
+              <div class="user1"></div>
+            </div>
+            <div class="col-md-6">
+              <p>Nur Fariha Omar</p>
+            </div>
+            <div class="col-md-4">
+              <div class="blue blue1  pull-left"></div>
+              <span>Yesterday</span>
+            </div>
+            <div class="chat3">
+              <div class="row">
+                  <div class="col-md-2">	
+                    <i class="far fa-square square"></i> 	<i class="fas fa-heart heart"></i>					
+                  </div>
+                  <div class="col-md-10">
+                    <p> Hey dude Hop you are fine </p>
+                    <p> 
+                        Hey dude Hop you are fine 	Lorem 
+                    </p>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="chat2">
+            <div class="col-md-2 user_block">
+              <div class="user1"></div>
+            </div>
+            <div class="col-md-6">
+              <p>Nur Fariha Omar</p>
+            </div>
+            <div class="col-md-4">
+              <div class="blue blue1  pull-left"></div>
+              <span>Yesterday</span>
+            </div>
+            <div class="chat3">
+              <div class="row">
+                  <div class="col-md-2">	
+                    <i class="far fa-square square"></i> 	<i class="fas fa-heart heart"></i>					
+                  </div>
+                  <div class="col-md-10">
+                    <p> Hey dude Hop you are fine </p>
+                    <p> 
+                        Hey dude Hop you are fine 	Lorem 
+                    </p>
+                  </div>
+              </div>
+            </div>
+        </div>
+        <div class="chat2">
+            <div class="col-md-2 user_block">
+              <div class="user1"></div>
+            </div>
+            <div class="col-md-6">
+              <p>Nur Fariha Omar</p>
+            </div>
+            <div class="col-md-4">
+              <div class="blue blue1  pull-left"></div>
+              <span>Yesterday</span>
+            </div>
+            <div class="chat3">
+              <div class="row">
+                  <div class="col-md-1">	
+                    <i class="far fa-square square"></i> 	<i class="fas fa-heart heart"></i>					
+                  </div>
+                  <div class="col-md-11">
+                    <p> Hey dude Hop you are fine </p>
+                    <p> 
+                        Hey dude Hop you are fine 	Lorem 
+                    </p>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-8 right_block">
+        <p>	4 previous Messages in this conversiation</p>
+        <div class="row">
+            <div class="col-md-1 dots">
+              <span class='dot'></span>
+              <span class='dot'></span>
+              <span class='dot'></span>
+              <span class='dot active'></span>
+            </div>
+            <div class="col-md-11">
+              <div class="left_block">
+                  <div class="message">
+                    <div class="row">
+                        <div class="col-md-1">
+                          <img class="img-circle icon" src="img/user1.png">
+                        </div>
+                        <div class="col-md-6">
+                          <div class="name">
+                              Yip Kai Man
+                          </div>
+                          <div class="members">
+                              <span>Alex Knight, Johan Smith, Me</span>
+                              <span class="status-icon">Clients </span>
+                          </div>
+                        </div>
+                        <div class="col-md-3 col-md-offset-2 date text-right">
+                          <div>
+                              Thursday, Feb 4, 2016
+                          </div>
+                          <div>
+                              10:25 PM
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 content">
+                          Hi Jason,
+                          <br>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam dolorem voluptatem voluptates unde! Corporis consectetur, molestias, dolorem illo doloremque excepturi saepe temporibus nam, explicabo maxime officiis obcaecati laboriosam cum, asperiores!
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam dolorem voluptatem voluptates unde! Corporis consectetur, molestias, dolorem illo doloremque excepturi saepe temporibus nam, explicabo maxime officiis obcaecati laboriosam cum, asperiores!
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam dolorem voluptatem voluptates unde! Corporis consectetur, molestias, dolorem illo doloremque excepturi saepe temporibus nam, explicabo maxime officiis obcaecati laboriosam cum, asperiores!
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam dolorem voluptatem voluptates unde! Corporis consectetur, molestias, dolorem illo doloremque excepturi saepe temporibus nam, explicabo maxime officiis obcaecati laboriosam cum, asperiores!
+                          <br><br>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam dolorem voluptatem voluptates unde! Corporis consectetur, molestias, dolorem illo doloremque excepturi saepe temporibus nam, explicabo maxime officiis obcaecati laboriosam cum, asperiores!
+                          <br><br>
+                          Best regards,<br>
+                          Yip Kai Man
+                        </div>
+                    </div>
+                  </div>
+                  <div class="answer">
+                    Click here to <a href="#">Reply</a> or <a href="#">Forward</a>
+                  </div>
+              </div>
+            </div>
+        </div>
+      </div>
 <!-- ############ Main START-->
  <% if @chats.empty? %>
 
@@ -499,11 +636,7 @@
                   </div>
                  <% end %>
                  
-            
 
-
-             
-              
             </div>
             <div class="no-result hide">
            
@@ -514,10 +647,8 @@
           </div>
       </div>
   </div>
-
- 
-
-<div class="d-flex flex" id="content-body">
+  
+  <div class="d-flex flex" id="content-body">
     <div class="d-flex flex-column flex" id="chat-list">
       <div class="navbar flex-nowrap white lt box-shadow">
           <a data-toggle="modal" data-target="#content-aside" data-modal class="mr-1 d-md-none">
@@ -529,10 +660,8 @@
             <span class="text-md text-ellipsis flex">
               Negotiating with <%= @currentchat.seller.business_name %>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%= link_to 'New Private Offer', new_privateoffer_path,  class: "btn btn-fw primary" %>
             </span>
-
-            
       </div> 
-            <div class="scrollable hover">
+          <div class="scrollable hover">
             <div class="p-3">
               <div class="chat-list">
 
@@ -550,13 +679,13 @@
                     </div>
                     
                     <div class="chat-date date">
-<td> <%= distance_of_time_in_words message.created_at, DateTime.now %></td>
+                  <td> <%= distance_of_time_in_words message.created_at, DateTime.now %></td>
                     </div>
                   </div>
                 </div>
 
                 <% elsif (message.ctype == "Buyer") %>
-<div class="chat-item" data-class="alt">
+                <div class="chat-item" data-class="alt">
                   <a href="#" class="avatar w-40">
                   <%= image_tag(message.chat.customer.logo_for_customer_area, alt: "Buyer Image") %>
                     
@@ -572,15 +701,8 @@
                   </div>
                 </div>
                 <% end %>
-            <% end %>
-                
-                 
-            
-            
-               
-               
-                
-              </div>
+              <% end %>
+            </div>
               <div class="hide">
                 <div class="chat-item" id="chat-item" data-class>
                   <a href="#" class="avatar w-40">
@@ -599,36 +721,33 @@
           <div class="p-3 white lt b-t mt-auto" >
           <%= form_for(@newmessage) do |f| %>
             <div class="input-group">
-<%= f.text_field :content, class: "form-control", placeholder: "Say something" %>
-<%= f.hidden_field :chat_id,:value => @currentchat.id %>
+            <%= f.text_field :content, class: "form-control", placeholder: "Say something" %>
+            <%= f.hidden_field :chat_id,:value => @currentchat.id %>
 
-<%= f.hidden_field :ctype,:value => current_user.utype %>
+            <%= f.hidden_field :ctype,:value => current_user.utype %>
 
 
                 <span class="input-group-btn">
                 <%= button_tag(type: "submit", class: "btn white b-a no-shadow") do %>
-    <i class="fa fa-send text-success"></i>
-<% end %>
-                
+                    <i class="fa fa-send text-success"></i>
+                <% end %>
+                                
 
                     
                   
                 </span>
             </div>
-             <% end %>
-      </div>
+                  <% end %>
+            </div>
 
-<% end %>
+            <% end %>
       
           </div>
         </div>
 
     </div>
   </div>
-
-
-
-
+  
 </div>
 
 
@@ -646,7 +765,329 @@
 
 </div>
 
+<style>
+  .chat{
+	background-color: #FFFFFF;
+}
+.logo{
+	height: 89px;	
+	width: 82px;
+	border-radius: 6px;
+	background-color: #0F77FF;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
+	margin: 0 auto!important; 
+}
+.logo h1{
+	font-size: 20px;	
+	font-weight: 500;
+	color: white;
+	margin-bottom: 11px;
+	margin-top: 0!important;
+	padding-top: 69%;
+}
+.menu{
+	border:1px solid lightgrey;
+	padding-bottom: 30px;
+}
+.search{
+	width:74%;
+	height: 80px;
+	position: relative;
+}
+.search input{
+	height:26px;
+	width: 22.75%;
+	margin-left: 3.68%;
+	margin-top:40px;
+	border: none;
+	color: rgba(152,152,152,0.5);
+	font-size: 16px; 
+	padding-left: 3%;
+}
+.search input::placeholder{
+	margin-left: 10px;
+}
+.search i{
+	position: absolute;
+	top: 55%;
+	left: 4%;
+	font-size: 20px;
+	color: rgba(152,152,152,0.5);
+}
 
+
+.icon img{
+	width: 23px;
+ 
+}
+.icon{
+width:22%;
+margin:0 auto;
+margin-top:104px;
+
+
+}
+.user{
+	margin-top:54.1px;
+}
+.indicator{
+	position:absolute;
+	height: 44px;
+	width:10.24px;
+	background: #177BFA;
+	left: 0;
+	top:243px;
+	border-radius: 0 8px 8px 0;
+}
+
+
+.left_menu{
+	padding:0!important;
+	/*height: 100%;*/
+
+
+}
+.section{
+	overflow:auto;
+	color:grey;
+	font-size: 18px;
+	height:1000px;
+	/*position:fixed;*/
+	padding:0 10px 0 5px;
+	background:#EAEDED;
+}
+
+.far{
+	color: #DCDFDF;
+	font-size:25px;
+	width:50px;
+	text-align: center;
+
+}
+
+.user_block{
+	padding:0;
+}
+.heart{
+	font-size:25px;
+	width:50px;
+	color: orange;
+	text-align: center;
+
+}
+
+
+
+.green{
+	background: #2ED481;
+	padding:20px;
+	border-radius: 8px;
+	margin-top:30px;
+}
+
+.user1{
+	background: white;
+	padding: 10px;
+	border-radius:50%;
+	width:50px;
+	height: 50px;
+	background-image: url(../img/user1.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	
+
+}
+
+.green>p{
+	color: white;
+	font-weight: bold;
+	margin-left:10px;
+	width:280px;
+
+}
+.green span{
+		color: white;
+	margin-left:10px;
+}
+.blue{
+	width:12px;
+	height: 12px;
+	background:#177BFA;
+	border-radius: 50%;
+	margin-top: 6px;
+}
+
+.blue1{
+	background:#BD7CD2;	
+	margin-right: 15px;
+}
+
+.clear{
+	clear: both;
+}
+
+.chatt{
+	margin-top:30px;
+	color: white;
+}
+.chat2{
+	margin-top: 30px;
+background:white;
+	padding:20px;
+	border-radius: 0 0px 8px 8px;
+}
+.chat2>p{
+	color:#2ED481;
+	font-weight: bold;
+	width:260px;
+}
+.chat3{
+	margin-top:60px
+}
+
+.right_clock{
+	background: #EBEEEE;
+}
+.chat1{
+	background:white;
+	padding:20px;
+	margin-bottom:30px;
+	border-radius: 0 0px 8px 8px;
+
+}
+.block{
+	padding:0;
+}
+
+.right_block{
+	background:#ECF0EF;
+
+}
+
+.right_block p{
+	text-align: center;
+	font-size: 20px;
+	margin-top:25px;
+	color:grey;
+}
+
+.right_block .dots {
+	min-height: 600px;
+	display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width:0;
+    padding-right: 5px;
+}
+
+.right_block .dots .dot {
+	background-color: #DDDFDF;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	display: inline-block;
+	margin: 4px 0;
+	cursor: pointer;
+}
+
+.right_block .dots .dot.active {
+	background-color: #2ED481;
+}
+
+.message, .answer{
+	background: white;
+	margin-top: 30px;
+	padding: 50px;
+	border-radius: 8px;
+	margin-bottom:30px;
+}
+
+.message .icon {
+	width: 60px;
+	height: 60px;
+	margin: 0;
+	-webkit-box-shadow: 2px 8px 15px 0px rgba(200, 200, 200, 1);
+	-moz-box-shadow: 2px 8px 15px 0px rgba(200, 200, 200, 1);
+	box-shadow: 2px 8px 15px 0px rgba(200, 200, 200, 1);
+}
+
+.message .name {
+	font-size: 20px;
+	color: rgb(46, 216, 133);
+}
+
+.message .members {
+	font-size: 18px;
+	color: #a3a8a6;
+}
+
+.message .status-icon:before {
+	content: '';
+	width: 14px;
+	height: 14px;
+	background-color: #22b1ed;
+	display: inline-block;
+	border-radius: 50%;
+	margin: 0 12px;
+	margin-left: 20px;
+}
+
+.message .date {
+	font-size: 18px;
+	color: #d2d4d3;
+}
+
+.message .content {
+	font-size: 18px;
+	color: #a5a5a5;
+	margin-top: 20px;
+}
+.answer {
+	font-size: 18px;
+	color: #a5a5a5;
+	margin-top: 20px;
+	position: relative;
+}
+
+.answer>a {
+	color: rgb(46, 216, 133);
+}
+
+.answer>a:hover, .answer>a:active, .answer>a:focus, .answer>a:visited {
+	text-decoration: none;
+}
+
+.answer:before {
+	content: '';
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 20px solid white;
+    position: absolute;
+    top: -20px;
+    left: 65px;
+}
+</style>
+
+<script>
+  $(".tool_tip").tooltip();
+</script>
 
 
 
