@@ -72,6 +72,6 @@ class GrowersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def grower_params
-      params.require(:grower).permit(:name, :address, :mobile_number, :telephone_number, :growers_email_id, :certificates, :company, :zip_code, :smcs_member, :balance, :order_to_date, :status,:seller_id)
+      params.require(:grower).permit(:name, :address, :mobile_number, :telephone_number, :growers_email_id, :certificates, :company, :zip_code, :smcs_member, :balance, :order_to_date, :status,:seller_id,:state,:city)
     end
 end

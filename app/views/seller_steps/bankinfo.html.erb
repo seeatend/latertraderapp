@@ -553,10 +553,19 @@
             
           </div>
           <div class="form-group col-md-6">
-            <%= f.label :swift_code %> <br/>
+             <%= f.label :BSB,'BSB number' %> <br/>
+             <%= f.text_field :BSB,  class: "form-control", placeholder: "XXY-ZZZ" %>
+             
+          </div>
+        </div>
+        <div class="form-row">
+        <div class="form-group col-md-6">
+          <%= f.label :swift_code %> <br/>
+           
              <%= f.text_field :swift_code,  class: "form-control", placeholder: "IBAN1312" %>
           </div>
         </div>
+
         
 </div>
         

@@ -457,7 +457,11 @@
       
         <thead>
           <tr>
-            
+               <th style="width:20px;">
+              <label class="ui-check m-0">
+                <input type="checkbox"><i></i>
+              </label>
+            </th>
 
             <th>Grower</th>
             <th>Date received</th>
@@ -477,6 +481,7 @@
 
           <% @supplies.each do |supply| %>
       <tr>
+         <td><label class="ui-check m-0"><input type="checkbox" name="post[]"><i class="dark-white"></i></label></td>
         <td><%= supply.grower.name %></td>
         <td><%= supply.date_received %></td>
         <td><%= supply.consignment_number %></td>

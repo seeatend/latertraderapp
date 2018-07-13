@@ -486,7 +486,7 @@
         </div>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <%= f.label :office_address %>
+            <b><%= f.label :office_address %></b>
             <%= f.text_field :office_address, class: "form-control", placeholder: "John Smith Pty Ltd, 8904 Chesnut Avenue" %>
           </div>
               <div class="form-group col-md-6">
@@ -501,7 +501,7 @@
             <%= f.text_field :state, class: "form-control", placeholder: "NSW" %>
           </div>
               <div class="form-group col-md-6">
-            <%= f.label :pincode %>
+            <%= f.label :pincode, 'Postcode'%>
             <%= f.text_field :pincode, class: "form-control", placeholder: "2001" %>
           </div>
           
@@ -509,7 +509,7 @@
        <br/>
         <div class="form-row">
           <div class="form-group col-md-6">
-            <%= f.label :shipping_address %>
+           <b> <%= f.label :shipping_address %> </b>
             <%= f.text_field :shipping_address, class: "form-control", placeholder: "John Smith Pty Ltd, 8904 Chesnut Avenue" %>
           </div>
               <div class="form-group col-md-6">
@@ -524,7 +524,7 @@
             <%= f.text_field :state, class: "form-control", placeholder: "NSW" %>
           </div>
               <div class="form-group col-md-6">
-            <%= f.label :pincode %>
+            <%= f.label :pincode, 'Postcode' %>
             <%= f.text_field :pincode, class: "form-control", placeholder: "2001" %>
           </div>
           
@@ -532,7 +532,7 @@
        <br/>
        <div class="form-row">
           <div class="form-group col-md-6">
-            <%= f.label :warehouse_address %>
+        <b>    <%= f.label :warehouse_address %> </b>
             <%= f.text_field :warehouse_address, class: "form-control", placeholder: "John Smith Pty Ltd, 8904 Chesnut Avenue" %>
           </div>
               <div class="form-group col-md-6">
@@ -547,7 +547,7 @@
             <%= f.text_field :state, class: "form-control", placeholder: "NSW" %>
           </div>
               <div class="form-group col-md-6">
-            <%= f.label :pincode %>
+            <%= f.label :pincode, 'Postcode' %>
             <%= f.text_field :pincode, class: "form-control", placeholder: "2001" %>
           </div>
           
@@ -559,7 +559,7 @@
       <div class="form-row">
           
           <div class="form-group col-md-6">
-            <%= f.label :billing_address %><br/>
+          <b>  <%= f.label :billing_address %><br/> </b>
              <%= f.select :billing_address, ['Office Address','Shipping Address','Warehouse Address'],{}, { :class => 'btn white dropdown-toggle' }%>
              </div>
             
