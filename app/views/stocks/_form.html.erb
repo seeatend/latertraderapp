@@ -65,7 +65,7 @@ document.getElementById('stock_physical_stock_quantity').value = document.getEle
   <% end %>
 <div class="box">
   <div class="box-header">
-          <h3>Products Information</h3>
+          <h3>Product Information</h3>
     <div class="box-body">
         <div class="box-divider m-0"></div>
         <br>
@@ -78,7 +78,7 @@ document.getElementById('stock_physical_stock_quantity').value = document.getEle
           </div>
 
            <div class="form-group col-md-6">
-            <%= f.label :supply, 'consignment_number' %> <br/>
+            <%= f.label :supply, 'Consignment Number' %> <br/>
             <% if current_user.utype == "Employee" %>
             <% else %>
             <%= f.collection_select :supply_id, Supply.where(:seller_id => Seller.where(:uid => current_user.id).first.id),:id,:consignment_number,{}, { :class => 'btn white dropdown-toggle' } %>
@@ -137,10 +137,9 @@ document.getElementById('stock_physical_stock_quantity').value = document.getEle
           
         </div>
           <div class="form-row">
-          <div class="form-group col-md-6">
-            <%= f.label :note %><br>
+                      <%= f.label :note %><br>
             <%= f.text_field :note, class: "form-control", placeholder: "Type your message here"%>
-          </div>
+        
         </div>
         <br/>
         <div class="form-row">
