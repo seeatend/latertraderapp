@@ -1321,7 +1321,7 @@ Avatar
 /*
 Box
 */
-.box {
+.box.multiform {
   max-width: 1100px;
   width: calc(100% - 200px);
   margin: 0 auto;
@@ -4778,4 +4778,9 @@ textarea.md-input {
     background-color: #874aff !important;
     border: 5px solid #874aff;
     border-radius: 5px;
+  }
+  .flexbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
