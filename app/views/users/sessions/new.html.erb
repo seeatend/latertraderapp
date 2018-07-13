@@ -1,25 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <title>Traders App</title>
+      <meta charset="utf-8">
+      <meta name="author" content="pixelhint.com">
+      <meta name="description" content="Sublime Stunning free HTML5/CSS3 website template"/>
+      
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/css/bootstrap.min.css" type="text/css" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+      <link rel="stylesheet" type="text/css" href="css/unleashSlider.css">
+      <link rel="stylesheet" type="text/css" href="css/style2.css">
 
-
-<div class="app" id="app">
-
-<!-- ############ LAYOUT START-->
-
-<div class="d-flex flex-column flex">
-  <div class="navbar light bg pos-rlt box-shadow">
-    <div class="mx-auto">
-      <!-- brand -->
-      <a href="../index.html" class="navbar-brand">
-        <svg viewBox="0 0 24 24" height="28" width="28" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 0h24v24H0z" fill="none"/>
-            <path d="M19.51 3.08L3.08 19.51c.09.34.27.65.51.9.25.24.56.42.9.51L20.93 4.49c-.19-.69-.73-1.23-1.42-1.41zM11.88 3L3 11.88v2.83L14.71 3h-2.83zM5 3c-1.1 0-2 .9-2 2v2l4-4H5zm14 18c.55 0 1.05-.22 1.41-.59.37-.36.59-.86.59-1.41v-2l-4 4h2zm-9.71 0h2.83L21 12.12V9.29L9.29 21z" fill="#53a6fa" class="fill-theme"/>
-        </svg>
-        <img src="../assets/images/logo.png" alt="." class="hide">
-        <span class="hidden-folded d-inline">Traders App</span>
-      </a>
-      <!-- / brand -->
-    </div>
-  </div>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <script type="text/javascript" src="js/jquery.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script type="text/javascript" src="js/unleashSlider.js"></script>
+      
+   </head>
+   <body>
+      <section class="main">    
+          <header>
+              <nav>
+                <ul>
+                    <li class="logo"><%= image_tag("logo.png", size: "60x60", alt: "Product Image") %></td> </li>
+                    <li><a class="active" href="">How it Works</a></li>
+                    <li><a href="">Why buy & sell with us ?</a></li>
+                      <li><a href="">Login</a></li>
+                    <li><a href="">Sign Up</a></li>
+                </ul>
+              </nav>
+            </header>
+          <div class="main-content">
+            <div class="find-content">
+              <div class="index-part">
+             <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div id="content-body">
     <div class="py-5 text-center w-100">
@@ -51,16 +64,35 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- ############ LAYOUT END-->
-
-</div>
-
-
-
-
+              </div>
+           
+          
+            </div>
+            <div class="slider-content">
+                <ul class="slider">
+                    
+                  
+                </ul>
+            </div>
+          </div>
+      </section>
+        
+      <footer>
+        <nav>
+          <ul>
+            <li><a class="active" href="#"><i class="fa fa-home" aria-hidden="true" style="font-size:33px!important"></i>Home</a></li>
+              <li><a  href="#"><i class="fa fa-th" aria-hidden="true"></i>Buying & Selling Process</a></li>
+              
+              <li><a href="#"><i class="fa fa-briefcase" aria-hidden="true"></i>About us</a></li>
+              <li><a href="#"><i class="fa fa-cog" aria-hidden="true" style="font-size:30px!important"></i>Testimonials</a></li>
+              <li><a href="#"><i class="fa fa-envelope-open" aria-hidden="true"></i>FAQ'S</a></li>
+              <li><a href="#"><i class="fa fa-users" aria-hidden="true"></i>Partners</a></li>
+          </ul>
+        </nav>
+      </footer>
+      <!--  End footer  -->
+         </body>
+</html>
 
    
 
