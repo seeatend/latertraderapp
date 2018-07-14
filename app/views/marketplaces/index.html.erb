@@ -1,5 +1,5 @@
 
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <div class="app" id="app">
 
 <!-- ############ LAYOUT START-->
@@ -309,8 +309,7 @@
     </div>
   </div>
   <!-- ############ Aside END-->
-
-  <!-- ############ Content START-->
+<!-- ############ Content START-->
   <div id="content" class="app-content box-shadow-0" role="main">
     <!-- Header -->
       <div class="content-header white  box-shadow-0" id="content-header">
@@ -320,26 +319,107 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path d="M80 304h352v16H80zM80 248h352v16H80zM80 192h352v16H80z"/></svg>
           </a>
           <!-- Page title -->
-          <div class="d-flex flex search-content" id="pageTitle">
-            <i class="fa fa-search" aria-hidden="true"></i>
-            <input type="text" class="form-control market-place-search" placeholder="Find a seller, buyer or a produce">
-          </div>
+          <div class="navbar-text nav-title flex" id="pageTitle"></div>
+        
           <ul class="nav flex-row order-lg-2">
             <!-- Notification -->
             <li class="nav-item dropdown">
               <a class="nav-link px-3" data-toggle="dropdown">
-                <i class="fa fa-shopping-cart text-muted" style="border: 1px solid;border-radius: 50%;font-size: 28px;padding: 5px 6px;"></i>
-                <span class="badge badge-pill up danger" style="top: -1.25rem;left: -.95rem;font-size: 80%;">5</span>
-              </a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link px-3" data-toggle="dropdown">
-                <i class="fa fa-user text-muted" style="border: 1px solid;border-radius: 50%;font-size: 28px;padding: 5px 10px;"></i>
+                <i class="fa fa-bell text-muted"></i>
+                <span class="badge badge-pill up danger">13</span>
               </a>
               <!-- dropdown -->
              
               <!-- / dropdown -->
             </li>
+   <li class="nav-item dropdown">
+       <% if (current_user.utype == "Seller") %>
+
+        <%= link_to sales_path, :class => "nav-link px-3"   do %>
+                  
+   <i class="fa fa-usd text-muted"></i>
+                <span class="badge badge-pill up danger"><% if (current_user.utype == "Buyer") %>
+                  <%= Order.where(:customer_id => Customer.where(:uid => current_user.id).first.id).where.not(o_status: "Closed").count %>
+                    <% elsif  (current_user.utype == "Seller")%>
+                    <%= Order.where(:seller_id => Seller.where(:uid => current_user.id).first.id).where.not(o_status: "Closed").count %>
+                    <% end %></span>
+    <% end %>
+             
+
+              <% end %>
+  </li>
+               
+              <!-- dropdown -->
+             
+            
+
+            <li class="nav-item dropdown">
+             
+
+        <%= link_to chats_path, :class => "nav-link px-3"   do %>
+                  
+   <i class="fa fa-commenting-o text-muted"></i>
+                <span class="badge badge-pill up danger"><% if (current_user.utype == "Buyer") %>
+                  <%= Chat.where(:customer_id => Customer.where(:uid => current_user.id).first.id).count %>
+                    <% elsif  (current_user.utype == "Seller")%>
+                    <%= Chat.where(:seller_id => Seller.where(:uid => current_user.id).first.id).count %>
+                    <% end %>
+                  </span>
+    <% end %>
+             
+
+             
+              
+              <!-- dropdown -->
+             
+              <!-- / dropdown -->
+            </li>
+
+
+             <li class="nav-item dropdown">
+               <% if current_user.utype == "Seller" %>
+                  <% seller = Seller.where(:uid => current_user.id).first %> 
+                  <%= link_to edit_seller_path(seller), :class => "nav-link px-3"   do %>
+                <i class="fa  fa-male text-muted"></i>
+                
+               <% end %>
+
+              <% elsif (current_user.utype == "Buyer")%>
+                <% customer  = Customer.where(:uid => current_user.id).first %> 
+                  <%= link_to edit_customer_path(customer), :class => "nav-link px-3"   do %>
+                    <i class="fa  fa-male text-muted"></i>
+                    <% end %>
+               <% end %>
+              <!-- dropdown -->
+             
+              <!-- / dropdown -->
+
+            </li>
+        <li class="nav-item dropdown">
+       <% if (current_user.utype == "Buyer") %>
+
+        <%= link_to cart_index_path, :class => "nav-link px-3"   do %>
+                  
+   <i class="fa fa-shopping-bag text-muted"></i>
+                <span class="badge badge-pill up danger"><%= Cart.where(:customer_id => Customer.where(:uid => current_user.id).first.id).count %></span>
+  
+  </li>
+                 <% end %>
+             
+
+              <% end %>
+              <!-- dropdown -->
+             
+              <!-- / dropdown -->
+              
+            </li>
+            </li>
+
+
+        
+            <!-- User dropdown menu -->
+         
+            <!-- Navarbar toggle btn -->
             
           </ul>
           <!-- Navbar collapse -->
@@ -350,11 +430,11 @@
 
               <% if user_signed_in? %>
  
-  <%= link_to('<i class="fa fa-sign-in text-muted" style="font-size: 18px;"></i>'.html_safe, destroy_user_session_path, method: :delete) %>        
+  <%= link_to('<i class="fa fa-sign-in text-muted"></i>'.html_safe, destroy_user_session_path, method: :delete) %>        
  
 <% else %>
  
-  <%= link_to('<i class="fa fa-sign-out text-muted" style="font-size: 18px;"></i>'.html_safe, new_user_session_path)  %>  
+  <%= link_to('<i class="fa fa-sign-out text-muted"></i>'.html_safe, new_user_session_path)  %>  
   
 <% end %>
           </form>
@@ -364,8 +444,6 @@
       </div>
       <!-- Main -->
     <div class="content-main " id="content-main">
-
-<!-- ############ Main START-->
 
       <div class="padding">
           <div class="d-flex market-header">
@@ -385,11 +463,15 @@
                 <li>Others</li>
               </ul>
               <ul class="type-categories">
-                <li class="active"><i class="fa fa-th-large" aria-hidden="true"></i> Cards</li>
-                <li><i class="fa fa-list" aria-hidden="true"></i> Table</li>
+                
+                  <%= link_to "Cards", marketplaces_path(:mtype => "card"), :class => "nav-link" %>
+              <%= link_to "Tables", marketplaces_path(:mtype => "list"), :class => "nav-link" %>
               </ul>
             </div>
           </div>
+
+
+          <% if params[:mtype] == "card" %>
 
           <div class="row">
             <div id="mixedSlider" style="width:100%">
@@ -438,11 +520,351 @@
       </div>
 <!-- ############ Main END-->
 
+
+
+<!-- ############ Main START-->
+
+<% else  %>
+
+<div class="padding">
+  <% if (current_user.utype == "Buyer") %>
+ <div class="b-b b-primary nav-active-primary">
+
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+            <%= link_to "Public Offers", marketplaces_path(:ntype => "public"), :class => "nav-link" %>
+              
+            </li>
+            <li class="nav-item">
+              <%= link_to "Private Offers", marketplaces_path(:ntype => "private"), :class => "nav-link" %>
+            </li>
+             <li class="nav-item">
+              <%= link_to "B2B Requests", marketplaces_path(:ntype => "b2b"), :class => "nav-link" %>
+            </li>
+            
+          </ul>
+        </div>
+        <br>
+        <% end %>
+
+         <% if params[:ntype] == "private" %>
+         <div class="box">
+    
+    <div class="p-2">
+      <div class="row">
+        <div class="col-sm-5">
+        
+                 
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-3">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-btn">
+              <button class="btn white" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped b-t">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Seller</th>
+            <th>Description</th>
+            <th>Offered price</th>
+            <th>Quantity</th>
+            <th>Buying Format</th>
+            <th>Duration left</th>
+            <th style="width:50px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="addPointDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+
+              <div class="modal-header">
+                
+                <h4 class="modal-title">Add to cart</h4>
+              </div>
+              <div class="modal-body">
+              <%=form_for @cart , url: add_to_cart_cart_index_path do |f| %>
+                    <div id="cart-form"></div>
+                    
+                    
+                      <%= f.hidden_field :customer_id %>
+                      <%= f.hidden_field :offer_id %>
+                      <%= f.hidden_field :seller_id %>
+                      <%= f.hidden_field :otype %>
+                      <%= f.label :quantity %><br>
+                    <%= f.text_field :quantity, class: "form-control", placeholder: "10 pallet" %>
+                    <br/>
+
+                      <%= f.label :note_to_seller %><br>
+                    <%= f.text_field :note_to_seller, class: "form-control", placeholder: "Leave a message to seller" %>
+
+
+
+
+
+                  <br/>
+                  <br/>
+                  
+                  <%= f.submit 'Submit', class: 'btn btn-success' %>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                  
+                
+              </div>
+              </div>
+              <div class="modal-footer">
+            
+              
+                <%end%>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+
+        <% @privateoffers.each do |pri|  %>
+          <tr>
+            <td><%= image_tag(pri.offer.stock.product.image, size: "32x32", alt: "Product Image") %></td>
+            <td><%= pri.offer.stock.product.name %></td>
+            <td><%= Seller.find(pri.seller_id).business_name%></td>
+            <td><%= pri.offer.stock.product.quality %> | Carton | <%= pri.offer.stock.product.net_weight %> | Size <%= pri.offer.stock.product.size %> | Order By <%= pri.offer.stock.product.order_by %></td>
+            <td>$<%= pri.offered_price %> per Carton</td>
+            <td><%= pri.quantity %></td>
+            <td><%= pri.offer.selling_price_type %></td>
+            <td> <%= distance_of_time_in_words pri.offer.start_at, pri.offer.ends_at %></td>
+            <td></td>
+            <td><%= link_to 'Show', pri.offer.stock.product %></td>
+            <td><a data-toggle="modal" data-otid="private" data-oid=<%=pri.offer.id%> data-cid=<%= Customer.where(:uid => current_user.id).first.id %> data-sid=<%=pri.offer.seller_id%>  class="open-AddPointDialog btn btn-success big" href="#addPointDialog"><i class="fa fa-plus-square hided-icon big"></i> Add Item </a></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+    <footer class="light lt p-2">
+      <div class="row">
+        <div class="col-sm-4 d-block-sm">
+          <select class="custom-select w-sm d-inline v-middle">
+            <option value="0">Bulk action</option>
+            <option value="1">Delete selected</option>
+            <option value="2">Bulk edit</option>
+            <option value="3">Export</option>
+          </select>
+          <button class="btn white">Apply</button>                  
+        </div>
+        <div class="col-sm-4">
+          <small class="text-muted py-2 d-block text-center">showing 20-30 of 50 items</small>
+        </div>
+        <div class="col-sm-4">                
+          <ul class="pagination justify-content-sm-end m-0">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+</div>
+         <% else %>
+
+  <div class="box">
+    
+    <div class="p-2">
+      <div class="row">
+        <div class="col-sm-5">
+        
+                 
+        </div>
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-3">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <span class="input-group-btn">
+              <button class="btn white" type="button">Go!</button>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-striped b-t">
+        <thead>
+            <th></th>
+            <th>Product</th>
+            <th>Description </th>
+            <th>Seller</th>
+            <th>Buying Format</th>
+            <th>Price ($)</th>
+            <th>Quantity </th>
+            <th>Start at</th>
+            <th>Ends at</th>
+            <th>Ends in</th>
+            <th>Offer type</th>
+            <th style="width:50px;"></th>
+          </tr>
+        </thead>
+        <tbody>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="addPointDialog" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+          <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+
+
+              <div class="modal-header">
+                
+                <h4 class="modal-title">Add to cart</h4>
+              </div>
+              <div class="modal-body">
+              <%=form_for @cart , url: add_to_cart_cart_index_path do |f| %>
+                    <div id="cart-form"></div>
+                    
+                    
+                      <%= f.hidden_field :customer_id %>
+                      <%= f.hidden_field :offer_id %>
+                      <%= f.hidden_field :seller_id %>
+                      <%= f.hidden_field :otype %>
+                      
+                      <%= f.label :quantity %><br>
+                    <%= f.text_field :quantity, class: "form-control", placeholder: "10 pallet" %>
+                    <br/>
+
+                      <%= f.label :note_to_seller %><br>
+                    <%= f.text_field :note_to_seller, class: "form-control", placeholder: "Leave a message to seller" %>
+
+
+
+
+
+                  <br/>
+                  <br/>
+                  
+                  <%= f.submit 'Submit', class: 'btn btn-success' %>
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                  
+                
+              </div>
+              </div>
+              <div class="modal-footer">
+            
+              
+                <%end%>
+              </div>
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+
+          <% @offers.each do |offer|  %>
+            <tr>  
+              <td><label class="ui-check m-0"><input type="checkbox" name="post[]"><i class="dark-white"></i></label></td>
+              <td><%= image_tag(offer.stock.product.image, size: "32x32", alt: "Product Image") %></td>
+              <td><%= offer.stock.desc %></td>
+              <td><%= Seller.find(offer.seller_id).business_name%></td>
+              <td><%= offer.selling_price_type %></td>
+              <td><%= offer.selling_price %>/<%= offer.stock.order_quantity_unit %> </td>
+              <td><%= offer.total_quantity_on_offer %>&nbsp;<%= offer.stock.order_quantity_unit %></td>
+              <td><%=  offer.start_at.strftime("%d %h %y | %H:%M") %></td>
+              <td><%= offer.ends_at.strftime("%d %h %y | %H:%M") %></td>
+              <td> <%= distance_of_time_in_words offer.start_at, offer.ends_at %></td>
+              <td><%= offer.offer_type %></td>
+              <td><%= link_to 'Show', offer.stock.product %></td>        
+
+              <% if (current_user.utype == "Buyer") %>
+                <td><%= link_to 'Chat', new_chat_path(:seller_id => offer.seller_id,:offer_id => offer.id,:customer_id => Customer.where(:uid => current_user.id).first.id),  class: "btn btn-fw primary" %></td>
+              <% if (offer.selling_price_type == "Fixed") %>
+                <td><a data-toggle="modal" data-oid=<%=offer.id%> data-otid="public" data-cid=<%= Customer.where(:uid => current_user.id).first.id %> data-sid=<%=offer.seller_id%> data-qty=<%=offer.total_quantity_on_offer%> class="open-AddPointDialog btn btn-success big" href="#addPointDialog"><i class="fa fa-plus-square hided-icon big"></i> Add Item </a></td>
+              <% end %>
+              <% end %>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <footer class="light lt p-2">
+      <div class="row">
+        <div class="col-sm-4 d-block-sm">
+          <select class="custom-select w-sm d-inline v-middle">
+            <option value="0">Bulk action</option>
+            <option value="1">Delete selected</option>
+            <option value="2">Bulk edit</option>
+            <option value="3">Export</option>
+          </select>
+          <button class="btn white">Apply</button>                  
+        </div>
+        <div class="col-sm-4">
+          <small class="text-muted py-2 d-block text-center">showing 20-30 of 50 items</small>
+        </div>
+        <div class="col-sm-4">                
+          <ul class="pagination justify-content-sm-end m-0">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+                <span class="sr-only">Previous</span>
+              </a>
+            </li>
+            <li class="page-item active">
+              <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item"><a class="page-link" href="#">5</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+                <span class="sr-only">Next</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+
+</div>
+ <%end%>
+
+<!-- ############ Main END-->
+<% end %>
       </div>
       <!-- Footer -->
       <div class="content-footer white " id="content-footer">
         <div class="d-flex p-3">
-          <span class="text-sm text-muted flex">&copy; Copyright. Flatfull</span>
+          <span class="text-sm text-muted flex">&copy; Copyright.</span>
           <div class="text-sm text-muted">Version 1.0.2</div>
         </div>
       </div>
