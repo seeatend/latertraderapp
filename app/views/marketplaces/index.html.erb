@@ -481,7 +481,7 @@
                       <div class="row card" style="background-image:url(<%= offer.stock.product.image %>);">
                         <div class="d-flex" style="justify-content: space-between; align-items: baseline;">
                           <div>
-                            <h4>Fresh Cherries</h4>
+                            <h4><%= offer.stock.product.name %></h4>
                             <span style="font-weight:600"><%= offer.selling_price %> per <%= offer.stock.order_quantity_unit %></span>
                           </div>
                           <div class="rate">
@@ -489,12 +489,12 @@
                           </div>
                         </div>
                         <div class="d-flex" style="flex-direction:column;padding-bottom:70px">
-                          <span>Premium, Carton, 14kg</span>
-                          <span>Size 12, Order by pallet (pp'15)</span>
+                          <span><%= offer.stock.desc %></span>
+                          
                         </div>
                         <div class="d-flex" style="flex-direction:column">
-                          <span><i class="fa fa-clock-o" aria-hidden="true"></i>  3hrs 15mins Left</span>
-                          <h6>Sam International Pvt Ltd.</h6>
+                          <span><i class="fa fa-clock-o" aria-hidden="true"></i>  <%= distance_of_time_in_words offer.start_at, offer.ends_at %> Left</span>
+                          <h6><td><%= Seller.find(offer.seller_id).business_name%></td></h6>
                         </div>
                       </div>
                       <div class="d-flex _bottom">
